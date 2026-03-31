@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Native 团队与人才｜讲座笔记整理</title>
+<style>
+  :root {
+    --bg: #fafbfe;
+    --card-bg: #ffffff;
+    --text: #2c3e50;
+    --text-light: #5a6a7a;
+    --heading: #1a1a2e;
+    --accent: #4361ee;
+    --accent-light: #eef1ff;
+    --border: #e8ecf1;
+    --quote-bg: #f0f4ff;
+    --quote-border: #4361ee;
+    --tag-bg: #e8ecf1;
+    --highlight: #fff3cd;
+    --stone-color: #6c5ce7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--heading);
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .header .subtitle {
+    font-size: 14px;
+    color: var(--text-light);
+    background: var(--tag-bg);
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 20px;
+  }
+
+  /* ── Section ── */
+  .section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s;
+  }
+
+  .section:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  .section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section h2 .num {
+    background: var(--accent);
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .section h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--heading);
+    margin: 20px 0 10px;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .section p {
+    margin-bottom: 12px;
+  }
+
+  .section p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── Inline highlights ── */
+  strong, b {
+    color: var(--heading);
+    font-weight: 600;
+  }
+
+  em {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 500;
+    background: var(--accent-light);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  code {
+    background: var(--tag-bg);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--accent);
+    font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+  }
+
+  /* ── Lists ── */
+  ul, ol {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── Stone Masons (special styling) ── */
+  .stone-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 16px 0;
+  }
+
+  .stone-list li {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #f8f7ff 0%, #f0eeff 100%);
+    border-left: 3px solid var(--stone-color);
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+  }
+
+  .stone-list li strong {
+    color: var(--stone-color);
+  }
+
+  /* ── Blockquote ── */
+  blockquote {
+    background: var(--quote-bg);
+    border-left: 4px solid var(--quote-border);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  blockquote strong {
+    color: var(--accent);
+  }
+
+  /* ── Key takeaway ── */
+  .takeaway {
+    background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+    border: 1px solid #f0d77b;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 16px 0;
+    font-size: 15px;
+  }
+
+  .takeaway strong {
+    color: #b8860b;
+  }
+
+  /* ── Final quote ── */
+  .final-quote {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .final-quote p {
+    font-size: 18px;
+    line-height: 2;
+    margin-bottom: 12px;
+  }
+
+  .final-quote p:last-child {
+    margin-bottom: 0;
+  }
+
+  .final-quote strong {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* ── Keywords tag row ── */
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+
+  .keywords span {
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .container { padding: 20px 16px 60px; }
+    .section { padding: 20px 18px; }
+    .header h1 { font-size: 22px; }
+    .final-quote { padding: 24px 18px; }
+    .final-quote p { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>AI Native 团队与人才</h1>
+    <div class="subtitle">讲座笔记整理（公开级）</div>
+  </div>
+
+  <!-- 公开说明 -->
+  <div class="section" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 4px solid #0284c7;">
+    <p><strong>说明：</strong>本页仅保留可公开分享的知识笔记正文。</p>
+    <p>讲座主讲人、具体时间、直播链接等私有信息请在本地查看：
+      <a href="../../private/03_AI讲座与分享/讲座信息/AI-Native团队与人才-讲座信息.html" style="color: #0284c7; text-decoration: none; font-weight: 600;">讲座信息页（仅本地）→</a>
+    </p>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <h2><span class="num">1</span> 普通人无法分辨大模型的优劣</h2>
+    <p><strong>大模型面向核心用户进行提升</strong></p>
+    <p>普通人无法从日常应用中分辨大模型的好坏，大模型厂商为核心用户提升与迭代模型质量。</p>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <h2><span class="num">2</span> 康维定律及在AI时代中的应用</h2>
+    <p><strong>康维定律（Conway's Law）</strong> 是组织与系统设计领域的核心定律，核心结论是：<strong>你设计出的系统架构，本质上是你团队沟通结构的镜像</strong>。</p>
+    <p>简单理解，就是最终呈现的产品，是由组织架构及其合作方式所决定的。</p>
+    <ul>
+      <li><strong>理想中</strong>：业务 决定 组织架构，进而决定 沟通与合作方式；</li>
+      <li><strong>现实</strong>：成熟的企业往往延用已有的部门，职责与分工，进而制订流程以适配。</li>
+    </ul>
+    <div class="takeaway">
+      <strong>⚠️ 已有的组织架构与合作方式可能是发挥AI生产力的最大制约。</strong>
+    </div>
+    <p>不同的职能组织，由于自身的职业自尊，可能产生天然的，不可打破的合作边界。</p>
+    <p><strong>彼得・德鲁克（Peter Drucker）</strong> 的经典寓言 ——<strong>三个石匠的故事</strong>（出自《管理的实践》1954）。</p>
+    <p>有人问三个石匠在做什么：</p>
+    <ul class="stone-list">
+      <li>第一个石匠：<strong>"我在混口饭吃 / 养家糊口。"</strong></li>
+      <li>第二个石匠：<strong>"我在做全国最好的石匠活。"</strong></li>
+      <li>第三个石匠仰望天空：<strong>"我在建造一座大教堂。"</strong></li>
+    </ul>
+    <div class="takeaway">
+      <strong>在AI时代，第二个石匠对于组织的危害性可能更大。</strong>
+      而第三个石匠，以目标为导向，打破职能边界与能力边界，才可能成长为 AI Native 人才。<strong>（有分工，无边界）</strong>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <h2><span class="num">3</span> 大模型的幻觉与奖励机制</h2>
+    <ul>
+      <li><strong>Hallucination（幻觉）</strong></li>
+      <li><strong>Reward Hacking（奖励作弊 / 指标投机）</strong></li>
+    </ul>
+    <p>当前时代，大模型的幻觉已经被解决得差不多了。</p>
+    <p>反而<em>基于大模型的后训练</em>很大程度上决定了大模型的表现。</p>
+    <div class="takeaway">
+      <strong>目前有的大模型表现得非常谄媚，也正是后训练中奖励机制的结果。</strong>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <h2><span class="num">4</span> 计算开销 vs 通信开销</h2>
+    <p><strong>计算开销 ↔ 通信开销</strong></p>
+    <p>现代系统，随着规模变大，通信开销占有越来越重要的比重。</p>
+    <p>在AI时代，人与人的通信开销变得非常昂贵。</p>
+    <blockquote>
+      以 n 个人开会举例，沟通成本是 <code>O(n²)</code>
+    </blockquote>
+    <p><strong>《人月神话》的理论，可能在AI时代重新回归。</strong></p>
+    <p>人在 <em>share context</em> 上非常局限。（典型例子：<strong>邓巴数</strong>）</p>
+    <p>而 <strong>AI agent</strong> 在 <em>share context</em> 上非常高效。</p>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section">
+    <h2><span class="num">5</span> 经验的价值</h2>
+    <p>在AI时代，<strong>经验的价值未必有那么重要</strong>。</p>
+    <p>越是曾经优秀的人，可能越会被曾经的经验所束缚，因为他们无法接受自己价值的缩水。</p>
+    <p>在AI时代，需要避免管理者的<em>"登味"</em></p>
+    <p>登味：在管理的过程中，更多地在使用<em>"引领"</em>还是<em>"审判"</em>。</p>
+    <div class="takeaway">
+      <strong>典型"审判"的例子</strong>：只听取汇报，缺少一线的经验，进行草率的决断，进而团队的价值取向变为取悦领导导向。
+    </div>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section">
+    <h2><span class="num">6</span> AI Native 人才画像</h2>
+    <div class="keywords">
+      <span>Curiosity</span>
+      <span>Generative</span>
+      <span>Explore &amp; Exploit</span>
+      <span>Taste</span>
+      <span>BDFL</span>
+    </div>
+
+    <h3>6.1 Curiosity（好奇心）</h3>
+    <p>AI Native 人才不是被动执行者，而是对新工具、新范式、新交互方式保持强烈兴趣，愿意快速试错，对"为什么这样有效"有持续追问。</p>
+    <p><strong>早期的AI大模型都需要传入一个重要的参数：Temperature。</strong></p>
+    <ul>
+      <li>Temperature <strong>太低</strong>，生成的答案集中于概率最大的解。</li>
+      <li>Temperature <strong>适中</strong>，才能生成具有一定灵活性与启发度的答复。</li>
+    </ul>
+
+    <h3>6.2 Explore &amp; Exploit（探索与利用的平衡）</h3>
+    <ul>
+      <li><strong>Explore</strong>：找新机会、试新方法、开新路</li>
+      <li><strong>Exploit</strong>：把已有方法做深、做稳、做成规模</li>
+    </ul>
+    <p>典型的例子：</p>
+    <div class="takeaway">
+      <strong>Rogue Bees（流氓蜜蜂）</strong>：蜂群里总有一小部分蜜蜂<strong>不遵守集体指令、随机探索</strong>，它们看似"浪费"，实则是蜂群的<strong>风险对冲与创新引擎</strong>，是"探索—利用"（Explore–Exploit）平衡的经典自然案例。
+    </div>
+    <p>AI时代，需要一部分的人才，去探索未知的领域，以避免集体陷入路径依赖。</p>
+
+    <h3>6.3 Taste（品位）与 BDFL</h3>
+    <p><strong>BDFL / Benevolent Dictator For Life（终身仁慈独裁者）</strong></p>
+    <p>在长期存在影响力的开源项目里，一人最终裁决，社区共识优先的项目具有相当长远的生命力。</p>
+    <p><strong>AI可以让信息扁平，但人类仍然代表智能的上限。</strong></p>
+    <p>例如在牛顿时代，可以将所有的知识都送给大模型训练，也未必会发现牛顿三大定律。</p>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="section">
+    <h2><span class="num">7</span> 知识 vs Learning Rate</h2>
+    <p>当前的大模型训练，几乎已经<strong>消耗光人类已有的高质量知识语料</strong>。</p>
+    <div class="takeaway">
+      <strong>未来决定模型优劣的，反而不在知识源，而在于 Learning Rate（学习速度）。</strong>
+    </div>
+  </div>
+
+  <!-- Section 8 -->
+  <div class="section">
+    <h2><span class="num">8</span> SFT（监督微调）vs RL（强化学习）</h2>
+    <ul>
+      <li><strong>SFT</strong>：通过特定的应用流程、记忆进行特化。</li>
+      <li><strong>RL</strong>：消耗更多算力，进而带来智能的泛化。</li>
+    </ul>
+    <p>典型的例子 —— 小学教授如何计算 <code>1+2+...+100</code>：</p>
+    <ul>
+      <li><strong>SFT</strong> 就是教授公式，首项加尾项再乘以项数，再除以2。</li>
+      <li><strong>RL</strong> 不给出标准答案，让其进行摸索，只对摸索出来的方案进行打分。</li>
+      <li>RL会消耗更多的算力，但可能会找到更多计算的方式，并具有更多的应用环境，比如泛化到等比数列。</li>
+    </ul>
+    <div class="takeaway">
+      <strong>AI时代，我们需要更多的人才进行RL强化学习，而不是利用既定的流程生产标准答案。</strong>
+    </div>
+  </div>
+
+  <!-- Section 9: Final Quote -->
+  <div class="final-quote">
+    <p><strong>We want AI agents that can discover what we can, not [just] contain what we have discovered.</strong></p>
+    <p>我们想要的 AI 智能体，是<strong>能和我们一样去发现新知的那种，而不只是把人类已经发现的东西装进去、复述出来。</strong></p>
+  </div>
+
+</div>
+
+</body>
+</html>
