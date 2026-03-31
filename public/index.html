@@ -86,116 +86,46 @@
 </head>
 <body>
     <div class="container">
-        <h1>🤖 AI知识库首页</h1>
-        
-        <p><strong>知识库路径:</strong> d:\AIKnowledge</p>
-        <p><strong>公开站点目录:</strong> d:\AIKnowledge\public</p>
-        <p><strong>创建时间:</strong> 2026-03-31</p>
-        <p><strong>更新时间:</strong> 2026-03-31</p>
-        
-        <h2>目录结构</h2>
-        
-        <div class="directory">
-            <h3>📁 01_AI基础理论 <span class="status active">使用中</span></h3>
-            <p><strong>定位:</strong> AI核心理论知识体系</p>
-            <p><strong>内容范围:</strong></p>
-            <ul>
-                <li>机器学习基础(监督学习、无监督学习、强化学习)</li>
-                <li>深度学习(神经网络、CNN、RNN、Transformer等)</li>
-                <li>自然语言处理(NLP、LLM、Prompt工程)</li>
-                <li>计算机视觉、多模态学习等</li>
-                <li>AI伦理与安全</li>
-            </ul>
-            <p><strong>当前状态:</strong> 待补充内容</p>
-        </div>
-        
-        <div class="directory">
-            <h3>📁 02_AI工具与平台 <span class="status active">使用中</span></h3>
-            <p><strong>定位:</strong> AI工具、平台、框架的整理与对比</p>
-            <p><strong>内容范围:</strong></p>
-            <ul>
-                <li>大模型平台(OpenAI、Claude、国产大模型、开源模型等)</li>
-                <li>AI编程助手(GitHub Copilot、Cursor、CodeBuddy等)</li>
-                <li>AI创作工具(图像、视频、音频、文档生成等)</li>
-                <li>AI开发框架(LangChain、LlamaIndex、Hugging Face等)</li>
-                <li>平台对比与选型建议</li>
-            </ul>
-            <p><strong>当前状态:</strong> 待补充内容</p>
-        </div>
-        
-        <div class="directory">
-            <h3>📁 03_AI讲座与分享 <span class="status active">使用中</span></h3>
-            <p><strong>定位:</strong> 讲座、分享会、培训课程的学习记录</p>
-            <p><strong>内容范围:</strong></p>
-            <ul>
-                <li>讲座笔记与心得</li>
-                <li>分享会内容整理</li>
-                <li>在线课程学习记录</li>
-                <li>精华内容提炼</li>
-                <li>学习资源推荐</li>
-            </ul>
-            <p><strong>内容分级:</strong> 公开级 / 私有级（仅两级）</p>
-            <p><strong>公开内容:</strong> <a href="03_AI讲座与分享/AI-Native团队与人才-讲座笔记.html" style="color: #3498db; text-decoration: none; font-weight: 500;">📝 AI-Native团队与人才（公开笔记）→</a></p>
-            <p><strong>私有访问:</strong> <a href="../private/03_AI讲座与分享/讲座索引.html" style="color: #3498db; text-decoration: none; font-weight: 500;">📊 本地私有讲座索引（仅本地）→</a></p>
-            <p><strong>当前状态:</strong> 公开正文与私有信息已拆分并互链</p>
-        </div>
-        
-        <div class="directory">
-            <h3>📁 04_实践案例与应用 <span class="status reserved">预留</span></h3>
-            <p><strong>定位:</strong> AI实际应用案例与最佳实践</p>
-            <p><strong>规划方向:</strong></p>
-            <ul>
-                <li>编程辅助案例</li>
-                <li>内容创作案例</li>
-                <li>工作流程优化</li>
-                <li>行业应用案例</li>
-            </ul>
-            <p><strong>当前状态:</strong> 目录已建立,待规划使用方式</p>
-        </div>
-        
-        <div class="directory">
-            <h3>📁 05_AI前沿动态 <span class="status reserved">预留</span></h3>
-            <p><strong>定位:</strong> AI领域最新发展与趋势追踪</p>
-            <p><strong>规划方向:</strong></p>
-            <ul>
-                <li>重要论文研读笔记</li>
-                <li>技术趋势分析</li>
-                <li>新产品发布追踪</li>
-                <li>行业新闻整理</li>
-            </ul>
-            <p><strong>当前状态:</strong> 目录已建立,待规划使用方式</p>
-        </div>
-        
-        <div class="directory">
-            <h3>📁 06_学习路径与规划 <span class="status reserved">预留</span></h3>
-            <p><strong>定位:</strong> 系统化学习的路径规划与个人总结</p>
-            <p><strong>规划方向:</strong></p>
-            <ul>
-                <li>入门与进阶学习路线</li>
-                <li>实践项目记录</li>
-                <li>个人学习笔记</li>
-                <li>心得与反思</li>
-            </ul>
-            <p><strong>当前状态:</strong> 目录已建立,待规划使用方式</p>
-        </div>
-        
-        <h2>内容分级规则（简化版）</h2>
-        <ul>
-            <li><span class="highlight">公开级</span>: 可直接上传到 GitHub 的知识内容与公开网络信息</li>
-            <li><span class="highlight">私有级</span>: 不对外发布的讲座详情、索引、内部记录，统一放入 <code>private/</code></li>
-            <li><span class="highlight">处理方式</span>: 若一篇内容需要脱敏，不单独设“脱敏级”，直接在私有级新建对应页面并从公开内容跳转</li>
-        </ul>
+        <h1>🤖 AI知识库</h1>
 
-        <h2>使用原则</h2>
-        <ul>
-            <li><span class="highlight">渐进式扩充</span>: 先建立一级目录,随内容增长再细化二级目录</li>
-            <li><span class="highlight">内容优先</span>: 不预创建空文件,根据实际学习内容逐步添加</li>
-            <li><span class="highlight">灵活调整</span>: 目录结构可根据实际需求调整优化</li>
-            <li><span class="highlight">定期回顾</span>: 本说明文件随知识库演进持续更新</li>
-        </ul>
-        
+        <p><strong>一个持续更新的 AI 学习与实践知识库。</strong></p>
+        <p>公开内容用于分享；私有信息仅本地保存，不上传。</p>
+
+        <h2>公开目录</h2>
+
+        <div class="directory">
+            <h3>📁 01_AI基础理论</h3>
+            <p>机器学习、深度学习、LLM 等基础知识沉淀。</p>
+        </div>
+
+        <div class="directory">
+            <h3>📁 02_AI工具与平台</h3>
+            <p>工具评测、平台对比与使用经验。</p>
+        </div>
+
+        <div class="directory">
+            <h3>📁 03_AI讲座与分享</h3>
+            <p><a href="03_AI讲座与分享/AI-Native团队与人才-讲座笔记.html" style="color: #3498db; text-decoration: none; font-weight: 600;">查看公开讲座笔记 →</a></p>
+            <p style="font-size: 0.92em; color: #666;">讲座详细信息（讲师、时间、直播链接）仅保留在本地私有目录。</p>
+        </div>
+
+        <div class="directory">
+            <h3>📁 04_实践案例与应用</h3>
+            <p>AI 在真实工作流中的落地案例。</p>
+        </div>
+
+        <div class="directory">
+            <h3>📁 05_AI前沿动态</h3>
+            <p>论文、产品与行业动态追踪。</p>
+        </div>
+
+        <div class="directory">
+            <h3>📁 06_学习路径与规划</h3>
+            <p>学习路线、实践计划与阶段总结。</p>
+        </div>
+
         <div class="meta">
-            <p><strong>维护说明:</strong> 本文件记录各目录的用途、内容范围和当前状态,随知识库发展持续更新</p>
+            <p><strong>分级规则:</strong> 仅保留“公开级 / 私有级”两档。</p>
         </div>
     </div>
 </body>
