@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI知识总览｜宏观地图原型</title>
+    <title>AI知识总览｜AI主干版图</title>
+
     <style>
         * {
             box-sizing: border-box;
@@ -649,26 +650,27 @@
 <body>
     <header class="hero">
         <div class="hero-content">
-            <div class="hero-badge">00_AI知识总览 · 首版原型</div>
-            <h1>AI知识总览：把“脑图感”保留在展示层，把“可维护性”留给底层数据</h1>
-            <p>这一页不是要替代所有知识正文，而是先把 AI 领域的主干版图铺开。它负责一眼看全局、快速建立宏观概念，再把你引到后续的专题页与节点详情页。</p>
+            <div class="hero-badge">00_AI知识总览</div>
+            <h1>AI知识总览：快速建立 AI 主干版图</h1>
+            <p>从模型、产品、概念、方法论到公司生态，先看全局，再进入你关心的专题与节点详情。</p>
             <div class="hero-links">
-                <a href="../AI知识图谱.md">查看原始图谱转写稿</a>
-                <a href="README.md">查看目录说明</a>
+                <a href="node.html?id=chatgpt">从 ChatGPT 开始</a>
+                <a href="node.html?id=agent">查看 Agent 节点</a>
                 <a href="../../index.html">返回知识库首页</a>
             </div>
         </div>
     </header>
 
+
     <main class="container">
         <section class="panel section">
-            <h2>宏观地图原型</h2>
-            <p class="section-desc">先把它当成“HTML 版 XMind 首页”：左边是一眼看全局的主树，右边是当前选中分支的说明卡。后续如果继续做大，可以升级成更强的树图或专题图，而底层数据结构不需要推翻重来。</p>
+            <h2>AI主干版图</h2>
+            <p class="section-desc">左侧按分支总览 AI 版图，右侧查看当前分支的定位、代表节点、关联关系与继续阅读入口。</p>
 
             <div class="mindmap-layout">
                 <div class="map-stage">
                     <div class="toolbar">
-                        <div class="toolbar-note">支持按分类名或节点名过滤，先验证总览是否足够“脑图感”。</div>
+                        <div class="toolbar-note">支持按分类名或节点名过滤，快速定位你想看的主题。</div>
                         <div class="search-box">
                             <input id="searchInput" type="text" placeholder="搜索分类或节点，例如 Agent / Claude / 游戏">
                         </div>
@@ -677,7 +679,7 @@
                     <div class="root-node-wrap">
                         <div class="root-node">
                             <strong id="rootTitle">AI知识图谱</strong>
-                            <span id="rootSubtitle">宏观总览原型</span>
+                            <span id="rootSubtitle">先看全局，再进节点</span>
                         </div>
                     </div>
 
@@ -689,7 +691,7 @@
                 <aside class="panel detail-panel">
                     <div id="detailBadge" class="detail-badge">分支详情</div>
                     <h3 id="detailTitle">请选择一个分支</h3>
-                    <p id="detailSummary" class="detail-summary">点击左侧任一分支卡片，查看这块内容在知识库中的定位，以及它未来适合如何拆成专题与节点详情。</p>
+                    <p id="detailSummary" class="detail-summary">点击左侧任一分支卡片，查看这块内容的定位、代表节点与关联关系。</p>
 
                     <div class="detail-block">
                         <h4>代表节点</h4>
@@ -697,7 +699,7 @@
                     </div>
 
                     <div class="detail-block">
-                        <h4>已拆出的可跳转条目</h4>
+                        <h4>可继续阅读</h4>
                         <div id="detailLinkList" class="detail-link-grid"></div>
                     </div>
 
@@ -707,134 +709,79 @@
                     </div>
 
                     <div class="detail-block">
-                        <h4>这块未来更适合怎么展开</h4>
-                        <p id="detailAdvice">建议先把一级分类稳定下来，再逐步拆出高频节点的独立条目。</p>
+                        <h4>阅读建议</h4>
+                        <p id="detailAdvice">建议先从代表节点进入，再顺着相关关系继续展开。</p>
                     </div>
 
                     <div class="detail-block">
-                        <h4>当前原型定位</h4>
-                        <p>这是一张总览地图，不是最终知识正文。重点是回答“AI 版图大概怎么分”，而不是在首页塞进所有细节。</p>
+                        <h4>怎么使用这张图</h4>
+                        <p>先在左侧定位主题，再从右侧进入代表节点；如果想理解对象之间的连接方式，可以继续看跨分支关系。</p>
                     </div>
 
-                    <div class="detail-footer">建议阅读路径：先在左侧看版图，再根据兴趣钻到专题页或节点页。</div>
+                    <div class="detail-footer">推荐阅读顺序：先看分支定位，再看代表节点，最后顺着关系继续展开。</div>
                 </aside>
             </div>
         </section>
 
-        <section class="panel section">
-            <h2>双层方案：底层可维护，上层可总览</h2>
-            <p class="section-desc">你之前想要的 XMind 感，其实更适合放在展示层；而长期维护需要的结构化、可扩展、可回查，则应该放到底层数据层。</p>
-
-            <div class="strategy-grid">
-                <article class="strategy-card">
-                    <div class="eyebrow">底层存储层</div>
-                    <h3>原子条目 + 元数据</h3>
-                    <p>每个对象单独一页，适合长期维护和版本管理。</p>
-                    <ul>
-                        <li>模型 / 产品 / 概念 / 场景独立存放</li>
-                        <li>front matter 记录类型、来源、更新时间</li>
-                        <li>事实与观察可以分层存储</li>
-                    </ul>
-                </article>
-
-                <article class="strategy-card">
-                    <div class="eyebrow">总览主树层</div>
-                    <h3>主树只负责“先看懂全局”</h3>
-                    <p>让 `overview.json` 管理一级分类与代表节点，而不是承载完整正文。</p>
-                    <ul>
-                        <li>稳定分类顺序</li>
-                        <li>控制首页信息密度</li>
-                        <li>让展示层具备脑图感</li>
-                    </ul>
-                </article>
-
-                <article class="strategy-card">
-                    <div class="eyebrow">展示层</div>
-                    <h3>HTML 负责总览、专题、详情</h3>
-                    <p>总览页像 XMind，专题页更适合连续阅读，详情页负责精确回查。</p>
-                    <ul>
-                        <li>总览页：一眼看全局</li>
-                        <li>专题页：按主题聚焦</li>
-                        <li>详情页：定义 / 来源 / 判断 / 相关链接</li>
-                    </ul>
-                </article>
-            </div>
-        </section>
 
         <section class="panel section">
-            <h2>已接入的数据层骨架</h2>
-            <p class="section-desc">这一版不只停留在“看图”，也开始把底层可维护结构立起来了。下面这些文件，才是后续能稳定生长的知识源。</p>
+            <h2>推荐阅读入口</h2>
+            <p class="section-desc">如果你不确定从哪里开始，可以按“模型能力 → 产品入口 → 概念与方法 → 公司生态”的顺序往下看。</p>
 
             <div class="data-grid">
                 <article class="data-card">
-                    <h3>结构文件</h3>
+                    <h3>先看模型能力</h3>
                     <ul>
-                        <li>`overview.json`：总览主树，前台走 `path`，底层源文件走 `sourcePath`</li>
-                        <li>`node.html`：正式版节点 HTML 详情页入口</li>
-                        <li>`relations.json`：横向关系层草稿，用来表达跨分支连接</li>
-                        <li>`nodes/README.md`：节点详情层说明</li>
-                        <li>`nodes/TEMPLATE.md`：统一条目模板</li>
-                    </ul>
-                    <div class="link-list">
-                        <a href="overview.json">查看主树数据</a>
-                        <a href="node.html?id=claude">查看节点详情页样例</a>
-                        <a href="relations.json">查看关系草稿</a>
-                        <a href="nodes/README.md">查看节点说明</a>
-                        <a href="nodes/TEMPLATE.md">查看节点模板</a>
-                    </div>
-                </article>
-
-                <article class="data-card">
-                    <h3>首批样例节点</h3>
-                    <ul>
-                        <li>前台入口统一走 `node.html?id=...` 正式详情页</li>
-                        <li>底层内容仍由 `nodes/*.md` 条目供稿</li>
-                        <li>已接入模型 / 概念 / 产品 / 场景多类节点</li>
-                        <li>后续继续补节点时，只要补源条目并接入总览即可</li>
+                        <li>适合先建立大模型的基础轮廓</li>
+                        <li>先区分模型家族，再理解能力差异</li>
+                        <li>看完后再回到产品层，会更容易分清“模型”和“入口”</li>
                     </ul>
                     <div class="link-list">
                         <a href="node.html?id=claude">Claude</a>
                         <a href="node.html?id=gpt">GPT</a>
                         <a href="node.html?id=gemini">Gemini</a>
-                        <a href="node.html?id=agent">Agent</a>
-                        <a href="node.html?id=workbuddy">WorkBuddy</a>
+                        <a href="node.html?id=qwen">Qwen</a>
+                        <a href="node.html?id=deepseek">DeepSeek</a>
+                    </div>
+                </article>
+
+                <article class="data-card">
+                    <h3>再看产品入口与工具</h3>
+                    <ul>
+                        <li>适合回答“普通用户实际在用什么”</li>
+                        <li>能帮助区分聊天助手、代码助手与通用 Agent</li>
+                        <li>适合顺着体验差异继续展开</li>
+                    </ul>
+                    <div class="link-list">
+                        <a href="node.html?id=chatgpt">ChatGPT</a>
+                        <a href="node.html?id=google-ai">Google AI</a>
+                        <a href="node.html?id=claude-code">Claude Code</a>
                         <a href="node.html?id=codebuddy">CodeBuddy</a>
-                        <a href="node.html?id=game-production">游戏制作与AI</a>
+                        <a href="node.html?id=workbuddy">WorkBuddy</a>
+                        <a href="node.html?id=manus">Manus</a>
+                    </div>
+                </article>
+
+                <article class="data-card">
+                    <h3>补概念、方法与生态</h3>
+                    <ul>
+                        <li>适合建立术语边界和判断框架</li>
+                        <li>能帮助把分散对象重新放回同一张版图里理解</li>
+                        <li>看完后更容易继续进入专题阅读</li>
+                    </ul>
+                    <div class="link-list">
+                        <a href="node.html?id=agent">Agent</a>
+                        <a href="node.html?id=rag">RAG</a>
+                        <a href="node.html?id=transformer">Transformer</a>
+                        <a href="node.html?id=high-quality-data">高质量数据</a>
+                        <a href="node.html?id=static-dynamic-eval">静态/动态评估</a>
+                        <a href="node.html?id=google">Google</a>
+                        <a href="node.html?id=tencent">腾讯</a>
                     </div>
                 </article>
             </div>
         </section>
 
-        <section class="panel section">
-            <h2>建议的落地顺序</h2>
-            <p class="section-desc">不要一上来就追求“完整图谱系统”。先把总览骨架稳定下来，再拆节点、补关系、做专题，返工最少。</p>
-
-            <div class="migration-list">
-                <div class="migration-item">
-                    <div class="migration-step">1</div>
-                    <div>
-                        <h3>先把 `00_AI知识总览` 立起来</h3>
-                        <p>把这一层定义成“总览层”，负责承接宏观地图、总览页和主树结构文件，避免继续把所有内容都堆进单个 Markdown。</p>
-                    </div>
-                </div>
-
-                <div class="migration-item">
-                    <div class="migration-step">2</div>
-                    <div>
-                        <h3>先拆高频节点，不求一步拆完</h3>
-                        <p>这一轮已经先立了模板和 4 个样例节点。后续可以继续补 Claude / GPT / Agent / RAG / Cursor / WorkBuddy / ArkClaw 等高频条目。</p>
-                    </div>
-                </div>
-
-                <div class="migration-item">
-                    <div class="migration-step">3</div>
-                    <div>
-                        <h3>最后补横向关系与专题页</h3>
-                        <p>当条目数量上来后，再引入更完整的 `relations.json`、专题地图页和更强的图形交互。这样展示层会越做越强，但底层结构不用推翻。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
 
@@ -858,16 +805,17 @@
         let nodeLookup = new Map();
 
         const adviceMap = {
-            foundations: '适合优先拆“模型对比”专题，并为 Claude / Gemini / GPT / Qwen 等建立独立条目。',
-            chatbots: '更适合做“用户入口产品”专题，强调体验与定位，而不是只按模型名堆叠。',
-            'code-agents': '适合继续拆成“代码助手 / 执行型 Agent / IDE 集成”几个子方向。',
-            multimodal: '适合分成图片、视频、世界模型三个连续子专题，避免放在一个平面列表里。',
-            'general-agents': '适合做成高关注专题，重点比较任务闭环、工具能力、平台接入和体验差异。',
-            'game-ai': '建议单独成为知识库里的重点专题，它天然更适合场景驱动而不是产品堆列表。',
-            themes: '这块更像“方法论与行业判断层”，适合与事实条目分开维护。',
-            academics: '适合做“概念校准层”，帮助其他页面维持术语边界。',
-            ecosystems: '适合做“公司视角”专题，观察各家如何把模型、产品、Agent 方案打成一套。'
+            foundations: '建议先看 Claude / GPT / Gemini / Qwen / DeepSeek 这类代表节点，先建立模型家族的整体轮廓。',
+            chatbots: '建议把这块当成用户入口层来看，先比较 ChatGPT、Google AI 等入口产品，再回头对应到底层模型。',
+            'code-agents': '建议优先阅读 Claude Code、CodeBuddy、Cursor 等节点，感受“代码助手”和“执行型工具”之间的差异。',
+            multimodal: '建议从图片生成与视频生成两条线切入，再观察它们和游戏、美术、世界模型的连接方式。',
+            'general-agents': '建议重点看任务闭环、工具接入和结果交付，再比较不同通用 Agent 的实际定位。',
+            'game-ai': '建议按真实工作流阅读：先看整体场景，再进入代码、美术、动画、渲染等具体环节。',
+            themes: '建议把这块当成判断框架来看，帮助你在看产品和模型时不只停留在表面热度。',
+            academics: '建议把这块当成术语校准区，先弄清概念边界，再回到产品和场景理解会更稳。',
+            ecosystems: '建议用公司视角观察不同生态如何组织模型、产品与 Agent 方案，再和具体节点对照着看。'
         };
+
 
         const relationTypeMap = {
             belongs_to: '归属',
@@ -930,10 +878,11 @@
             link.href = item.path;
             link.innerHTML = `
                 <strong>${item.title}</strong>
-                <span>${item.type} · 打开正式 HTML 详情页</span>
+                <span>${item.type} · 打开节点详情</span>
             `;
             return link;
         }
+
 
         function renderStats() {
             const totalCategories = overviewData.categories.length;
@@ -943,9 +892,10 @@
             const stats = [
                 { label: '一级分类', value: totalCategories },
                 { label: '代表节点', value: totalNodes },
-                { label: '已拆条目', value: linkedNodes },
+                { label: '可阅读节点', value: linkedNodes },
                 { label: '横向关系', value: totalRelations }
             ];
+
 
             statsRow.innerHTML = '';
             stats.forEach(item => {
@@ -964,10 +914,11 @@
             if (!matched.length) {
                 const empty = document.createElement('div');
                 empty.className = 'empty-hint';
-                empty.textContent = '当前分支还没有补到明显的横向关系，后续可以优先把高频节点的连接补起来。';
+                empty.textContent = '当前这一分支的横向关系还在补充中。';
                 relationList.appendChild(empty);
                 return;
             }
+
 
             matched.slice(0, 8).forEach(rel => {
                 const relationCard = document.createElement('div');
@@ -1015,7 +966,8 @@
             detailBadge.style.background = category.color;
             detailTitle.textContent = category.title;
             detailSummary.textContent = category.summary;
-            detailAdvice.textContent = adviceMap[category.id] || '建议先稳定分类边界，再逐步拆条目与关系。';
+            detailAdvice.textContent = adviceMap[category.id] || '建议先从代表节点进入，再顺着相关关系继续展开。';
+
             detailList.innerHTML = '';
             detailLinkList.innerHTML = '';
 
@@ -1029,9 +981,10 @@
             if (!detailLinkList.childNodes.length) {
                 const empty = document.createElement('div');
                 empty.className = 'empty-hint';
-                empty.textContent = '这个分支暂时还没有拆出独立条目，后续可以优先补高频节点。';
+                empty.textContent = '这个分支的独立条目还在补充中。';
                 detailLinkList.appendChild(empty);
             }
+
 
             renderRelationPreview(category);
 
@@ -1092,11 +1045,12 @@
                 detailList.innerHTML = '';
                 detailLinkList.innerHTML = '<div class="empty-hint">当前筛选结果为空，没有可跳转条目。</div>';
                 relationList.innerHTML = '<div class="empty-hint">当前筛选结果为空，没有关系预览。</div>';
-                detailAdvice.textContent = '搜索功能更适合验证总览页是否具备“从全局快速定位局部”的能力。';
+                detailAdvice.textContent = '可以换一个关键词，或者先从常见分支开始浏览。';
                 detailBadge.textContent = '筛选结果';
                 detailBadge.style.background = '#94a3b8';
                 return;
             }
+
 
             const selected = filtered.find(item => item.id === activeId) || filtered[0];
             renderDetail(selected);
@@ -1123,17 +1077,18 @@
                 renderCategories();
             })
             .catch(() => {
-                branchesGrid.innerHTML = '<div style="grid-column:1 / -1; padding: 30px; text-align:center; color:#b42318;">总览数据加载失败，请检查 overview.json。</div>';
+                branchesGrid.innerHTML = '<div style="grid-column:1 / -1; padding: 30px; text-align:center; color:#b42318;">总览数据加载失败，请稍后重试。</div>';
                 statsRow.innerHTML = '';
                 detailTitle.textContent = '数据加载失败';
-                detailSummary.textContent = '当前 HTML 原型依赖 overview.json 渲染总览主树。';
+                detailSummary.textContent = '当前总览暂时无法展示。';
                 detailList.innerHTML = '';
                 detailLinkList.innerHTML = '<div class="empty-hint">当前无法展示条目跳转。</div>';
                 relationList.innerHTML = '<div class="empty-hint">当前无法展示横向关系。</div>';
-                detailAdvice.textContent = '建议先检查数据文件路径与 JSON 格式是否正确。';
+                detailAdvice.textContent = '请稍后刷新重试。';
                 detailBadge.textContent = '错误';
                 detailBadge.style.background = '#d92d20';
             });
+
 
         searchInput.addEventListener('input', event => {
             renderCategories(event.target.value);

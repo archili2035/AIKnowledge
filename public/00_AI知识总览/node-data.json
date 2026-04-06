@@ -1,0 +1,1555 @@
+{
+  "meta": {
+    "title": "AI知识总览节点数据",
+    "generatedFrom": "nodes/**/*.md",
+    "nodeCount": 28
+  },
+  "nodes": {
+    "anthropic": {
+      "id": "anthropic",
+      "title": "Anthropic",
+      "type": "company",
+      "category": "公司生态",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-05",
+      "tags": [
+        "公司",
+        "Anthropic",
+        "模型生态"
+      ],
+      "sources": [
+        {
+          "name": "Anthropic",
+          "url": "https://www.anthropic.com/"
+        }
+      ],
+      "related": [
+        "claude",
+        "agent"
+      ],
+      "summary": "Anthropic 是当前 AI 生态中的重要公司之一，其公开信息通常围绕模型、安全性、产品与 Agent 工程实践展开。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Anthropic 是当前 AI 生态中的重要公司之一，其公开信息通常围绕模型、安全性、产品与 Agent 工程实践展开。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“公司生态层”，更适合作为观察模型、产品和方法论如何被打包出来的入口，而不是直接等同于某个模型名。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "把公司层单独立出来，有助于图谱回答另一个问题：同样是 AI，为什么不同公司会形成不同的产品路径、能力重点和叙事方式。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "在这张图谱里，Anthropic 既能连到 Claude 这样的模型节点，也能连到 Agent 方法论，因此是比较典型的“生态级节点”。"
+        },
+        {
+          "title": "来源",
+          "content": "- Anthropic 官方主页\n- Anthropic 官方工程文章"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[claude]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/companies/anthropic.md"
+    },
+    "bytedance": {
+      "id": "bytedance",
+      "title": "字节",
+      "type": "company",
+      "category": "公司生态",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "公司",
+        "生态",
+        "Agent",
+        "产品平台"
+      ],
+      "sources": [
+        {
+          "name": "字节跳动官方主页",
+          "url": "https://www.bytedance.com/"
+        }
+      ],
+      "related": [
+        "arkclaw",
+        "doubao-mobile",
+        "agent"
+      ],
+      "summary": "字节在这张图里更适合作为“公司生态节点”来理解，用来承接模型、Agent 产品、内容分发和工作流能力的整体打包关系。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "字节在这张图里更适合作为“公司生态节点”来理解，用来承接模型、Agent 产品、内容分发和工作流能力的整体打包关系。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“公司层”，和具体模型名称、具体聊天入口或单个 Agent 产品不同。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "补上公司节点后，知识图谱不再只是零散产品名单，而能开始解释不同厂商为什么会在相近方向上做出不同的产品组合与落地路径。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "对字节这类公司节点，长期维护重点应放在“它怎样组织产品与生态能力”，而不是简单记住某一波热点名称。这样更利于后续持续吸收新对象。"
+        },
+        {
+          "title": "来源",
+          "content": "- 字节跳动官方主页\n- 后续可继续补 Agent 产品、模型能力与平台生态资料"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[arkclaw]]\n- [[doubao-mobile]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/companies/bytedance.md"
+    },
+    "google": {
+      "id": "google",
+      "title": "Google",
+      "type": "company",
+      "category": "公司生态",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "公司",
+        "生态",
+        "模型",
+        "产品"
+      ],
+      "sources": [
+        {
+          "name": "Google 官方主页",
+          "url": "https://about.google/"
+        }
+      ],
+      "related": [
+        "gemini",
+        "google-ai",
+        "transformer"
+      ],
+      "summary": "Google 在这张图里更适合作为“公司生态节点”来理解，用来承接模型、产品入口、研究能力和平台资源的打包关系。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Google 在这张图里更适合作为“公司生态节点”来理解，用来承接模型、产品入口、研究能力和平台资源的打包关系。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“公司层”，不是具体模型，也不是某个单点产品。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "很多 AI 对象如果只看名称，会显得彼此分散；一旦放回公司生态里，就更容易看出技术、产品和分发是如何被一起组织起来的。Google 正是这类观察方式里的关键节点。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "对公司节点，长期维护重点不应是新闻流水账，而是它如何把模型、入口产品、云平台和开发能力组织成一个可持续生态。"
+        },
+        {
+          "title": "来源",
+          "content": "- Google 官方主页\n- 后续可继续补模型产品线、研究组织与平台文档"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[gemini]]\n- [[google-ai]]\n- [[transformer]]"
+        }
+      ],
+      "sourcePath": "nodes/companies/google.md"
+    },
+    "openai": {
+      "id": "openai",
+      "title": "OpenAI",
+      "type": "company",
+      "category": "公司生态",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-05",
+      "tags": [
+        "公司",
+        "OpenAI",
+        "模型生态"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI",
+          "url": "https://openai.com/"
+        }
+      ],
+      "related": [
+        "chatgpt"
+      ],
+      "summary": "OpenAI 是当前 AI 生态中的核心公司之一，既影响模型层，也深度影响用户入口产品层。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "OpenAI 是当前 AI 生态中的核心公司之一，既影响模型层，也深度影响用户入口产品层。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“公司生态层”，适合用来观察模型、产品与平台策略是如何被整合并对外呈现的。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "如果图谱里只有模型和产品，没有公司生态层，就很难解释不同产品路线背后的组织与生态差异。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "在总览结构中，OpenAI 适合和 ChatGPT 这样的产品节点互相勾连，帮助用户区分“公司 / 模型 / 产品”三个层次。"
+        },
+        {
+          "title": "来源",
+          "content": "- OpenAI 官方主页\n- OpenAI 官方产品信息"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[chatgpt]]"
+        }
+      ],
+      "sourcePath": "nodes/companies/openai.md"
+    },
+    "tencent": {
+      "id": "tencent",
+      "title": "腾讯",
+      "type": "company",
+      "category": "公司生态",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "公司",
+        "生态",
+        "Agent",
+        "工具平台"
+      ],
+      "sources": [
+        {
+          "name": "腾讯官方主页",
+          "url": "https://www.tencent.com/zh-cn/"
+        }
+      ],
+      "related": [
+        "workbuddy",
+        "codebuddy",
+        "agent"
+      ],
+      "summary": "腾讯在这张图里更适合作为“公司生态节点”来记录，用来连接模型能力、工具平台、工作助手和更广泛的业务场景。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "腾讯在这张图里更适合作为“公司生态节点”来记录，用来连接模型能力、工具平台、工作助手和更广泛的业务场景。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“公司层”。和 WorkBuddy、CodeBuddy 这类具体产品不同，公司节点负责承接更上层的生态视角。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "如果知识图谱只记录单个产品，就很难解释这些产品为什么会长成现在这样。补上腾讯这样的公司节点，能帮助观察产品能力背后的平台资源、接入方式和组织分工。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "对公司节点，最值得长期维护的是“打包能力”的方式：它怎样把模型、工具、入口和业务环境串起来，而不是简单记一串产品名。"
+        },
+        {
+          "title": "来源",
+          "content": "- 腾讯官方主页\n- 后续可继续补平台产品线、Agent 形态与开发工具资料"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[workbuddy]]\n- [[codebuddy]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/companies/tencent.md"
+    },
+    "agent": {
+      "id": "agent",
+      "title": "Agent",
+      "type": "concept",
+      "category": "关键概念",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-05",
+      "tags": [
+        "概念",
+        "Agent",
+        "工具调用",
+        "执行闭环"
+      ],
+      "sources": [
+        {
+          "name": "Anthropic Building Effective Agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        }
+      ],
+      "related": [
+        "claude",
+        "workbuddy",
+        "game-production"
+      ],
+      "summary": "Agent 可以理解为：系统不只负责回答问题，还会围绕目标进行任务分解、调用工具、接收反馈并继续推进。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Agent 可以理解为：系统不只负责回答问题，还会围绕目标进行任务分解、调用工具、接收反馈并继续推进。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“执行编排”这一层，不应直接和模型、协议、产品封装当成同一层概念。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "很多用户真正感知到的“AI 会做事了”，本质上都离不开 Agent 式的多步执行能力。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "在知识图谱里，Agent 很适合作为一个中枢节点：它会同时连向模型、工具、场景和产品，因此后续很可能是横向关系最多的概念之一。"
+        },
+        {
+          "title": "来源",
+          "content": "- Anthropic 关于 Agent 的工程文章\n- 后续可继续补平台型 Agent 文档与案例"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[claude]]\n- [[workbuddy]]\n- [[game-production]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/agent.md"
+    },
+    "deep-learning": {
+      "id": "deep-learning",
+      "title": "深度学习",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "概念",
+        "神经网络",
+        "机器学习",
+        "基础理论"
+      ],
+      "sources": [
+        {
+          "name": "Deep Learning Book",
+          "url": "https://www.deeplearningbook.org/"
+        }
+      ],
+      "related": [
+        "transformer",
+        "reinforcement-learning",
+        "agent"
+      ],
+      "summary": "深度学习可以先理解为一类以多层神经网络为核心的方法体系，用来从大量数据中学习表示、模式和决策能力。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "深度学习可以先理解为一类以多层神经网络为核心的方法体系，用来从大量数据中学习表示、模式和决策能力。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“底层理论抓手”。Transformer、图像生成模型、语音模型乃至很多 Agent 背后的能力底座，往上追，通常都还能回到深度学习这层。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "如果把 AI 知识图谱只做成产品目录，就很难解释为什么这些产品会逐渐收敛到相近的能力形态。深度学习节点的价值，在于给上层现象提供共同的技术背景。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "对非研究导向的知识库来说，深度学习不一定要展开成教科书式大全，更适合承担“上层技术的共同底盘”这一角色。后续只在确实需要解释边界时，再拆更细的理论节点。"
+        },
+        {
+          "title": "来源",
+          "content": "- Deep Learning Book\n- 后续可继续补入门教材与综述资料"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[transformer]]\n- [[reinforcement-learning]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/deep-learning.md"
+    },
+    "rag": {
+      "id": "rag",
+      "title": "RAG",
+      "type": "concept",
+      "category": "关键概念",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-05",
+      "tags": [
+        "概念",
+        "检索增强生成",
+        "外部知识"
+      ],
+      "sources": [
+        {
+          "name": "Lewis et al. Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+          "url": "https://arxiv.org/abs/2005.11401"
+        }
+      ],
+      "related": [
+        "agent"
+      ],
+      "summary": "RAG 可以先理解为：让模型在回答前先去拿外部资料，再基于这些资料生成结果，而不是只依赖参数里已经记住的内容。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "RAG 可以先理解为：让模型在回答前先去拿外部资料，再基于这些资料生成结果，而不是只依赖参数里已经记住的内容。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“知识获取与生成结合”的方法层，不是单独一种模型，也不是等同于 Agent。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "当问题依赖最新信息、私有资料或长尾知识时，只靠模型记忆往往不够，RAG 就成了把外部知识接进来的一种常见办法。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "在知识图谱里，RAG 适合作为一个中间概念：它一头连向知识库、搜索、向量检索，另一头又经常和 Agent 组合出现。"
+        },
+        {
+          "title": "来源",
+          "content": "- RAG 原始论文\n- 后续可继续补工程化实现与检索链路资料"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/rag.md"
+    },
+    "reinforcement-learning": {
+      "id": "reinforcement-learning",
+      "title": "强化学习",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "概念",
+        "学习范式",
+        "决策",
+        "反馈"
+      ],
+      "sources": [
+        {
+          "name": "Reinforcement Learning: An Introduction",
+          "url": "http://incompleteideas.net/book/the-book-2nd.html"
+        }
+      ],
+      "related": [
+        "deep-learning",
+        "agent",
+        "static-dynamic-eval"
+      ],
+      "summary": "强化学习可以先理解为一种通过环境反馈不断试错、调整策略的学习范式，重点不在“看懂一条样本”，而在“长期决策会不会越来越好”。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "强化学习可以先理解为一种通过环境反馈不断试错、调整策略的学习范式，重点不在“看懂一条样本”，而在“长期决策会不会越来越好”。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“理论抓手 / 学习范式”，和具体模型名称、具体产品名称不同。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "很多人第一次接触强化学习，是在游戏、机器人或策略优化场景里。但放回今天的 AI 版图，它依然是理解“行动—反馈—再调整”这条思路的重要入口。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "在知识图谱里，强化学习更适合作为一条帮助理解“决策与反馈”的理论线，而不是把所有现实产品都强行解释成强化学习产物。这样边界会更清楚，也更利于长期维护。"
+        },
+        {
+          "title": "来源",
+          "content": "- Reinforcement Learning: An Introduction\n- 后续可继续补 RLHF、环境交互和策略优化相关资料"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[deep-learning]]\n- [[agent]]\n- [[static-dynamic-eval]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/reinforcement-learning.md"
+    },
+    "transformer": {
+      "id": "transformer",
+      "title": "Transformer",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "概念",
+        "架构",
+        "深度学习",
+        "大模型"
+      ],
+      "sources": [
+        {
+          "name": "Attention Is All You Need",
+          "url": "https://arxiv.org/abs/1706.03762"
+        }
+      ],
+      "related": [
+        "deep-learning",
+        "gpt",
+        "gemini",
+        "claude"
+      ],
+      "summary": "Transformer 可以先理解为现代大模型最关键的一类神经网络架构抓手。很多今天熟悉的语言模型、代码模型和多模态模型，都建立在这条架构路线之上。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Transformer 可以先理解为现代大模型最关键的一类神经网络架构抓手。很多今天熟悉的语言模型、代码模型和多模态模型，都建立在这条架构路线之上。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“概念 / 架构层”，不是具体产品，也不是某一家公司的专属对象。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "如果不知道 Transformer，很多现象会只停留在产品表面；知道它之后，才更容易理解为什么一批看起来完全不同的产品，其实共享了相近的底层技术血缘。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "在知识图谱里，Transformer 更适合作为“技术主干节点”来维护，而不是把所有变体都揉进一个定义里。后续如果内容继续增长，可以再拆编码器、解码器、注意力机制和长上下文等专题。"
+        },
+        {
+          "title": "来源",
+          "content": "- Attention Is All You Need\n- 后续可继续补技术演化与工程实现资料"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[deep-learning]]\n- [[gpt]]\n- [[gemini]]\n- [[claude]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/transformer.md"
+    },
+    "claude": {
+      "id": "claude",
+      "title": "Claude",
+      "type": "model",
+      "category": "基座模型",
+      "provider": "Anthropic",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-05",
+      "tags": [
+        "模型",
+        "大语言模型",
+        "Anthropic"
+      ],
+      "sources": [
+        {
+          "name": "Anthropic Claude",
+          "url": "https://www.anthropic.com/claude"
+        }
+      ],
+      "related": [
+        "agent",
+        "anthropic"
+      ],
+      "summary": "Claude 是 Anthropic 推出的模型系列，属于当前 AI 生态里重要的基座模型之一。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Claude 是 Anthropic 推出的模型系列，属于当前 AI 生态里重要的基座模型之一。"
+        },
+        {
+          "title": "归类",
+          "content": "它更适合作为“模型能力底座”来理解，而不是和具体聊天产品、Agent 产品混成同一层。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "很多上层产品形态——聊天助手、代码助手、Agent 系统——都可以把它当作底层模型能力来源之一。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "在这张图谱里，Claude 适合作为“模型层”代表节点，用于连接基座模型、产品形态和 Agent 系统三个层次。"
+        },
+        {
+          "title": "来源",
+          "content": "- Anthropic 官方主页与 Claude 产品页"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[agent]]\n- [[anthropic]]"
+        }
+      ],
+      "sourcePath": "nodes/models/claude.md"
+    },
+    "deepseek": {
+      "id": "deepseek",
+      "title": "DeepSeek",
+      "type": "model",
+      "category": "基座模型",
+      "provider": "DeepSeek",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "模型",
+        "基座模型",
+        "推理",
+        "LLM"
+      ],
+      "sources": [
+        {
+          "name": "DeepSeek 官方主页",
+          "url": "https://www.deepseek.com/"
+        }
+      ],
+      "related": [
+        "qwen",
+        "transformer",
+        "agent"
+      ],
+      "summary": "DeepSeek 可以先理解为一条以大模型与推理能力为核心的模型系列节点，用来承载对话、代码和复杂任务处理能力。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "DeepSeek 可以先理解为一条以大模型与推理能力为核心的模型系列节点，用来承载对话、代码和复杂任务处理能力。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“模型层”。在知识图谱里，应该和聊天入口、代码助手、Agent 产品区分开：模型是底座，产品是包装后的使用形态。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "DeepSeek 在近阶段中文 AI 讨论里频繁出现，已经是绕不开的代表性模型对象。把它单独成条，能让总览页更接近真实讨论版图，而不是只停留在最早的一批国际模型名称上。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "对 DeepSeek 这类节点，当前更适合记录为“模型家族”而不是“某个版本快照”。这样做更稳，也更利于后续继续补版本路线、能力变化和生态适配，而不会频繁改坏总览层结构。"
+        },
+        {
+          "title": "来源",
+          "content": "- DeepSeek 官方主页\n- 后续可继续补模型报告、开放平台文档与版本发布记录"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[qwen]]\n- [[transformer]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/models/deepseek.md"
+    },
+    "gemini": {
+      "id": "gemini",
+      "title": "Gemini",
+      "type": "model",
+      "category": "基座模型",
+      "provider": "Google",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-05",
+      "tags": [
+        "模型",
+        "Google",
+        "基座模型",
+        "多模态"
+      ],
+      "sources": [
+        {
+          "name": "Google Gemini 官方主页",
+          "url": "https://gemini.google.com/"
+        }
+      ],
+      "related": [
+        "google",
+        "agent"
+      ],
+      "summary": "Gemini 可以先理解为 Google 当前主推的一组 AI 模型与能力体系，覆盖对话、推理以及多模态理解与生成。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Gemini 可以先理解为 Google 当前主推的一组 AI 模型与能力体系，覆盖对话、推理以及多模态理解与生成。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“模型层 / 能力底座”，不等同于面向最终用户的聊天入口或某个具体应用。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "Gemini 这个节点能帮助图谱解释：为什么同一家公司的 AI 体系里，会同时出现模型、聊天产品、办公接入和 Agent 形态，它们并不是同一层概念。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "Gemini 很适合作为“公司生态”和“模型层”之间的连接节点。后续如果继续扩图，可以围绕 Google 生态补它与搜索、办公套件和 Agent 产品之间的关系。"
+        },
+        {
+          "title": "来源",
+          "content": "- Google Gemini 官方主页\n- 后续可继续补 Google AI 相关产品与开发文档"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[google]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/models/gemini.md"
+    },
+    "gpt": {
+      "id": "gpt",
+      "title": "GPT",
+      "type": "model",
+      "category": "基座模型",
+      "provider": "OpenAI",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-05",
+      "tags": [
+        "模型",
+        "OpenAI",
+        "基座模型",
+        "LLM"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 官方主页",
+          "url": "https://openai.com/"
+        }
+      ],
+      "related": [
+        "openai",
+        "chatgpt",
+        "agent"
+      ],
+      "summary": "GPT 可以先理解为 OpenAI 的大语言模型系列名称，用来承载对话、推理、生成和工具调用等能力。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "GPT 可以先理解为 OpenAI 的大语言模型系列名称，用来承载对话、推理、生成和工具调用等能力。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“模型层”，应和 ChatGPT 这样的“产品入口”区分开来。前者是能力底座，后者是面向用户的使用形态。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "很多 AI 产品讨论会把“模型”和“产品”混说。把 GPT 单独成条，有助于知识图谱在结构上区分：底层能力来自模型，用户实际接触到的往往是封装后的产品。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "在知识图谱里，GPT 更适合作为“模型系列节点”而不是某个具体版本节点。具体版本如 GPT-4、GPT-4.1、GPT-5 等，后续更适合在专题页或版本页里展开。"
+        },
+        {
+          "title": "来源",
+          "content": "- OpenAI 官方主页\n- 后续可继续补模型文档、API 说明与版本发布记录"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[openai]]\n- [[chatgpt]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/models/gpt.md"
+    },
+    "qwen": {
+      "id": "qwen",
+      "title": "Qwen",
+      "type": "model",
+      "category": "基座模型",
+      "provider": "阿里云",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "模型",
+        "基座模型",
+        "通义千问",
+        "LLM"
+      ],
+      "sources": [
+        {
+          "name": "Qwen 官方主页",
+          "url": "https://qwenlm.github.io/"
+        }
+      ],
+      "related": [
+        "deepseek",
+        "transformer",
+        "agent"
+      ],
+      "summary": "Qwen 可以先理解为阿里云通义千问模型系列的统称，用来承载对话、推理、代码、视觉理解等多种能力。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Qwen 可以先理解为阿里云通义千问模型系列的统称，用来承载对话、推理、代码、视觉理解等多种能力。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“模型层”，更适合作为一个模型家族节点来记录，而不是把所有版本细节都堆在总览主树里。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "在中文语境里，Qwen 是很高频出现的一条国产基座模型线。把它单独成条，有助于知识图谱避免只剩海外模型视角，也方便后续继续拆版本、能力差异和应用生态。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "现阶段记录 Qwen，重点不在追逐每一次版本更新，而在于先把它稳定放回“模型家族”这个位置。后续如果要继续细化，更适合新增专题页或版本页，而不是让总览树不断膨胀。"
+        },
+        {
+          "title": "来源",
+          "content": "- Qwen 官方主页\n- 后续可继续补模型卡、技术报告与 API 文档"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[deepseek]]\n- [[transformer]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/models/qwen.md"
+    },
+    "chatgpt": {
+      "id": "chatgpt",
+      "title": "ChatGPT",
+      "type": "product",
+      "category": "聊天模型 / 助手",
+      "provider": "OpenAI",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-05",
+      "tags": [
+        "产品",
+        "聊天助手",
+        "OpenAI"
+      ],
+      "sources": [
+        {
+          "name": "ChatGPT",
+          "url": "https://chatgpt.com/"
+        }
+      ],
+      "related": [
+        "openai"
+      ],
+      "summary": "ChatGPT 是 OpenAI 面向普通用户提供的对话产品形态，不应和底层模型概念直接混为一谈。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "ChatGPT 是 OpenAI 面向普通用户提供的对话产品形态，不应和底层模型概念直接混为一谈。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“用户入口产品层”，强调交互体验、功能整合与订阅形态，而不是单纯的模型命名。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "很多人第一次接触 AI，不是先接触模型论文，而是先接触 ChatGPT 这种产品入口；所以它在图谱里很适合作为“产品层代表节点”。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "这类产品节点能帮助图谱解释：同样的底层能力，为什么最终用户感知到的是不同产品体验、不同工具整合和不同价格方案。"
+        },
+        {
+          "title": "来源",
+          "content": "- OpenAI 官方产品页"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[openai]]"
+        }
+      ],
+      "sourcePath": "nodes/products/chatgpt.md"
+    },
+    "claude-code": {
+      "id": "claude-code",
+      "title": "Claude Code",
+      "type": "product",
+      "category": "代码助手 / Code Agent",
+      "provider": "Anthropic",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "产品",
+        "Code Agent",
+        "Anthropic",
+        "编程助手"
+      ],
+      "sources": [
+        {
+          "name": "Claude Code 官方介绍",
+          "url": "https://www.anthropic.com/claude-code"
+        }
+      ],
+      "related": [
+        "anthropic",
+        "claude",
+        "agent"
+      ],
+      "summary": "Claude Code 可以先理解为 Anthropic 面向编程场景提供的一种代码助手 / Code Agent 形态，重点在于把模型能力落到读代码、改代码和执行任务的工作流里。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Claude Code 可以先理解为 Anthropic 面向编程场景提供的一种代码助手 / Code Agent 形态，重点在于把模型能力落到读代码、改代码和执行任务的工作流里。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“产品层 / 代码助手层”，而不是单纯的模型节点。和 Claude 这类模型名称相比，它更接近开发者真正操作的工具形态。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "代码助手是 Agent 化最明显的一条产品线。把 Claude Code 单独成条，能帮助知识图谱解释：为什么“会说”正在逐渐变成“能读、能改、能执行”。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "这类产品的关键差异，不只在模型本身，还在上下文理解、工具接入和执行闭环。后续如果继续补条目，建议把“底座模型能力”和“工具层体验”继续分开记录。"
+        },
+        {
+          "title": "来源",
+          "content": "- Claude Code 官方介绍\n- 后续可继续补开发文档、CLI 使用方式与实践文章"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[anthropic]]\n- [[claude]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/products/claude-code.md"
+    },
+    "codebuddy": {
+      "id": "codebuddy",
+      "title": "CodeBuddy",
+      "type": "product",
+      "category": "代码助手",
+      "provider": "腾讯",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-05",
+      "tags": [
+        "产品",
+        "代码助手",
+        "Agent",
+        "腾讯"
+      ],
+      "sources": [
+        {
+          "name": "CodeBuddy 官方主页",
+          "url": "https://www.codebuddy.cn/"
+        }
+      ],
+      "related": [
+        "agent",
+        "workbuddy"
+      ],
+      "summary": "CodeBuddy 可以先理解为面向研发工作流的 AI 助手 / 产品入口，重点放在代码理解、生成、修改与协作支持上。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "CodeBuddy 可以先理解为面向研发工作流的 AI 助手 / 产品入口，重点放在代码理解、生成、修改与协作支持上。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“产品层 / 代码助手”，不属于模型层本身。更准确地说，它是把模型能力包装成开发场景可直接使用的工作形态。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "这个节点能帮助知识图谱区分“模型能力”和“研发场景里的产品化封装”。很多用户感知到的 AI 编码体验，最终都来自这种产品层而不是裸模型接口。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "在图谱结构上，CodeBuddy 很适合作为“代码助手 / Code Agent”分支中的代表节点之一；后续如果继续细化，可以再拆产品能力、Agent 能力与平台接入方式。"
+        },
+        {
+          "title": "来源",
+          "content": "- CodeBuddy 官方主页\n- 后续可继续补产品文档、能力边界与使用记录"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[agent]]\n- [[workbuddy]]"
+        }
+      ],
+      "sourcePath": "nodes/products/codebuddy.md"
+    },
+    "cursor": {
+      "id": "cursor",
+      "title": "Cursor",
+      "type": "product",
+      "category": "代码助手 / Code Agent",
+      "provider": "Cursor",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-05",
+      "tags": [
+        "产品",
+        "代码助手",
+        "IDE"
+      ],
+      "sources": [
+        {
+          "name": "Cursor",
+          "url": "https://www.cursor.com/"
+        }
+      ],
+      "related": [
+        "agent"
+      ],
+      "summary": "Cursor 可以先理解为一种面向编程场景的 AI IDE / 代码助手产品形态，重点在于把代码理解、生成、修改与工作流操作整合进同一界面。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Cursor 可以先理解为一种面向编程场景的 AI IDE / 代码助手产品形态，重点在于把代码理解、生成、修改与工作流操作整合进同一界面。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“代码助手 / Code Agent”这条产品线，不是底层模型，也不是抽象概念本身。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "代码助手是很多人最早感受到“AI 不只是会说，还会动手”的入口之一，因此在总览里很适合作为独立节点。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "这类产品和通用聊天助手相比，更强调上下文工程、编辑器协同、代码库理解与任务闭环，因此也天然更容易向 Agent 化方向继续生长。"
+        },
+        {
+          "title": "来源",
+          "content": "- Cursor 官方主页"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/products/cursor.md"
+    },
+    "google-ai": {
+      "id": "google-ai",
+      "title": "Google AI",
+      "type": "product",
+      "category": "聊天模型 / 助手",
+      "provider": "Google",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "产品",
+        "聊天助手",
+        "Google",
+        "AI入口"
+      ],
+      "sources": [
+        {
+          "name": "Google AI 官方入口",
+          "url": "https://ai.google/"
+        }
+      ],
+      "related": [
+        "google",
+        "gemini",
+        "agent"
+      ],
+      "summary": "Google AI 可以先理解为 Google 面向普通用户提供的 AI 使用入口，用来承接对话、搜索辅助、生成与多模态体验。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Google AI 可以先理解为 Google 面向普通用户提供的 AI 使用入口，用来承接对话、搜索辅助、生成与多模态体验。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“产品入口层”，不等同于 Gemini 这类模型家族。前者更接近用户真正点击和使用的界面，后者更偏底层能力。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "知识图谱里如果只记录模型、不记录入口产品，就很难解释“用户到底在用什么”。Google AI 这类节点正好补上“能力如何被交付给用户”这一层。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "这类入口产品的边界会随着产品命名和界面调整不断变化，因此更适合记录为“Google 面向用户的 AI 入口形态”，而不是过度绑定某一版界面文案。这样更利于长期维护。"
+        },
+        {
+          "title": "来源",
+          "content": "- Google AI 官方入口\n- 后续可继续补 Gemini 产品说明与使用场景文档"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[google]]\n- [[gemini]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/products/google-ai.md"
+    },
+    "manus": {
+      "id": "manus",
+      "title": "Manus",
+      "type": "product",
+      "category": "通用Agent",
+      "provider": "Manus",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "产品",
+        "Agent",
+        "通用任务执行",
+        "工作流"
+      ],
+      "sources": [
+        {
+          "name": "Manus 官方主页",
+          "url": "https://manus.im/"
+        }
+      ],
+      "related": [
+        "agent",
+        "workbuddy",
+        "game-production"
+      ],
+      "summary": "Manus 可以先理解为一种强调多步任务执行、环境操作和结果交付的通用 Agent 产品形态。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Manus 可以先理解为一种强调多步任务执行、环境操作和结果交付的通用 Agent 产品形态。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“产品层 / 通用 Agent”，不是单纯的聊天入口，也不是底层模型家族名称。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "如果说聊天助手回答的是“会不会说”，那通用 Agent 更关心“能不能把事做完”。把 Manus 单独成条，有助于总览页把“对话”与“执行”两种产品方向明确分开。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "对这类节点，长期最值得记录的不是一时的热度，而是它是否真的把规划、工具调用、环境读写和结果交付串成了闭环。后续如果继续扩写，建议围绕“任务类型”和“执行边界”来拆。"
+        },
+        {
+          "title": "来源",
+          "content": "- Manus 官方主页\n- 后续可继续补公开演示、产品介绍与典型任务案例"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[agent]]\n- [[workbuddy]]\n- [[game-production]]"
+        }
+      ],
+      "sourcePath": "nodes/products/manus.md"
+    },
+    "midjourney": {
+      "id": "midjourney",
+      "title": "Midjourney",
+      "type": "product",
+      "category": "多模态生成",
+      "provider": "Midjourney",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "产品",
+        "图片生成",
+        "多模态",
+        "视觉创作"
+      ],
+      "sources": [
+        {
+          "name": "Midjourney 官方主页",
+          "url": "https://www.midjourney.com/"
+        }
+      ],
+      "related": [
+        "game-production",
+        "game-2d-art",
+        "agent"
+      ],
+      "summary": "Midjourney 可以先理解为一个以图像生成为核心的 AI 产品节点，强调把自然语言提示词转成高完成度的视觉结果。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Midjourney 可以先理解为一个以图像生成为核心的 AI 产品节点，强调把自然语言提示词转成高完成度的视觉结果。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“产品层 / 图片生成工具”，不属于基座模型总称，也不等于更广义的多模态能力本身。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "在很多 AI 讨论里，文本模型容易占据中心，但真正进入创作工作流时，图像工具往往是更直接的生产力入口。把 Midjourney 单独成条，能让知识图谱更完整地覆盖内容生成链条。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "对这类工具，长期维护重点不该只是“能生成图”，而是它在具体工作流里扮演什么角色，例如灵感探索、风格试错、前期设定和素材草图。这样比单纯列功能更有知识价值。"
+        },
+        {
+          "title": "来源",
+          "content": "- Midjourney 官方主页\n- 后续可继续补社区案例、提示词方法与工作流拆解"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[game-production]]\n- [[game-2d-art]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/products/midjourney.md"
+    },
+    "workbuddy": {
+      "id": "workbuddy",
+      "title": "WorkBuddy",
+      "type": "product",
+      "category": "通用Agent",
+      "provider": "腾讯",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-05",
+      "tags": [
+        "产品",
+        "Agent",
+        "工作助手",
+        "腾讯"
+      ],
+      "sources": [
+        {
+          "name": "WorkBuddy / CodeBuddy 相关官方资料",
+          "url": "https://www.codebuddy.cn/"
+        }
+      ],
+      "related": [
+        "agent",
+        "game-production"
+      ],
+      "summary": "WorkBuddy 可以先理解为一种通用 Agent / 工作助手产品形态，重点在于把模型能力、工具调用与工作流执行包装成可直接使用的体验。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "WorkBuddy 可以先理解为一种通用 Agent / 工作助手产品形态，重点在于把模型能力、工具调用与工作流执行包装成可直接使用的体验。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“产品层 / Agent 产品”而不是“模型层”或“概念层”。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "这类节点能帮助图谱解释：为什么同样是 AI，最终用户接触到的往往不是裸模型，而是带有平台能力、工具接入与任务执行封装的产品。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "对这类产品的记录，后续建议把“平台事实”和“个人测试体验”分开写，这样更利于长期维护，也不容易把阶段性体验误写成稳定定义。"
+        },
+        {
+          "title": "来源",
+          "content": "- 官方主页\n- 后续可补产品文档、接入方式与测试记录"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[agent]]\n- [[game-production]]"
+        }
+      ],
+      "sourcePath": "nodes/products/workbuddy.md"
+    },
+    "game-production": {
+      "id": "game-production",
+      "title": "游戏制作与AI",
+      "type": "scenario",
+      "category": "场景",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-05",
+      "tags": [
+        "场景",
+        "游戏制作",
+        "AI工作流"
+      ],
+      "sources": [
+        {
+          "name": "本地知识整理",
+          "url": "../README.md"
+        }
+      ],
+      "related": [
+        "agent",
+        "workbuddy",
+        "claude"
+      ],
+      "summary": "这是一个场景型节点，用来收纳“AI 如何介入游戏制作”的整体问题，而不是只记某一个工具或产品。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "这是一个场景型节点，用来收纳“AI 如何介入游戏制作”的整体问题，而不是只记某一个工具或产品。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“应用场景层”，更适合继续往下拆成代码开发、2D 美术、UI、3D 资产、动画、渲染等子专题。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "很多知识如果只按模型或产品归档，会缺少真实工作流视角；场景型节点能把工具、模型和流程重新组织回具体任务里。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "这类节点往往会成为专题页的入口，比起写成长列表，更适合在后续演化成“场景地图 + 工具链 + 关键约束”的形式。"
+        },
+        {
+          "title": "来源",
+          "content": "- 当前 AI 知识图谱草稿中的“游戏制作与AI的结合”与“游戏垂直领域”整理"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[agent]]\n- [[workbuddy]]\n- [[claude]]"
+        }
+      ],
+      "sourcePath": "nodes/scenarios/game-production.md"
+    },
+    "goodhart-law": {
+      "id": "goodhart-law",
+      "title": "古德哈特定律",
+      "type": "theme",
+      "category": "核心热点 / 方法论",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "方法论",
+        "评估",
+        "指标",
+        "风险提醒"
+      ],
+      "sources": [
+        {
+          "name": "Goodhart's Law 公开定义资料"
+        }
+      ],
+      "related": [
+        "static-dynamic-eval",
+        "high-quality-data",
+        "agent"
+      ],
+      "summary": "古德哈特定律可以先理解为一句提醒：当一个指标被拿来当目标时，它往往就不再能真实反映原本要衡量的东西。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "古德哈特定律可以先理解为一句提醒：当一个指标被拿来当目标时，它往往就不再能真实反映原本要衡量的东西。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“方法论警示”，不是 AI 独有概念，但在模型评估、排行榜和业务 KPI 里尤其常见。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "AI 领域很容易被单一分数牵着走。只要大家开始围着某个榜单优化，模型和产品就可能学会“过考试”，却不一定更接近真实任务表现。把这条定律放进图谱，是为了提醒自己别把指标误当现实。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "这条节点最适合和评估一起看。不是不用指标，而是要知道指标只是一种近似映射，必须配合任务场景、数据质量和动态观察一起判断。"
+        },
+        {
+          "title": "来源",
+          "content": "- Goodhart's Law 公开定义资料\n- 后续可继续补 AI 评估案例与指标失真示例"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[static-dynamic-eval]]\n- [[high-quality-data]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/themes/goodhart-law.md"
+    },
+    "high-quality-data": {
+      "id": "high-quality-data",
+      "title": "高质量数据",
+      "type": "theme",
+      "category": "核心热点 / 方法论",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "议题",
+        "数据",
+        "方法论",
+        "训练与应用"
+      ],
+      "sources": [
+        {
+          "name": "Data-Centric AI 公开资料",
+          "url": "https://www.deeplearning.ai/the-batch/data-centric-ai-an-overview/"
+        }
+      ],
+      "related": [
+        "static-dynamic-eval",
+        "goodhart-law",
+        "agent"
+      ],
+      "summary": "高质量数据可以先理解为一条方法论议题：不是盲目堆更多数据，而是更重视数据是否干净、贴题、稳定、可验证，并真正服务于目标任务。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "高质量数据可以先理解为一条方法论议题：不是盲目堆更多数据，而是更重视数据是否干净、贴题、稳定、可验证，并真正服务于目标任务。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“核心热点 / 方法论”，不是某个单点工具或模型功能，而是贯穿训练、微调、检索、评估和业务落地的一条底层判断线。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "很多 AI 讨论容易把注意力集中在模型参数、排行榜或产品界面上，但一旦进入真实工作流，数据质量往往决定了系统到底是“看起来很强”，还是“真的稳定能用”。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "这类节点最适合长期维护成“判断框架”而不是固定结论。因为不同任务对高质量的定义并不一样：有的看事实准确率，有的看风格一致性，有的看覆盖面和可追溯性。"
+        },
+        {
+          "title": "来源",
+          "content": "- Data-Centric AI 公开资料\n- 后续可继续补训练数据、知识库数据与评估数据的拆分方法"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[static-dynamic-eval]]\n- [[goodhart-law]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/themes/high-quality-data.md"
+    },
+    "metcalfe-law": {
+      "id": "metcalfe-law",
+      "title": "梅特卡夫定律",
+      "type": "theme",
+      "category": "核心热点 / 方法论",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "方法论",
+        "网络效应",
+        "平台",
+        "Agent生态"
+      ],
+      "sources": [
+        {
+          "name": "Metcalfe's Law 公开定义资料"
+        }
+      ],
+      "related": [
+        "agent",
+        "workbuddy",
+        "codebuddy"
+      ],
+      "summary": "梅特卡夫定律可以先理解为一种网络效应判断：一个网络的价值，往往会随着可连接节点的增多而显著上升。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "梅特卡夫定律可以先理解为一种网络效应判断：一个网络的价值，往往会随着可连接节点的增多而显著上升。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“方法论 / 效应观察”，不是模型技术本身，而是帮助理解平台、生态和连接关系为什么会放大价值。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "当 AI 从单点问答走向工具接入、知识接入、Agent 协作时，价值不再只来自单个模型有多强，还来自“能连多少东西、能形成多少有效关系”。把这条定律放进图谱，能帮助解释为什么平台层会越来越重要。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "它更适合当作观察视角，而不是机械公式。现实世界里，不是节点越多就一定越有价值，关键在于连接是否真实、可持续、低摩擦。"
+        },
+        {
+          "title": "来源",
+          "content": "- Metcalfe's Law 公开定义资料\n- 后续可继续补平台生态、Agent 协作与知识网络案例"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[agent]]\n- [[workbuddy]]\n- [[codebuddy]]"
+        }
+      ],
+      "sourcePath": "nodes/themes/metcalfe-law.md"
+    },
+    "static-dynamic-eval": {
+      "id": "static-dynamic-eval",
+      "title": "静态/动态评估",
+      "type": "theme",
+      "category": "核心热点 / 方法论",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "评估",
+        "方法论",
+        "Benchmark",
+        "Agent"
+      ],
+      "sources": [
+        {
+          "name": "公开 AI 评估方法资料"
+        }
+      ],
+      "related": [
+        "high-quality-data",
+        "goodhart-law",
+        "agent"
+      ],
+      "summary": "静态/动态评估可以先理解为两种不同的看法：静态评估更像固定题库、固定答案的测验；动态评估更像把模型放进任务流程里，看它在真实环境中会不会做、敢不敢做、能不能做完。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "静态/动态评估可以先理解为两种不同的看法：静态评估更像固定题库、固定答案的测验；动态评估更像把模型放进任务流程里，看它在真实环境中会不会做、敢不敢做、能不能做完。"
+        },
+        {
+          "title": "归类",
+          "content": "它属于“评估方法论”，和具体模型、产品名称不同。前者回答“怎么判断强弱”，后者回答“到底是什么对象”。"
+        },
+        {
+          "title": "为什么重要",
+          "content": "随着产品逐渐从“会说”走向“能做”，只看静态题库越来越不够。尤其是 Agent 场景，更需要动态地看规划、调用工具、纠错和收尾能力。"
+        },
+        {
+          "title": "观察与判断",
+          "content": "这不是说静态评估没用了，而是它更适合做基线。真正进入工作流时，还要补动态评估，否则很容易出现榜单很好看、实际体验却不稳定的落差。"
+        },
+        {
+          "title": "来源",
+          "content": "- 公开 AI 评估方法资料\n- 后续可继续补基准测试、任务评测和 Agent 评估框架"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[high-quality-data]]\n- [[goodhart-law]]\n- [[agent]]"
+        }
+      ],
+      "sourcePath": "nodes/themes/static-dynamic-eval.md"
+    }
+  }
+}

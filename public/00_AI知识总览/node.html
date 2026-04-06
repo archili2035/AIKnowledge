@@ -379,13 +379,13 @@
             </div>
             <div class="eyebrow" id="heroEyebrow">AI节点详情页</div>
             <h1 id="heroTitle">正在加载节点详情…</h1>
-            <p id="heroSummary">这里展示的是面向阅读的 HTML 详情页；底层仍由 Markdown 条目供稿，但前台体验不再直接跳文件预览。</p>
+            <p id="heroSummary">这里会展示该节点的简介、定位、关联条目与来源。</p>
             <div id="metaRow" class="meta-row"></div>
         </div>
     </header>
 
     <main id="app" class="container">
-        <div class="loading">正在读取节点数据与底层条目…</div>
+        <div class="loading">正在加载节点内容…</div>
     </main>
 
     <script>
@@ -397,11 +397,16 @@
         const crumbCurrent = document.getElementById('crumbCurrent');
         const params = new URLSearchParams(window.location.search);
         const nodeId = params.get('id');
-        const RAW_MARKDOWN_BASE = 'https://raw.githubusercontent.com/archili2035/AIKnowledge/main/public/00_AI%E7%9F%A5%E8%AF%86%E6%80%BB%E8%A7%88/';
+        const RAW_ASSET_BASE = 'https://raw.githubusercontent.com/archili2035/AIKnowledge/main/public/00_AI%E7%9F%A5%E8%AF%86%E6%80%BB%E8%A7%88/';
+        const OVERVIEW_PATH = 'overview.json';
+        const RELATIONS_PATH = 'relations.json';
+        const NODE_DATA_PATH = 'node-data.json';
 
         let nodeLookup = new Map();
         let categoryLookup = new Map();
         let relationData = [];
+
+
 
 
         const relationTypeMap = {
@@ -517,7 +522,95 @@
             });
         }
 
+        function stripMarkdown(text) {
+            return String(text || '')
+                .replace(/\[\[([^\]]+)\]\]/g, '$1')
+                .replace(/`([^`]+)`/g, '$1')
+                .replace(/^\s*-\s*/gm, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function getBestSummary(payload) {
+            const candidates = [payload.summary];
+            (payload.sections || []).forEach(section => {
+                candidates.push(section.content);
+            });
+
+            for (const candidate of candidates) {
+                const cleaned = stripMarkdown(candidate);
+                if (cleaned) {
+                    return cleaned;
+                }
+            }
+            return '这里会展示该节点的简介、定位、关联条目与来源。';
+        }
+
+        function buildFallbackPayload(node, raw) {
+            const frontMatter = parseFrontMatter(raw);
+            const sections = parseSections(getMarkdownBody(raw));
+            return {
+                id: node.id,
+                title: frontMatter.title || node.title,
+                type: frontMatter.type || node.type || '',
+                category: frontMatter.category || node.categoryTitle || '',
+                provider: frontMatter.provider || '',
+                updated: frontMatter.updated || '',
+                confidence: frontMatter.confidence || '',
+                tags: frontMatter.tags || [],
+                related: frontMatter.related || [],
+                sources: frontMatter.sources || [],
+                sections,
+                summary: stripMarkdown(sections[0]?.content || '')
+            };
+        }
+
+        async function fetchTextWithFallback(path) {
+            const candidates = [path];
+            if (window.location.hostname.endsWith('github.io')) {
+                candidates.push(RAW_ASSET_BASE + path);
+            }
+
+            let lastError = null;
+            for (const candidate of candidates) {
+                try {
+                    const response = await fetch(candidate);
+                    if (!response.ok) {
+                        throw new Error(candidate + ' -> ' + response.status);
+                    }
+                    return await response.text();
+                } catch (error) {
+                    lastError = error;
+                }
+            }
+
+            throw lastError || new Error('resource load failed');
+        }
+
+        async function fetchJsonWithFallback(path) {
+            return JSON.parse(await fetchTextWithFallback(path));
+        }
+
+        async function loadNodePayload(node) {
+            try {
+                const payload = await fetchJsonWithFallback(NODE_DATA_PATH);
+                if (payload && payload.nodes && payload.nodes[node.id]) {
+                    return payload.nodes[node.id];
+                }
+            } catch (error) {
+                console.warn('node-data.json load failed, fallback to markdown source.', error);
+            }
+
+            if (!node.sourcePath) {
+                throw new Error('当前节点暂时还没有可读取的详情数据。');
+            }
+
+            const raw = await fetchTextWithFallback(node.sourcePath);
+            return buildFallbackPayload(node, raw);
+        }
+
         function renderInline(text) {
+
             let html = escapeHtml(text);
             html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
             html = html.replace(/\[\[([^\]]+)\]\]/g, (_, id) => {
@@ -588,7 +681,7 @@
 
         function renderRelatedLinks(relatedIds) {
             if (!relatedIds || !relatedIds.length) {
-                return '<div class="muted-box">当前条目还没有挂接相关节点。</div>';
+                return '<div class="muted-box">当前还没有补充相关节点。</div>';
             }
 
             const html = relatedIds.map(id => {
@@ -616,7 +709,7 @@
         function renderRelations(id) {
             const related = relationData.filter(rel => rel.source === id || rel.target === id);
             if (!related.length) {
-                return '<div class="muted-box">当前条目还没有补到横向关系。</div>';
+                return '<div class="muted-box">当前还没有补充横向关系。</div>';
             }
 
             return '<div class="relation-list">' + related.map(rel => {
@@ -631,7 +724,7 @@
 
         function renderSections(sections) {
             if (!sections.length) {
-                return '<div class="muted-box">当前没有解析到正文分节。</div>';
+                return '<div class="muted-box">当前正文还在整理中。</div>';
             }
 
             return '<div class="section-grid">' + sections.map(section => {
@@ -639,79 +732,55 @@
             }).join('') + '</div>';
         }
 
-        async function fetchMarkdownSource(sourcePath) {
-            const candidates = [sourcePath];
-            if (window.location.hostname.endsWith('github.io')) {
-                candidates.push(RAW_MARKDOWN_BASE + sourcePath);
-            }
-
-            let lastError = null;
-            for (const candidate of candidates) {
-                try {
-                    const response = await fetch(candidate);
-                    if (!response.ok) {
-                        throw new Error(candidate + ' -> ' + response.status);
-                    }
-                    return await response.text();
-                } catch (error) {
-                    lastError = error;
-                }
-            }
-
-            throw lastError || new Error('source markdown load failed');
-        }
-
-        function renderPage(node, frontMatter, sections) {
+        function renderPage(node, payload) {
             const category = categoryLookup.get(node.categoryId);
-            const sectionHtml = renderSections(sections);
-            const tagHtml = renderTagList(frontMatter.tags || []);
-            const relatedHtml = renderRelatedLinks(frontMatter.related || []);
-            const sourceHtml = renderSources(frontMatter.sources || []);
+            const displayTitle = payload.title || node.title;
+            const typeLabel = payload.type || node.type || '节点';
+            const categoryLabel = payload.category || node.categoryTitle || '未标注';
+            const summaryText = getBestSummary(payload);
+            const sectionHtml = renderSections(payload.sections || []);
+            const tagHtml = renderTagList(payload.tags || []);
+            const relatedHtml = renderRelatedLinks(payload.related || []);
+            const sourceHtml = renderSources(payload.sources || []);
             const relationHtml = renderRelations(node.id);
+            const infoItems = [
+                '<div class="info-item"><strong>总览中的位置</strong><span>' + escapeHtml(node.categoryTitle || categoryLabel) + ' · ' + escapeHtml(typeLabel) + '</span></div>',
+                '<div class="info-item"><strong>一句话把握</strong><span>' + escapeHtml(summaryText) + '</span></div>'
+            ];
 
+            if (payload.provider) {
+                infoItems.splice(1, 0, '<div class="info-item"><strong>相关主体</strong><span>' + escapeHtml(payload.provider) + '</span></div>');
+            }
 
-            document.title = (frontMatter.title || node.title) + '｜AI节点详情';
-            heroTitle.textContent = frontMatter.title || node.title;
-            heroSummary.textContent = sections[0]?.content?.split(/\r?\n/)[0] || '这是节点的正式 HTML 详情页。';
-            heroEyebrow.textContent = (node.categoryTitle || 'AI知识总览') + ' · 节点详情页';
-            crumbCurrent.textContent = frontMatter.title || node.title;
+            document.title = displayTitle + '｜AI节点详情';
+            heroTitle.textContent = displayTitle;
+            heroSummary.textContent = summaryText;
+            heroEyebrow.textContent = (node.categoryTitle || categoryLabel || 'AI知识总览') + ' · ' + typeLabel;
+            crumbCurrent.textContent = displayTitle;
             metaRow.innerHTML = '';
-            metaRow.appendChild(createPill('类型', frontMatter.type || node.type || '未标注', category?.color));
-            metaRow.appendChild(createPill('分类', frontMatter.category || node.categoryTitle || '未标注', category?.color));
-            if (frontMatter.provider) {
-                metaRow.appendChild(createPill('提供方', frontMatter.provider));
+            metaRow.appendChild(createPill('类型', typeLabel, category?.color));
+            metaRow.appendChild(createPill('分类', categoryLabel, category?.color));
+            if (payload.provider) {
+                metaRow.appendChild(createPill('相关主体', payload.provider));
             }
-            if (frontMatter.updated) {
-                metaRow.appendChild(createPill('更新', frontMatter.updated));
+            if (payload.updated) {
+                metaRow.appendChild(createPill('更新', payload.updated));
             }
-            if (frontMatter.confidence) {
-                metaRow.appendChild(createPill('置信度', frontMatter.confidence));
+            if (payload.confidence) {
+                metaRow.appendChild(createPill('置信度', payload.confidence));
             }
 
             app.innerHTML = `
                 <div class="layout">
                     <article class="panel main-panel">
-                        <div class="status-box">现在点击节点进入的是正式 HTML 详情页；底层 Markdown 仍保留，但不再直接暴露成前台跳转目标。</div>
+                        <div class="status-box">先看“是什么”和“为什么重要”，再顺着相关节点与横向关系继续展开，会更容易把这个对象放回整张 AI 版图里理解。</div>
                         <div style="height:16px"></div>
                         ${sectionHtml}
                     </article>
                     <aside class="panel sidebar">
                         <section class="section-card">
                             <h3>快速信息</h3>
-                            <div class="info-list">
-                                <div class="info-item">
-                                    <strong>总览中的定位</strong>
-                                    <span>${escapeHtml(node.categoryTitle || '未归类')} · ${escapeHtml(node.type || frontMatter.type || '节点')}</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>底层源文件</strong>
-                                    <span class="code-line">${escapeHtml(node.sourcePath || '未记录')}</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>当前页面角色</strong>
-                                    <span>这是面向阅读的前台详情页；Markdown 继续作为底层可维护源文件。</span>
-                                </div>
-                            </div>
+                            <div class="info-list">${infoItems.join('')}</div>
                         </section>
 
                         <section class="section-card">
@@ -746,6 +815,7 @@
             `;
         }
 
+
         function renderError(message) {
             document.title = '节点详情加载失败';
             heroTitle.textContent = '节点详情加载失败';
@@ -756,37 +826,35 @@
             app.innerHTML = '<div class="error-box">' + escapeHtml(message) + '</div>';
         }
 
-        if (!nodeId) {
-            renderError('当前没有提供节点 id。请从 AI 知识总览页点击节点进入。');
-        } else {
-            Promise.all([
-                fetch('overview.json').then(response => {
-                    if (!response.ok) throw new Error('overview.json load failed');
-                    return response.json();
-                }),
-                fetch('relations.json')
-                    .then(response => response.ok ? response.json() : { relations: [] })
-                    .catch(() => ({ relations: [] }))
-            ])
-                .then(([overviewPayload, relationPayload]) => {
-                    relationData = Array.isArray(relationPayload.relations) ? relationPayload.relations : [];
-                    buildLookups(overviewPayload);
-                    const node = getNodeInfo(nodeId);
-                    if (!node || !node.sourcePath) {
-                        throw new Error('当前节点还没有接入正式 HTML 详情页对应的底层源文件。');
-                    }
-                    return fetchMarkdownSource(node.sourcePath)
-                        .then(raw => {
-                            const frontMatter = parseFrontMatter(raw);
-                            const sections = parseSections(getMarkdownBody(raw));
-                            renderPage(node, frontMatter, sections);
-                        });
+        async function init() {
+            if (!nodeId) {
+                renderError('当前没有提供节点 id。请从 AI 知识总览页点击节点进入。');
+                return;
+            }
 
-                })
-                .catch(error => {
-                    renderError(error.message || '节点详情加载失败，请稍后重试。');
-                });
+            try {
+                const [overviewPayload, relationPayload] = await Promise.all([
+                    fetchJsonWithFallback(OVERVIEW_PATH),
+                    fetchJsonWithFallback(RELATIONS_PATH).catch(() => ({ relations: [] }))
+                ]);
+
+                relationData = Array.isArray(relationPayload.relations) ? relationPayload.relations : [];
+                buildLookups(overviewPayload);
+
+                const node = nodeLookup.get(nodeId);
+                if (!node) {
+                    throw new Error('没有找到对应节点，请从 AI 知识总览页重新进入。');
+                }
+
+                const payload = await loadNodePayload(node);
+                renderPage(node, payload);
+            } catch (error) {
+                renderError(error.message || '节点详情加载失败，请稍后重试。');
+            }
         }
+
+        init();
+
     </script>
 </body>
 </html>

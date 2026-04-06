@@ -1,7 +1,7 @@
 {
   "title": "AI知识图谱",
-  "subtitle": "宏观总览原型",
-  "description": "用于建立整体版图感的总览主树。它负责回答‘AI 领域大致分成哪几块’，而不是承载全部细节。",
+  "subtitle": "AI主干版图",
+  "description": "帮助快速建立 AI 领域的整体结构：先看全局，再进入专题与节点详情。",
   "categories": [
     {
       "id": "foundations",
