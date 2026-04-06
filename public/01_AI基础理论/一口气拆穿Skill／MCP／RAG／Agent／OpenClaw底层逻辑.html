@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill / MCP / RAG / Agent / OpenClaw：术语梳理与概念对照</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warm-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
+            --bg-light: #f7fafc;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(180deg, #f5f7fa 0%, #e8eef5 100%);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .hero .source-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .source-reference {
+            margin: 16px auto 0;
+            background: rgba(255, 255, 255, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            border-radius: 12px;
+            padding: 12px 14px;
+            text-align: left;
+            max-width: 860px;
+            backdrop-filter: blur(6px);
+        }
+
+        .source-reference .source-label {
+            font-size: 0.78rem;
+            opacity: 0.9;
+            margin-bottom: 6px;
+            letter-spacing: 0.4px;
+        }
+
+        .source-reference a,
+        .source-reference strong {
+            color: #ffffff;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            word-break: break-all;
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .disclaimer-box {
+            margin: 18px auto 0;
+            max-width: 860px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 12px;
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .container {
+            max-width: 940px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .core-message {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: -60px auto 40px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+        }
+
+        .core-message h2 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .core-message h2::before {
+            content: "⚡";
+            font-size: 1.8rem;
+        }
+
+        .layer-stack {
+            display: grid;
+            gap: 14px;
+            margin: 24px 0;
+        }
+
+        .layer-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 18px 20px;
+        }
+
+        .layer-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .layer-head h3 {
+            font-size: 1rem;
+            color: #4c51bf;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            color: #1a1a2e;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .info-chip {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .chip-standard {
+            background: #e6fffa;
+            color: #2c7a7b;
+        }
+
+        .chip-paper {
+            background: #ebf8ff;
+            color: #2b6cb0;
+        }
+
+        .chip-platform {
+            background: #faf5ff;
+            color: #6b46c1;
+        }
+
+        .chip-doubt {
+            background: #fff5f5;
+            color: #c53030;
+        }
+
+        .note-box {
+            background: var(--warm-gradient);
+            padding: 22px 24px;
+            border-radius: 14px;
+            border-left: 4px solid #ed8936;
+            color: #2d3748;
+        }
+
+        .story-panel {
+            margin: 24px 0 20px;
+            padding: 24px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #ffffff 0%, #f7f9ff 100%);
+            border: 1px solid #e3eafc;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .story-intro {
+            color: #3c4aa0;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .story-card {
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: var(--bg-light);
+            border: 1px solid #e6ecf7;
+        }
+
+        .story-card h3 {
+            font-size: 1rem;
+            color: #4c51bf;
+            margin-bottom: 8px;
+        }
+
+        .story-card p {
+            color: var(--text-secondary);
+            font-size: 0.94rem;
+            line-height: 1.75;
+        }
+
+        .story-card strong {
+            color: var(--text-primary);
+        }
+
+        .story-bridge {
+            margin-top: 16px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: #fffaf0;
+            border-left: 4px solid #ed8936;
+            color: #744210;
+            font-size: 0.94rem;
+        }
+
+        .evolution-panel {
+            margin: 24px 0 26px;
+            padding: 22px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #f8fbff 0%, #eef2ff 100%);
+            border: 1px solid #dbe7ff;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+
+        .evolution-caption {
+            color: #3c4aa0;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .evolution-chain {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chain-item {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .chain-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .chain-arrow {
+            font-size: 1.3rem;
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .evolution-disclaimer {
+            margin-top: 16px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: #fffaf0;
+            border-left: 4px solid #ed8936;
+            color: #744210;
+            font-size: 0.94rem;
+        }
+
+        .glossary-lead {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .glossary-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .glossary-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .glossary-term {
+            font-size: 1.04rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .glossary-badge {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
+
+        .badge-basic {
+            background: #e6fffa;
+            color: #2c7a7b;
+        }
+
+        .badge-knowledge {
+            background: #ebf8ff;
+            color: #2b6cb0;
+        }
+
+        .badge-execution {
+            background: #eef2ff;
+            color: #4c51bf;
+        }
+
+        .badge-protocol {
+            background: #fffaf0;
+            color: #c05621;
+        }
+
+        .badge-product {
+            background: #faf5ff;
+            color: #6b46c1;
+        }
+
+        .glossary-block {
+            margin-top: 10px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: var(--bg-light);
+        }
+
+        .glossary-block strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #4c51bf;
+            font-size: 0.82rem;
+            letter-spacing: 0.2px;
+        }
+
+        .glossary-block p {
+            color: var(--text-secondary);
+            font-size: 0.94rem;
+            line-height: 1.75;
+        }
+
+        .glossary-note {
+            margin-top: 20px;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #edf2ff;
+            color: #434190;
+        }
+
+        .section {
+            margin: 46px 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .section-number {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .timeline-card,
+        .comparison-card,
+        .insight-card,
+        .flow-diagram,
+        .references-section {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-card {
+            padding: 30px;
+            margin-bottom: 22px;
+            border-left: 4px solid #4facfe;
+        }
+
+        .timeline-card h3 {
+            font-size: 1.25rem;
+            color: #667eea;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-card h3::before {
+            content: "▸";
+            color: #4facfe;
+        }
+
+        .timeline-card ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .timeline-card li {
+            padding: 7px 0 7px 24px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .timeline-card li::before {
+            content: "•";
+            color: #4facfe;
+            font-size: 1.4rem;
+            position: absolute;
+            left: 0;
+            top: 1px;
+        }
+
+        .source-note {
+            margin-top: 14px;
+            padding: 12px 14px;
+            background: #f7fafc;
+            border-radius: 10px;
+            color: #4a5568;
+            font-size: 0.92rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 18px;
+        }
+
+        .comparison-card {
+            padding: 24px;
+            border-top: 3px solid #667eea;
+        }
+
+        .comparison-card h4 {
+            font-size: 1.05rem;
+            color: #4c51bf;
+            margin-bottom: 10px;
+        }
+
+        .comparison-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .flow-diagram {
+            padding: 34px;
+            text-align: center;
+        }
+
+        .flow-step {
+            background: var(--bg-light);
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin: 12px auto;
+            max-width: 520px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border: 2px solid transparent;
+        }
+
+        .flow-step.primary {
+            background: var(--primary-gradient);
+            color: white;
+            font-weight: 600;
+        }
+
+        .flow-step.secondary {
+            background: var(--secondary-gradient);
+            color: white;
+            font-weight: 600;
+        }
+
+        .flow-arrow {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin: 8px 0;
+            font-weight: 700;
+        }
+
+        .diagram-note {
+            margin-top: 18px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: #fffaf0;
+            color: #744210;
+            text-align: left;
+        }
+
+        .mistakes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .mistake-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid #fc8181;
+        }
+
+        .mistake-number {
+            display: inline-block;
+            background: #fed7d7;
+            color: #c53030;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .mistake-card h4 {
+            color: #c53030;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .mistake-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .insight-card {
+            padding: 28px 30px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insight-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+        }
+
+        .insight-card.a::before {
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .insight-card.b::before {
+            background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .insight-card.c::before {
+            background: linear-gradient(180deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .insight-label {
+            display: inline-block;
+            background: var(--primary-gradient);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .insight-card h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+        }
+
+        .insight-card ul {
+            list-style: none;
+        }
+
+        .insight-card li {
+            padding: 7px 0 7px 28px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .insight-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: 700;
+        }
+
+        .quote-box {
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .quote-box::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 6rem;
+            opacity: 0.18;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .quote-box p {
+            font-size: 1.06rem;
+            line-height: 1.85;
+            position: relative;
+            z-index: 1;
+        }
+
+        .references-section {
+            padding: 30px;
+        }
+
+        .references-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+            color: var(--text-primary);
+        }
+
+        .file-item {
+            background: var(--bg-light);
+            padding: 16px 18px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .file-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            background: white;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-info .filename {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .file-info .filename a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .file-info .filename a:hover {
+            text-decoration: underline;
+        }
+
+        .file-info .filetype {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .warning-panel {
+            margin-top: 16px;
+            padding: 16px 18px;
+            border-radius: 12px;
+            background: #fffaf0;
+            border-left: 4px solid #dd6b20;
+            color: #744210;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #667eea 50%, transparent 100%);
+            max-width: 200px;
+            margin: 0 auto 20px;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.86rem;
+            }
+
+            .core-message {
+                padding: 24px;
+                margin: -40px 16px 24px;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .comparison-grid,
+            .glossary-grid,
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-panel,
+            .evolution-panel,
+            .flow-diagram,
+            .quote-box,
+            .references-section,
+            .timeline-card,
+            .insight-card,
+            .glossary-card {
+                padding: 22px;
+            }
+
+            .evolution-chain {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .chain-item {
+                text-align: center;
+            }
+
+            .chain-arrow {
+                transform: rotate(90deg);
+                align-self: center;
+            }
+
+            .glossary-card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>一口气拆穿<br>Skill / MCP / RAG / Agent / OpenClaw<br>底层逻辑</h1>
+            <p class="subtitle">从基础能力、知识增强、执行编排、协议接入到产品封装，梳理这些高频术语之间的真实关系</p>
+            <span class="source-badge">📍 面向读者的最终版术语整理</span>
+            <div class="source-reference">
+                <div class="source-label">延伸阅读 / 原始视频</div>
+                <a href="https://www.bilibili.com/video/BV1ojfDBSEPv/?share_source=copy_web&vd_source=9f961463c9a01b757af4c797623b7a52" target="_blank" rel="noopener noreferrer">《【闪客】一口气拆穿 Skill / MCP / RAG / Agent / OpenClaw 底层逻辑》</a>
+            </div>
+            <div class="disclaimer-box">
+                <strong>阅读说明：</strong>本文优先采用官方文档、官方工程文章和原始论文；若某个术语缺少稳定的一手定义，则按具体平台语境理解，并在必要处注明“工作定义”或“通用性存疑”。
+            </div>
+
+            <p style="margin-top: 14px;"><a href="../../index.html" style="color:#ffffff;font-weight:600;text-decoration:underline;text-underline-offset:3px;">← 返回知识库首页</a></p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="core-message">
+            <h2>一句话总览</h2>
+            <p>如果只按术语表去背词，这一页会显得很硬。更自然的理解方式，是先顺着普通读者最容易感受到的能力变化去看：系统先是“一问一答”，再逐渐变成“能连续思考、能查资料、能调工具、能接外部系统、还能被平台封装”。在这条通俗主线之后，再回头分清<strong>基础能力层、知识增强层、执行编排层、接入协议层、产品封装层</strong>，严谨性和可读性就能同时保住。</p>
+
+            <div class="story-panel">
+                <p class="story-intro">先按视频式的理解顺序读一遍，会更容易把这些词串起来：</p>
+                <div class="story-grid">
+                    <div class="story-card">
+                        <h3>一问一答：先让模型“会说”</h3>
+                        <p>最早被感知到的能力，是你问一句，它答一句。这里最核心的是 <strong>LLM + Prompt</strong>：模型负责生成，提示词负责告诉它怎么答。</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>连续思考：不只一句话说完就断</h3>
+                        <p>当系统开始记住历史、承接上下文、跨多步继续推进任务时，背后通常就进入了 <strong>Context / Memory</strong> 的管理问题。</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>从会说到能查：开始补外部知识</h3>
+                        <p>模型光靠参数记忆不够，于是要学会去查。这里对应的是 <strong>Search / Retrieval / RAG</strong>：不是只会说，而是能结合外部资料来回答。</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>从能查到能做：开始调工具、走流程</h3>
+                        <p>再往前一步，系统不仅回答问题，还会请求外部动作执行任务。这时对应的是 <strong>Tool Use / Workflow / Agent</strong> 这一层。</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>能接：把能力标准化接到外部系统</h3>
+                        <p>当 AI 应用要稳定连接工具、资源、服务时，就会遇到 <strong>MCP</strong> 这类接入标准。它解决的是“怎么统一接”的问题。</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>能封装：把整套体验打包成产品能力</h3>
+                        <p>最后用户真正感受到的，往往不是单个术语，而是被平台封装后的整体体验，例如 <strong>Skill / OpenClaw / SubAgent</strong> 这类更贴近具体产品语境的能力包装。</p>
+                    </div>
+                </div>
+                <div class="story-bridge">
+                    <strong>严谨校准：</strong>上面这段顺序是帮助理解的认知路径，不是技术史，也不是行业统一标准层级。它解决的是“为什么这些词会一个个冒出来”这个问题；至于这些词在工程里分别属于哪一层，还要看下面的结构划分。
+                </div>
+            </div>
+
+            <div class="evolution-panel">
+                <p class="evolution-caption">如果把上面的通俗主线再压缩成一条更短的理解链，可以先记成：</p>
+                <div class="evolution-chain">
+                    <div class="chain-item">LLM</div>
+                    <span class="chain-arrow">→</span>
+                    <div class="chain-item">Prompt / Context / Memory</div>
+                    <span class="chain-arrow">→</span>
+                    <div class="chain-item">Search / Retrieval / RAG</div>
+                    <span class="chain-arrow">→</span>
+                    <div class="chain-item">Tool Use / Workflow / Agent</div>
+                    <span class="chain-arrow">→</span>
+                    <div class="chain-item">MCP</div>
+                    <span class="chain-arrow">→</span>
+                    <div class="chain-item">Skill / SubAgent / OpenClaw</div>
+                </div>
+                <div class="evolution-disclaimer">
+                    <strong>阅读提醒：</strong>这条演化链仅供理解“从会说，到能查、能做、再到更完整封装”的思路，不代表真实技术发展的历史路径，也不是行业统一标准架构。
+                </div>
+            </div>
+
+            <div class="layer-stack">
+
+                <div class="layer-card">
+                    <div class="layer-head">
+                        <h3>1. 基础能力层</h3>
+                        <span class="info-chip chip-standard">通用工程概念</span>
+                    </div>
+                    <p>负责理解与生成，包括模型本体，以及模型看到的任务指令和上下文状态。</p>
+                    <div class="tag-row">
+                        <span class="tag">LLM</span>
+                        <span class="tag">Prompt</span>
+                        <span class="tag">Context</span>
+                        <span class="tag">Memory</span>
+                    </div>
+                </div>
+
+                <div class="layer-card">
+                    <div class="layer-head">
+                        <h3>2. 知识增强层</h3>
+                        <span class="info-chip chip-paper">论文可追溯</span>
+                    </div>
+                    <p>负责补模型参数外的信息，让答案更接近事实和可引用来源。</p>
+                    <div class="tag-row">
+                        <span class="tag">Search</span>
+                        <span class="tag">Retrieval</span>
+                        <span class="tag">RAG</span>
+                    </div>
+                </div>
+
+                <div class="layer-card">
+                    <div class="layer-head">
+                        <h3>3. 执行编排层</h3>
+                        <span class="info-chip chip-standard">官方工程定义可参考</span>
+                    </div>
+                    <p>负责把“想做什么”变成“如何多步执行”，并在执行中处理工具、状态和反馈。</p>
+                    <div class="tag-row">
+                        <span class="tag">Tool Use / Function Calling</span>
+                        <span class="tag">Workflow</span>
+                        <span class="tag">Agent</span>
+                        <span class="tag">SubAgent</span>
+                    </div>
+                </div>
+
+                <div class="layer-card">
+                    <div class="layer-head">
+                        <h3>4. 接入协议层</h3>
+                        <span class="info-chip chip-standard">开放标准</span>
+                    </div>
+                    <p>负责把 AI 应用以标准化方式接到外部系统，不只限于“调工具”这一件事。</p>
+                    <div class="tag-row">
+                        <span class="tag">MCP</span>
+                    </div>
+                </div>
+
+                <div class="layer-card">
+                    <div class="layer-head">
+                        <h3>5. 产品封装层</h3>
+                        <span class="info-chip chip-platform">平台术语</span>
+                        <span class="info-chip chip-doubt">通用性存疑</span>
+                    </div>
+                    <p>这层更像具体平台的产品设计和能力打包，跨平台时不能直接当作统一标准。</p>
+                    <div class="tag-row">
+                        <span class="tag">Skill</span>
+                        <span class="tag">OpenClaw</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <p><strong>最值得先记住的一点：</strong>MCP 和 RAG 这类概念有相对稳固的一手定义；而 Skill、SubAgent、OpenClaw 更依赖具体平台语境。阅读时先分清“通用概念、开放标准、平台术语”三类，再去理解它们之间的关系，会更不容易混淆。</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2 class="section-title">核心术语定义</h2>
+            </div>
+
+
+            <div class="timeline-card">
+                <h3>LLM / Prompt / Context / Memory：属于基础能力层，但没有一篇统一“总定义”文档</h3>
+                <ul>
+                    <li>把大模型底层概括成“下一个 token 预测”是可以的，但只够解释生成机制，不足以完整解释今天对话系统的全部可用行为。</li>
+                    <li>真实可用体验通常还叠加了指令微调、偏好对齐、工具使用训练，以及具体应用的系统提示词与上下文管理。</li>
+                    <li>Memory 也不应只理解成“把历史对话压缩后再喂回去”；它更广义地指系统跨轮保留有用状态的机制，包括摘要、偏好、任务状态和外部存储。</li>
+                </ul>
+                <div class="source-note">
+                    <strong>说明：</strong>这一组术语并没有单一官方总纲文档，本页只给出更稳妥的<strong>工作定义</strong>，不把它们包装成某种统一标准。
+                </div>
+            </div>
+
+            <div class="timeline-card">
+                <h3>Search / Retrieval / RAG：RAG 有原始论文定义，不能简化成“联网搜一下”</h3>
+                <ul>
+                    <li>Search 更偏外部来源查询；Retrieval 更偏从知识库中召回相关片段；RAG 则是让检索结果参与最终生成。</li>
+                    <li>RAG 的核心不是“把搜到的内容贴给模型”，而是“把非参数化记忆与生成模型联动起来”。</li>
+                    <li>工程上通常还要考虑分块、向量化、索引、重排、来源引用、上下文窗口限制等问题。</li>
+                </ul>
+                <div class="source-note">
+                    <strong>一手来源：</strong>Lewis 等人的论文 <em>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</em>（2020）。
+                </div>
+            </div>
+
+            <div class="timeline-card">
+                <h3>Tool Use / Function Calling：重点是“模型输出结构化调用意图”</h3>
+                <ul>
+                    <li>更稳妥的说法不是“模型直接执行了工具”，而是“模型判断何时用工具，并产出结构化调用请求”。</li>
+                    <li>工具的定义、执行、结果回传，通常仍由应用或平台侧来负责。</li>
+                    <li>不同厂商叫法略有差异：有的叫 Tool Use，有的叫 Function Calling，但本质都围绕结构化工具调用展开。</li>
+                </ul>
+                <div class="source-note">
+                    <strong>一手来源：</strong>Anthropic 官方文档 <em>Tool use with Claude - Overview</em> 明确区分了模型负责生成调用请求，应用负责定义与执行工具。
+                </div>
+            </div>
+
+            <div class="timeline-card">
+                <h3>Workflow / Agent / SubAgent：它们属于执行编排层，不是同一种东西</h3>
+                <ul>
+                    <li>Anthropic 的工程定义里，Workflow 是“LLM 和工具在预定义代码路径中被编排”；Agent 则是“模型动态地指导自己的过程和工具使用”。</li>
+                    <li>所以 Agent 不只是“把自然语言翻译成工具调用流程”，还包括任务分解、状态维护、多步循环、终止判断，以及根据环境反馈调整下一步。</li>
+                    <li>SubAgent 可以理解为平台提供的任务委派与上下文隔离机制，但它不是跨平台统一协议，也不应该被写成“魔法增强”。</li>
+                </ul>
+                <div class="source-note">
+                    <strong>一手来源：</strong>Anthropic 官方工程文章 <em>Building Effective Agents</em>；Claude Code 官方文档 <em>Create custom subagents</em>。
+                </div>
+            </div>
+
+            <div class="timeline-card">
+                <h3>MCP：是 AI 应用接入外部系统的开放标准，不只是“工具调用协议”</h3>
+                <ul>
+                    <li>MCP 官方把它描述为连接 AI 应用与外部系统的开放标准，作用类似 AI 应用的“统一接口”。</li>
+                    <li>它当然覆盖工具接入，但它关注的不只是“执行工具”这一点，还包括连接资源、服务和更广泛的外部能力。</li>
+                    <li>因此，MCP 与 Tool Use / Function Calling 不是互相替代，而是处在不同层次，完全可以同时存在。</li>
+                </ul>
+                <div class="source-note">
+                    <strong>一手来源：</strong>MCP 官方文档 <em>What is the Model Context Protocol (MCP)?</em>。
+                </div>
+            </div>
+
+            <div class="timeline-card">
+                <h3>Skill / OpenClaw：优先按产品语境理解，不能直接升格为通用标准</h3>
+                <ul>
+                    <li>OpenClaw 官方把自己定义为一个自托管 gateway / personal AI assistant，用来连接聊天渠道与 AI agents。</li>
+                    <li>OpenClaw 文档中的 Skill，是该平台内的能力封装方式，有自己的目录结构、元数据和加载机制。</li>
+                    <li>所以在这页里，更合理的写法是：<strong>Skill 与 OpenClaw 属于产品封装层</strong>；至于“Skill”作为跨平台通用术语的标准性，仍应视为<strong>存疑</strong>。</li>
+                </ul>
+                <div class="source-note">
+                    <strong>一手来源：</strong>OpenClaw 官方文档首页与官方 Skills 文档；官方 GitHub 仓库 README 用于交叉验证产品定位。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2 class="section-title">术语对照表</h2>
+            </div>
+
+            <p class="glossary-lead">这一版把原先拥挤的表格改成卡片式阅读：每张卡只回答三个问题——它是什么、它解决什么、读的时候最容易误会什么。</p>
+
+            <div class="glossary-grid">
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">LLM</span>
+                        <span class="glossary-badge badge-basic">基础能力层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>负责理解与生成的模型本体。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>把输入转成语言输出，是整个系统的核心生成单元。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>“下一个 token 预测”能解释底层机制，但不足以单独解释完整产品体验。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">Prompt</span>
+                        <span class="glossary-badge badge-basic">基础能力层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>给模型的任务说明和行为约束。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>让模型知道要做什么、按什么方式输出。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>它是方法，不是独立能力层；提示词效果还会受到模型、上下文和工具设计影响。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">Context</span>
+                        <span class="glossary-badge badge-basic">基础能力层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>模型当前可见的信息窗口。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>承载问题、历史、资料、工具结果等执行上下文。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>上下文不是无限的，窗口限制会直接影响系统设计。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">Memory</span>
+                        <span class="glossary-badge badge-basic">基础能力层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>让系统跨轮保留有用状态的机制。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>支持连续对话、偏好记忆、任务状态延续。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>不只是“压缩历史对话”，也可能是外部存储、摘要或结构化状态。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">Search</span>
+                        <span class="glossary-badge badge-knowledge">知识增强层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>从外部来源查找信息。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>补足模型参数之外的最新或外部事实。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>Search 不等于 RAG；查到信息并不等于已经正确进入生成流程。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">Retrieval</span>
+                        <span class="glossary-badge badge-knowledge">知识增强层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>从知识库或索引中召回相关内容。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>把相关片段找出来，供后续生成或推理使用。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>它更强调召回机制本身，不必然等同于“联网搜索”。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">RAG</span>
+                        <span class="glossary-badge badge-knowledge">知识增强层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>让检索结果参与最终生成的架构方式。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>降低纯参数记忆的局限，增强事实性与可引用性。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>不要把它简化成“搜一下再贴给模型”；它通常还涉及切分、索引、重排与引用。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">Tool Use / Function Calling</span>
+                        <span class="glossary-badge badge-execution">执行编排层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>模型生成结构化工具调用意图的机制。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>让模型能请求外部系统执行动作，而不是只输出自然语言。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>模型通常负责“决定调用”和“产出调用请求”，真正执行一般仍由应用侧负责。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">Workflow</span>
+                        <span class="glossary-badge badge-execution">执行编排层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>按预定义路径编排模型与工具的流程。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>提高稳定性、可控性和一致性。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>更接近“可预测的工程流程”，不等于完全自治的 Agent。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">Agent</span>
+                        <span class="glossary-badge badge-execution">执行编排层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>由模型动态决定过程与工具使用的执行体。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>处理步骤不固定、需要反馈循环和动态规划的任务。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>Agent 不只是“调工具”，还涉及任务分解、状态管理、终止判断和失败恢复。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">SubAgent</span>
+                        <span class="glossary-badge badge-execution">执行编排层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>用于任务委派和上下文隔离的子执行单元。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>把高噪音、高上下文消耗的工作拆出去独立处理。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>这是平台相关术语，不是稳定统一的跨平台标准。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">MCP</span>
+                        <span class="glossary-badge badge-protocol">接入协议层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>AI 应用接入外部系统的开放标准。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>统一连接工具、资源和服务的方式，降低集成成本。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>它与 Tool Use / Function Calling 分层不同，两者可以同时存在。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">Skill</span>
+                        <span class="glossary-badge badge-product">产品封装层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>平台内封装可复用能力的一种方式。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>把提示、知识、脚本、工作流或工具使用方法打包复用。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>不同平台里的含义差别很大，最好始终带着具体平台语境理解。</p></div>
+                </article>
+
+                <article class="glossary-card">
+                    <div class="glossary-card-header">
+                        <span class="glossary-term">OpenClaw</span>
+                        <span class="glossary-badge badge-product">产品封装层</span>
+                    </div>
+                    <div class="glossary-block"><strong>最简定义</strong><p>一个自托管的 AI 助手 / Gateway 平台。</p></div>
+                    <div class="glossary-block"><strong>它解决什么问题</strong><p>把聊天渠道、Agent、工具和会话连接到统一网关中。</p></div>
+                    <div class="glossary-block"><strong>阅读提醒</strong><p>它是产品或平台，不是协议名词，也不是抽象层级本身。</p></div>
+                </article>
+            </div>
+
+            <div class="glossary-note">
+                <strong>怎么用这版对照表：</strong>先扫一遍层级标签建立整体地图，再按卡片里的“最简定义 → 解决问题 → 阅读提醒”顺序阅读，会比横向挤在一张表里更容易形成稳定概念。
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2 class="section-title">概念关系图</h2>
+            </div>
+
+
+            <div class="flow-diagram">
+                <div class="flow-step">用户任务 / 目标</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step primary">LLM + Prompt / Context / Memory</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Search / Retrieval / RAG（按需补知识）</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step secondary">Tool Use / Function Calling（生成结构化调用意图）</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step primary">Workflow / Agent / SubAgent（负责编排、委派、反馈循环）</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">MCP（可选标准层，用于连接外部系统）</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">产品封装（例如 OpenClaw / Skills）</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">结果回流给用户</div>
+
+                <div class="diagram-note">
+                    <strong>重点提醒：</strong>不是每个系统都会同时拥有这些层，也不存在唯一正确的堆叠顺序。这里表达的是“更稳妥的关系图”，不是行业唯一标准架构图。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2 class="section-title">常见混淆点</h2>
+
+            </div>
+
+            <div class="mistakes-grid">
+                <div class="mistake-card">
+                    <span class="mistake-number">1</span>
+                    <h4>演化链 ≠ 标准层级</h4>
+                    <p>视频叙事适合建立直觉，但知识页不能把所有词都写成同一条严格线性链路。</p>
+                </div>
+
+                <div class="mistake-card">
+                    <span class="mistake-number">2</span>
+                    <h4>Search ≠ RAG</h4>
+                    <p>搜索是取信息，RAG 是检索结果参与生成；两者相关，但不是一回事。</p>
+                </div>
+
+                <div class="mistake-card">
+                    <span class="mistake-number">3</span>
+                    <h4>Agent ≠ 工具翻译器</h4>
+                    <p>Agent 的关键不只是调用工具，还包括动态规划、状态维护、循环执行和反馈修正。</p>
+                </div>
+
+                <div class="mistake-card">
+                    <span class="mistake-number">4</span>
+                    <h4>MCP ≠ Function Calling</h4>
+                    <p>两者都跟“外部能力”有关，但分工不同：一个偏模型调用意图，一个偏应用接入标准。</p>
+                </div>
+
+                <div class="mistake-card">
+                    <span class="mistake-number">5</span>
+                    <h4>Skill 不应默认当作通用标准词</h4>
+                    <p>不同产品里的 Skill 含义差异很大，若没有指定平台语境，就应保持谨慎。</p>
+                </div>
+
+                <div class="mistake-card">
+                    <span class="mistake-number">6</span>
+                    <h4>OpenClaw 是产品，不是协议</h4>
+                    <p>它更像一个自托管 AI 助手 / 网关平台，应该放在产品封装层，而不是协议层。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2 class="section-title">理解这些术语的几个原则</h2>
+
+
+            </div>
+
+            <div class="insight-card a">
+                <span class="insight-label">结论 A</span>
+                <h3>能直接下定义的，尽量回到一手来源</h3>
+                <ul>
+                    <li>RAG 优先回到原始论文，而不是博客二次解释。</li>
+                    <li>MCP 优先看官方站点与官方发布说明。</li>
+                    <li>Tool Use / Agent / SubAgent 优先看厂商官方文档和官方工程文章。</li>
+                </ul>
+            </div>
+
+            <div class="insight-card b">
+                <span class="insight-label" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">结论 B</span>
+                <h3>对平台术语，只在平台语境内下定义</h3>
+                <ul>
+                    <li>Claude Code 的 SubAgent 有一手定义，但那是 Claude Code 语境下的定义。</li>
+                    <li>OpenClaw 的 Skill 也有一手定义，但那是 OpenClaw 平台内的能力封装概念。</li>
+                    <li>平台内成立，不代表跨平台自动成立。</li>
+                </ul>
+            </div>
+
+            <div class="insight-card c">
+                <span class="insight-label" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">结论 C</span>
+                <h3>没有一手来源时，宁可标“存疑”，也不要讲得像定论</h3>
+                <ul>
+                    <li>Prompt / Context / Memory 在本页只作为工作定义使用，不强装成统一标准。</li>
+                    <li>“Skill”作为泛化术语的跨平台通用性仍然存疑。</li>
+                    <li>知识库长期可维护，往往比一时说得顺更重要。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="quote-box">
+            <p><strong>30 秒复述：</strong><br><br>
+
+            这期视频最大的价值，是把一串容易被神化的新词重新拉回工程现实；但如果要写成能长期复用的知识页，就不能把 Skill、MCP、RAG、Agent、OpenClaw 当成同一条标准演化链。更稳妥的理解是：LLM、Prompt、Context、Memory 属于基础能力层；Search、Retrieval、RAG 属于知识增强层；Tool Use、Workflow、Agent、SubAgent 属于执行编排层；MCP 属于接入外部系统的开放标准；Skill 和 OpenClaw 则更偏具体平台的产品封装。凡是有官方文档或原始论文的，就按一手来源定义；没有一手来源的，就明确标注为工作定义或通用性存疑。</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="references-section">
+            <h3>📚 一手参考来源</h3>
+
+
+            <div class="file-item">
+                <div class="file-icon">🧭</div>
+                <div class="file-info">
+                    <div class="filename"><a href="https://modelcontextprotocol.io/docs/getting-started/intro" target="_blank" rel="noopener noreferrer">Model Context Protocol 官方文档：What is the Model Context Protocol (MCP)?</a></div>
+                    <div class="filetype">用于定义 MCP：AI 应用连接外部系统的开放标准，而不只是“调工具接口”。</div>
+                </div>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">🛠️</div>
+                <div class="file-info">
+                    <div class="filename"><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview" target="_blank" rel="noopener noreferrer">Anthropic 官方文档：Tool use with Claude - Overview</a></div>
+                    <div class="filetype">用于界定 Tool Use：模型负责生成结构化调用请求，应用负责定义、执行和回传工具结果。</div>
+                </div>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">🧠</div>
+                <div class="file-info">
+                    <div class="filename"><a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">Anthropic 官方工程文章：Building Effective Agents</a></div>
+                    <div class="filetype">用于界定 Workflow 与 Agent：预定义代码路径 vs 模型动态指导过程与工具使用。</div>
+                </div>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">📄</div>
+                <div class="file-info">
+                    <div class="filename"><a href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener noreferrer">原始论文：Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a></div>
+                    <div class="filetype">用于给出 RAG 的原始定义：结合参数化记忆与非参数化检索记忆进行生成。</div>
+                </div>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">🦞</div>
+                <div class="file-info">
+                    <div class="filename"><a href="https://docs.openclaw.ai/" target="_blank" rel="noopener noreferrer">OpenClaw 官方文档首页</a></div>
+                    <div class="filetype">用于确认 OpenClaw 的产品定位：self-hosted gateway / personal AI assistant，而非通用协议名词。</div>
+                </div>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">📦</div>
+                <div class="file-info">
+                    <div class="filename"><a href="https://docs.openclaw.ai/zh-CN/tools/skills" target="_blank" rel="noopener noreferrer">OpenClaw 官方文档：Skills</a></div>
+                    <div class="filetype">用于确认 Skill 在 OpenClaw 中属于平台内能力封装，而不是天然的跨平台统一标准。</div>
+                </div>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">👥</div>
+                <div class="file-info">
+                    <div class="filename"><a href="https://code.claude.com/docs/en/sub-agents" target="_blank" rel="noopener noreferrer">Claude Code 官方文档：Create custom subagents</a></div>
+                    <div class="filetype">用于确认 SubAgent 是任务委派与上下文隔离机制，但其定义依赖具体平台语境。</div>
+                </div>
+            </div>
+
+            <div class="file-item">
+                <div class="file-icon">🔎</div>
+                <div class="file-info">
+                    <div class="filename"><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer">OpenClaw 官方 GitHub 仓库</a></div>
+                    <div class="filetype">用于交叉验证 OpenClaw 的官方自述与产品边界，避免只凭社区转述下结论。</div>
+                </div>
+            </div>
+
+            <div class="warning-panel">
+                <strong>存疑项说明：</strong>作为跨平台通用术语，<strong>Skill</strong> 与 <strong>SubAgent</strong> 目前都更像“各平台各自实现的产品概念”，并没有像 MCP 这样稳定且统一的行业标准定义。因此本页只在具体平台语境中引用它们的一手定义，不把它们硬写成全行业通用标准。
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-divider"></div>
+        <p>面向知识整理与分享而写：优先采用官方文档、官方工程文章与原始论文；缺少稳定一手定义的术语，则按具体平台语境理解，并在必要处保留谨慎说明。</p>
+
+    </div>
+
+</body>
+</html>

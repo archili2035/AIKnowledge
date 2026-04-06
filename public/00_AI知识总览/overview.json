@@ -1,0 +1,123 @@
+{
+  "title": "AI知识图谱",
+  "subtitle": "宏观总览原型",
+  "description": "用于建立整体版图感的总览主树。它负责回答‘AI 领域大致分成哪几块’，而不是承载全部细节。",
+  "categories": [
+    {
+      "id": "foundations",
+      "title": "基座模型",
+      "summary": "作为能力底座，决定推理、生成、对话与调用上限。",
+      "color": "#5B8FF9",
+      "children": [
+        {"id": "qwen", "title": "Qwen", "type": "模型", "path": "node.html?id=qwen", "sourcePath": "nodes/models/qwen.md"},
+        {"id": "deepseek", "title": "DeepSeek", "type": "模型", "path": "node.html?id=deepseek", "sourcePath": "nodes/models/deepseek.md"},
+        {"id": "claude", "title": "Claude", "type": "模型", "path": "node.html?id=claude", "sourcePath": "nodes/models/claude.md"},
+        {"id": "gemini", "title": "Gemini", "type": "模型", "path": "node.html?id=gemini", "sourcePath": "nodes/models/gemini.md"},
+        {"id": "gpt", "title": "GPT", "type": "模型", "path": "node.html?id=gpt", "sourcePath": "nodes/models/gpt.md"}
+      ]
+    },
+    {
+      "id": "chatbots",
+      "title": "聊天模型 / 助手",
+      "summary": "面向普通用户的对话入口，强调可用体验而不是底层模型本身。",
+      "color": "#61DDAA",
+      "children": [
+        {"id": "chatgpt", "title": "ChatGPT", "type": "产品", "path": "node.html?id=chatgpt", "sourcePath": "nodes/products/chatgpt.md"},
+        {"id": "claude-chat", "title": "Claude Pro/Max", "type": "产品"},
+        {"id": "google-ai", "title": "Google AI", "type": "产品", "path": "node.html?id=google-ai", "sourcePath": "nodes/products/google-ai.md"}
+      ]
+    },
+    {
+      "id": "code-agents",
+      "title": "代码助手 / Code Agent",
+      "summary": "围绕代码理解、生成、修改与执行闭环形成的工具层。",
+      "color": "#65789B",
+      "children": [
+        {"id": "cursor", "title": "Cursor", "type": "产品", "path": "node.html?id=cursor", "sourcePath": "nodes/products/cursor.md"},
+        {"id": "claude-code", "title": "Claude Code", "type": "产品", "path": "node.html?id=claude-code", "sourcePath": "nodes/products/claude-code.md"},
+        {"id": "codebuddy", "title": "CodeBuddy", "type": "产品", "path": "node.html?id=codebuddy", "sourcePath": "nodes/products/codebuddy.md"}
+      ]
+    },
+    {
+      "id": "multimodal",
+      "title": "多模态生成",
+      "summary": "从图像、视频到世界模型，关注内容生成与交互体验。",
+      "color": "#F6BD16",
+      "children": [
+        {"id": "midjourney", "title": "Midjourney", "type": "图片生成", "path": "node.html?id=midjourney", "sourcePath": "nodes/products/midjourney.md"},
+        {"id": "video-generation", "title": "视频生成", "type": "方向"},
+        {"id": "genie-3", "title": "Google Genie 3", "type": "世界模型"}
+      ]
+    },
+    {
+      "id": "general-agents",
+      "title": "通用 Agent",
+      "summary": "强调任务执行、工具调用、环境操作与多步闭环。",
+      "color": "#7262FD",
+      "children": [
+        {"id": "manus", "title": "Manus", "type": "产品", "path": "node.html?id=manus", "sourcePath": "nodes/products/manus.md"},
+        {"id": "lingguang", "title": "灵光", "type": "产品"},
+        {"id": "doubao-mobile", "title": "豆包手机", "type": "产品"},
+        {"id": "clawdbot", "title": "clawdbot", "type": "自建 Agent"},
+        {"id": "arkclaw", "title": "ArkClaw", "type": "产品"},
+        {"id": "workbuddy", "title": "WorkBuddy", "type": "产品", "path": "node.html?id=workbuddy", "sourcePath": "nodes/products/workbuddy.md"},
+        {"id": "claude-cowork", "title": "claude cowork", "type": "产品"}
+      ]
+    },
+    {
+      "id": "game-ai",
+      "title": "游戏制作与 AI",
+      "summary": "把模型、Agent 与图像/3D/动画工具链结合到具体制作场景。",
+      "color": "#78D3F8",
+      "children": [
+        {"id": "game-production", "title": "游戏制作与AI", "type": "场景", "path": "node.html?id=game-production", "sourcePath": "nodes/scenarios/game-production.md"},
+        {"id": "game-design", "title": "宏观设计", "type": "场景"},
+        {"id": "game-coding", "title": "代码开发", "type": "场景"},
+        {"id": "game-2d-art", "title": "2D美术", "type": "场景"},
+        {"id": "game-ui", "title": "UI", "type": "场景"},
+        {"id": "mesh-topology-texture", "title": "图生模&拓扑&贴图生成", "type": "垂直工具链"},
+        {"id": "animation-generation", "title": "骨骼&动画生成", "type": "垂直工具链"},
+        {"id": "skin-generation", "title": "蒙皮生成", "type": "垂直工具链"},
+        {"id": "ai-rendering", "title": "AI渲染", "type": "垂直工具链"}
+      ]
+    },
+    {
+      "id": "themes",
+      "title": "核心热点 / 方法论",
+      "summary": "回答‘眼下最重要的问题是什么’，例如数据、评估、网络效应。",
+      "color": "#F08BB4",
+      "children": [
+        {"id": "high-quality-data", "title": "高质量数据", "type": "议题", "path": "node.html?id=high-quality-data", "sourcePath": "nodes/themes/high-quality-data.md"},
+        {"id": "static-dynamic-eval", "title": "静态/动态评估", "type": "评估", "path": "node.html?id=static-dynamic-eval", "sourcePath": "nodes/themes/static-dynamic-eval.md"},
+        {"id": "goodhart-law", "title": "古德哈特定律", "type": "方法论", "path": "node.html?id=goodhart-law", "sourcePath": "nodes/themes/goodhart-law.md"},
+        {"id": "metcalfe-law", "title": "梅特卡夫定律", "type": "方法论", "path": "node.html?id=metcalfe-law", "sourcePath": "nodes/themes/metcalfe-law.md"}
+      ]
+    },
+    {
+      "id": "academics",
+      "title": "关键概念 / 学术抓手",
+      "summary": "为更复杂的产品与工具现象提供底层理论抓手，也负责术语校准。",
+      "color": "#FF99C3",
+      "children": [
+        {"id": "agent", "title": "Agent", "type": "概念", "path": "node.html?id=agent", "sourcePath": "nodes/concepts/agent.md"},
+        {"id": "rag", "title": "RAG", "type": "概念", "path": "node.html?id=rag", "sourcePath": "nodes/concepts/rag.md"},
+        {"id": "transformer", "title": "Transformer", "type": "概念", "path": "node.html?id=transformer", "sourcePath": "nodes/concepts/transformer.md"},
+        {"id": "deep-learning", "title": "深度学习", "type": "概念", "path": "node.html?id=deep-learning", "sourcePath": "nodes/concepts/deep-learning.md"},
+        {"id": "reinforcement-learning", "title": "强化学习", "type": "概念", "path": "node.html?id=reinforcement-learning", "sourcePath": "nodes/concepts/reinforcement-learning.md"}
+      ]
+    },
+    {
+      "id": "ecosystems",
+      "title": "公司生态",
+      "summary": "按公司观察模型、产品与 Agent 方案的打包方式。",
+      "color": "#FF9845",
+      "children": [
+        {"id": "google", "title": "Google", "type": "公司", "path": "node.html?id=google", "sourcePath": "nodes/companies/google.md"},
+        {"id": "bytedance", "title": "字节", "type": "公司", "path": "node.html?id=bytedance", "sourcePath": "nodes/companies/bytedance.md"},
+        {"id": "tencent", "title": "腾讯", "type": "公司", "path": "node.html?id=tencent", "sourcePath": "nodes/companies/tencent.md"},
+        {"id": "anthropic", "title": "Anthropic", "type": "公司", "path": "node.html?id=anthropic", "sourcePath": "nodes/companies/anthropic.md"},
+        {"id": "openai", "title": "OpenAI", "type": "公司", "path": "node.html?id=openai", "sourcePath": "nodes/companies/openai.md"}
+      ]
+    }
+  ]
+}

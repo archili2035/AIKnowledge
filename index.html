@@ -5,101 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI知识库首页</title>
     <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg: #f5f7fb;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --subtext: #5a6a7a;
+            --border: #e8ecf1;
+            --accent: #4361ee;
+            --shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+        }
+
+        * { box-sizing: border-box; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            margin: 0;
+            background: linear-gradient(180deg, #f5f7fb 0%, #eef2f8 100%);
+            color: var(--text);
             line-height: 1.8;
-            color: #333;
-            background-color: #f5f5f5;
+            padding: 32px 20px 48px;
         }
+
         .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 980px;
+            margin: 0 auto;
         }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
+
+        .hero {
+            background: var(--primary-gradient);
+            color: #fff;
+            border-radius: 18px;
+            padding: 28px 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
         }
+
+        .hero h1 {
+            margin: 0 0 8px;
+            font-size: 30px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            margin: 0;
+            opacity: 0.95;
+        }
+
         h2 {
-            color: #34495e;
-            margin-top: 35px;
-            margin-bottom: 15px;
-            border-left: 4px solid #3498db;
-            padding-left: 15px;
+            margin: 28px 0 14px;
+            font-size: 20px;
+            color: #2b3650;
         }
-        .directory {
-            background: #f8f9fa;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 5px;
-            border-left: 4px solid #3498db;
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 14px;
         }
-        .directory h3 {
-            margin: 0 0 10px 0;
-            color: #2980b9;
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 2px 10px rgba(16, 24, 40, 0.04);
         }
-        .directory p {
-            margin: 5px 0;
-            color: #666;
+
+        .card h3 {
+            margin: 0 0 8px;
+            color: #2a3f78;
+            font-size: 17px;
         }
+
+        .card p {
+            margin: 6px 0;
+            color: var(--subtext);
+            font-size: 14px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover { text-decoration: underline; }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: #eef2ff;
+            color: #3b4cca;
+            border: 1px solid #dfe5ff;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
         .meta {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            font-size: 0.9em;
-            color: #666;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6b7280;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🤖 AI知识库</h1>
-
-        <p><strong>一个持续更新的 AI 学习与实践知识库。</strong></p>
-        <p>公开内容用于分享；私有信息仅本地保存，不上传。</p>
+        <section class="hero">
+            <h1>🤖 AI知识库</h1>
+            <p>公开内容用于分享，私有信息仅本地保存。当前采用公开级/私有级两档。</p>
+        </section>
 
         <h2>公开目录</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>📁 00_AI知识总览</h3>
+                <p>先看全局版图，再进入专题页与节点详情页；用于承接类似脑图 / XMind 的宏观入口。</p>
+                <p><a href="public/00_AI知识总览/index.html">查看 AI 知识总览 →</a></p>
+            </div>
 
-        <div class="directory">
-            <h3>📁 01_AI基础理论</h3>
-            <p>机器学习、深度学习、LLM 等基础知识沉淀。</p>
+            <div class="card">
+                <h3>📁 01_AI基础理论</h3>
+                <p>机器学习、深度学习、LLM 与工程基础方法论。</p>
+                <p><a href="public/01_AI基础理论/一口气拆穿Skill／MCP／RAG／Agent／OpenClaw底层逻辑.html">查看首篇：Skill/MCP/RAG/Agent/OpenClaw 底层逻辑 →</a></p>
+            </div>
+
+
+            <div class="card">
+                <h3>📁 02_AI工具与平台</h3>
+                <p>工具评测、平台对比与使用经验沉淀。</p>
+            </div>
+
+            <div class="card">
+                <h3>📁 03_AI讲座与分享</h3>
+                <p>公开讲座笔记与可分享的知识结论。</p>
+                <p><a href="public/03_AI讲座与分享/AI-Native团队与人才-讲座笔记.html">查看公开讲座笔记 →</a></p>
+            </div>
+
+            <div class="card">
+                <h3>📁 04_实践案例与应用</h3>
+                <p>AI 在真实工作流中的落地案例与复盘。</p>
+            </div>
+
+            <div class="card">
+                <h3>📁 05_AI前沿动态</h3>
+                <p>论文、产品与行业动态追踪。</p>
+            </div>
+
+            <div class="card">
+                <h3>📁 06_学习路径与规划</h3>
+                <p>学习路线、实践计划与阶段总结。</p>
+            </div>
         </div>
 
-        <div class="directory">
-            <h3>📁 02_AI工具与平台</h3>
-            <p>工具评测、平台对比与使用经验。</p>
+        <h2>统一设计关键词</h2>
+        <div class="card">
+            <div class="keywords">
+                <span class="tag">渐变科技感</span>
+                <span class="tag">卡片化信息块</span>
+                <span class="tag">高留白高可读</span>
+                <span class="tag">柔和阴影层级</span>
+                <span class="tag">统一蓝紫主色</span>
+                <span class="tag">状态标签化</span>
+            </div>
+            <p class="meta">详细规范见：<a href="public/HTML视觉统一关键词.md">public/HTML视觉统一关键词.md</a></p>
         </div>
 
-        <div class="directory">
-            <h3>📁 03_AI讲座与分享</h3>
-            <p><a href="public/03_AI讲座与分享/AI-Native团队与人才-讲座笔记.html" style="color: #3498db; text-decoration: none; font-weight: 600;">查看公开讲座笔记 →</a></p>
-            <p style="font-size: 0.92em; color: #666;">讲座详细信息（讲师、时间、直播链接）仅保留在本地私有目录。</p>
-        </div>
-
-        <div class="directory">
-            <h3>📁 04_实践案例与应用</h3>
-            <p>AI 在真实工作流中的落地案例。</p>
-        </div>
-
-        <div class="directory">
-            <h3>📁 05_AI前沿动态</h3>
-            <p>论文、产品与行业动态追踪。</p>
-        </div>
-
-        <div class="directory">
-            <h3>📁 06_学习路径与规划</h3>
-            <p>学习路线、实践计划与阶段总结。</p>
-        </div>
-
-        <div class="meta">
-            <p><strong>分级规则:</strong> 仅保留“公开级 / 私有级”两档。</p>
-        </div>
+        <div class="meta">分级规则：仅保留“公开级 / 私有级”两档。</div>
     </div>
 </body>
 </html>
+

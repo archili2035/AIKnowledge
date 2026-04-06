@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "status": "draft",
+    "description": "横向关系层草稿。用于表达 overview 主树之外的跨分支关系。当前已从首批样例扩展到覆盖模型、产品、方法论与公司生态的正式版关系骨架。",
+    "allowedRelationTypes": [
+      "belongs_to",
+      "provided_by",
+      "related_to",
+      "used_in",
+      "competes_with",
+      "depends_on"
+    ]
+  },
+  "relations": [
+    {
+      "source": "claude",
+      "type": "provided_by",
+      "target": "anthropic",
+      "note": "Claude 属于 Anthropic 的模型体系。"
+    },
+    {
+      "source": "chatgpt",
+      "type": "provided_by",
+      "target": "openai",
+      "note": "ChatGPT 是 OpenAI 面向用户的对话产品形态。"
+    },
+    {
+      "source": "gpt",
+      "type": "provided_by",
+      "target": "openai",
+      "note": "GPT 可以作为 OpenAI 模型系列节点来理解。"
+    },
+    {
+      "source": "gemini",
+      "type": "provided_by",
+      "target": "google",
+      "note": "Gemini 属于 Google 的模型与能力体系。"
+    },
+    {
+      "source": "google-ai",
+      "type": "provided_by",
+      "target": "google",
+      "note": "Google AI 更适合作为 Google 面向用户的 AI 入口产品来理解。"
+    },
+    {
+      "source": "google-ai",
+      "type": "related_to",
+      "target": "gemini",
+      "note": "入口产品和底层模型家族需要分层理解，但二者通常会一起出现。"
+    },
+    {
+      "source": "qwen",
+      "type": "related_to",
+      "target": "transformer",
+      "note": "Qwen 这类现代大模型，放回 Transformer 技术主干里更容易理解。"
+    },
+    {
+      "source": "deepseek",
+      "type": "related_to",
+      "target": "transformer",
+      "note": "DeepSeek 作为模型家族节点，也更适合放回 Transformer 主干来观察。"
+    },
+    {
+      "source": "transformer",
+      "type": "belongs_to",
+      "target": "deep-learning",
+      "note": "Transformer 属于深度学习范式下的一类关键神经网络架构。"
+    },
+    {
+      "source": "reinforcement-learning",
+      "type": "related_to",
+      "target": "agent",
+      "note": "强化学习提供了理解行动、反馈与策略调整的一条理论线。"
+    },
+    {
+      "source": "workbuddy",
+      "type": "related_to",
+      "target": "agent",
+      "note": "WorkBuddy 更适合作为 Agent 产品形态来理解。"
+    },
+    {
+      "source": "cursor",
+      "type": "related_to",
+      "target": "agent",
+      "note": "代码助手正在持续吸收 Agent 式的执行与编排能力。"
+    },
+    {
+      "source": "claude-code",
+      "type": "provided_by",
+      "target": "anthropic",
+      "note": "Claude Code 属于 Anthropic 的代码助手 / Code Agent 产品线。"
+    },
+    {
+      "source": "claude-code",
+      "type": "related_to",
+      "target": "claude",
+      "note": "Claude Code 适合被理解为 Claude 模型能力在编程场景下的工具形态。"
+    },
+    {
+      "source": "codebuddy",
+      "type": "related_to",
+      "target": "agent",
+      "note": "代码助手产品正在不断吸收 Agent 式的执行与编排能力。"
+    },
+    {
+      "source": "workbuddy",
+      "type": "provided_by",
+      "target": "tencent",
+      "note": "WorkBuddy 属于腾讯生态里的工作助手 / Agent 产品形态。"
+    },
+    {
+      "source": "codebuddy",
+      "type": "provided_by",
+      "target": "tencent",
+      "note": "CodeBuddy 属于腾讯生态里的代码助手产品形态。"
+    },
+    {
+      "source": "arkclaw",
+      "type": "provided_by",
+      "target": "bytedance",
+      "note": "ArkClaw 可以放回字节生态下理解其产品与场景定位。"
+    },
+    {
+      "source": "doubao-mobile",
+      "type": "provided_by",
+      "target": "bytedance",
+      "note": "豆包手机更适合作为字节生态里的移动端 Agent 产品方向来观察。"
+    },
+    {
+      "source": "rag",
+      "type": "related_to",
+      "target": "agent",
+      "note": "Agent 在需要外部知识时，常会和 RAG 形成组合。"
+    },
+    {
+      "source": "agent",
+      "type": "used_in",
+      "target": "game-production",
+      "note": "Agent 更容易在具体工作流场景里体现价值，例如游戏制作。"
+    },
+    {
+      "source": "midjourney",
+      "type": "used_in",
+      "target": "game-production",
+      "note": "图片生成工具经常作为游戏前期视觉探索和素材草图的一环。"
+    },
+    {
+      "source": "manus",
+      "type": "related_to",
+      "target": "agent",
+      "note": "Manus 更适合作为强调任务执行闭环的通用 Agent 产品来理解。"
+    },
+    {
+      "source": "anthropic",
+      "type": "related_to",
+      "target": "agent",
+      "note": "Anthropic 公开过多篇关于 Agent 工程实践的方法论文章。"
+    },
+    {
+      "source": "high-quality-data",
+      "type": "related_to",
+      "target": "static-dynamic-eval",
+      "note": "数据质量和评估方式需要一起看，否则很难判断系统到底稳不稳。"
+    },
+    {
+      "source": "goodhart-law",
+      "type": "related_to",
+      "target": "static-dynamic-eval",
+      "note": "一旦把单一分数当成目标，评估本身就可能开始失真。"
+    },
+    {
+      "source": "metcalfe-law",
+      "type": "related_to",
+      "target": "agent",
+      "note": "当 Agent 能连接更多工具、知识和协作者时，平台层价值更容易被放大。"
+    }
+  ]
+}
+
+
