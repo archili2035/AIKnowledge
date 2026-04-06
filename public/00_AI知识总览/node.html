@@ -345,7 +345,7 @@
             justify-content: space-between;
             align-items: stretch;
             gap: 16px;
-            margin-top: 28px;
+            margin-bottom: 22px;
         }
 
         .nav-link {
@@ -868,6 +868,7 @@
             const navHtml = renderNavBar(node.id);
 
             app.innerHTML = `
+                ${navHtml}
                 <div class="layout">
                     <article class="panel main-panel">
                         ${sectionHtml}
@@ -902,7 +903,6 @@
                         </section>
                     </aside>
                 </div>
-                ${navHtml}
             `;
         }
 
