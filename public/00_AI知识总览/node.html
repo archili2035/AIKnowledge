@@ -340,6 +340,61 @@
             color: #b42318;
         }
 
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .nav-link {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(217, 225, 242, 0.9);
+            box-shadow: var(--shadow-sm);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: rgba(106, 140, 255, 0.4);
+            text-decoration: none;
+        }
+
+        .nav-link.next {
+            text-align: right;
+        }
+
+        .nav-label {
+            font-size: 0.82rem;
+            color: var(--subtext);
+            font-weight: 600;
+        }
+
+        .nav-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-solid);
+        }
+
+        .nav-category {
+            font-size: 0.8rem;
+            color: var(--subtext);
+        }
+
+        .nav-placeholder {
+            flex: 1;
+        }
+
         @media (max-width: 960px) {
             .layout {
                 grid-template-columns: 1fr;
@@ -405,6 +460,7 @@
         let nodeLookup = new Map();
         let categoryLookup = new Map();
         let relationData = [];
+        let browseList = [];
 
 
 
@@ -664,6 +720,20 @@
                     });
                 });
             });
+
+            browseList = [];
+            overview.categories.forEach(category => {
+                category.children.forEach(child => {
+                    if (child.path) {
+                        browseList.push({
+                            id: child.id,
+                            title: child.title,
+                            path: child.path,
+                            categoryTitle: category.title
+                        });
+                    }
+                });
+            });
         }
 
         function getNodeInfo(id) {
@@ -732,6 +802,39 @@
             }).join('') + '</div>';
         }
 
+        function renderNavBar(currentId) {
+            const index = browseList.findIndex(item => item.id === currentId);
+            if (index === -1) return '';
+
+            const prev = index > 0 ? browseList[index - 1] : null;
+            const next = index < browseList.length - 1 ? browseList[index + 1] : null;
+
+            let html = '<nav class="nav-bar">';
+
+            if (prev) {
+                html += '<a class="nav-link prev" href="' + prev.path + '">'
+                    + '<span class="nav-label">← 上一节点</span>'
+                    + '<span class="nav-title">' + escapeHtml(prev.title) + '</span>'
+                    + '<span class="nav-category">' + escapeHtml(prev.categoryTitle) + '</span>'
+                    + '</a>';
+            } else {
+                html += '<div class="nav-placeholder"></div>';
+            }
+
+            if (next) {
+                html += '<a class="nav-link next" href="' + next.path + '">'
+                    + '<span class="nav-label">下一节点 →</span>'
+                    + '<span class="nav-title">' + escapeHtml(next.title) + '</span>'
+                    + '<span class="nav-category">' + escapeHtml(next.categoryTitle) + '</span>'
+                    + '</a>';
+            } else {
+                html += '<div class="nav-placeholder"></div>';
+            }
+
+            html += '</nav>';
+            return html;
+        }
+
         function renderPage(node, payload) {
             const category = categoryLookup.get(node.categoryId);
             const displayTitle = payload.title || node.title;
@@ -743,14 +846,6 @@
             const relatedHtml = renderRelatedLinks(payload.related || []);
             const sourceHtml = renderSources(payload.sources || []);
             const relationHtml = renderRelations(node.id);
-            const infoItems = [
-                '<div class="info-item"><strong>总览中的位置</strong><span>' + escapeHtml(node.categoryTitle || categoryLabel) + ' · ' + escapeHtml(typeLabel) + '</span></div>',
-                '<div class="info-item"><strong>一句话把握</strong><span>' + escapeHtml(summaryText) + '</span></div>'
-            ];
-
-            if (payload.provider) {
-                infoItems.splice(1, 0, '<div class="info-item"><strong>相关主体</strong><span>' + escapeHtml(payload.provider) + '</span></div>');
-            }
 
             document.title = displayTitle + '｜AI节点详情';
             heroTitle.textContent = displayTitle;
@@ -770,19 +865,14 @@
                 metaRow.appendChild(createPill('置信度', payload.confidence));
             }
 
+            const navHtml = renderNavBar(node.id);
+
             app.innerHTML = `
                 <div class="layout">
                     <article class="panel main-panel">
-                        <div class="status-box">先看“是什么”和“为什么重要”，再顺着相关节点与横向关系继续展开，会更容易把这个对象放回整张 AI 版图里理解。</div>
-                        <div style="height:16px"></div>
                         ${sectionHtml}
                     </article>
                     <aside class="panel sidebar">
-                        <section class="section-card">
-                            <h3>快速信息</h3>
-                            <div class="info-list">${infoItems.join('')}</div>
-                        </section>
-
                         <section class="section-card">
                             <h3>标签</h3>
                             ${tagHtml}
@@ -812,6 +902,7 @@
                         </section>
                     </aside>
                 </div>
+                ${navHtml}
             `;
         }
 

@@ -285,7 +285,6 @@
             color: var(--text-secondary);
             font-size: 0.92rem;
             margin-bottom: 14px;
-            min-height: 64px;
         }
 
         .chip-list {
@@ -452,16 +451,10 @@
             color: #4a5ed1;
         }
 
-        .detail-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .detail-footer {
-            margin-top: auto;
+        .detail-advice {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
+            margin-top: 4px;
         }
 
         .strategy-grid {
@@ -694,13 +687,8 @@
                     <p id="detailSummary" class="detail-summary">点击左侧任一分支卡片，查看这块内容的定位、代表节点与关联关系。</p>
 
                     <div class="detail-block">
-                        <h4>代表节点</h4>
-                        <div id="detailList" class="detail-list"></div>
-                    </div>
-
-                    <div class="detail-block">
-                        <h4>可继续阅读</h4>
-                        <div id="detailLinkList" class="detail-link-grid"></div>
+                        <h4>节点一览</h4>
+                        <div id="detailNodeList" class="detail-link-grid"></div>
                     </div>
 
                     <div class="detail-block">
@@ -708,17 +696,7 @@
                         <div id="relationList" class="relation-list"></div>
                     </div>
 
-                    <div class="detail-block">
-                        <h4>阅读建议</h4>
-                        <p id="detailAdvice">建议先从代表节点进入，再顺着相关关系继续展开。</p>
-                    </div>
-
-                    <div class="detail-block">
-                        <h4>怎么使用这张图</h4>
-                        <p>先在左侧定位主题，再从右侧进入代表节点；如果想理解对象之间的连接方式，可以继续看跨分支关系。</p>
-                    </div>
-
-                    <div class="detail-footer">推荐阅读顺序：先看分支定位，再看代表节点，最后顺着关系继续展开。</div>
+                    <p id="detailAdvice" class="detail-advice">建议先从代表节点进入，再顺着相关关系继续展开。</p>
                 </aside>
             </div>
         </section>
@@ -794,8 +772,7 @@
         const detailBadge = document.getElementById('detailBadge');
         const detailTitle = document.getElementById('detailTitle');
         const detailSummary = document.getElementById('detailSummary');
-        const detailList = document.getElementById('detailList');
-        const detailLinkList = document.getElementById('detailLinkList');
+        const detailNodeList = document.getElementById('detailNodeList');
         const relationList = document.getElementById('relationList');
         const detailAdvice = document.getElementById('detailAdvice');
 
@@ -812,7 +789,7 @@
             'general-agents': '建议重点看任务闭环、工具接入和结果交付，再比较不同通用 Agent 的实际定位。',
             'game-ai': '建议按真实工作流阅读：先看整体场景，再进入代码、美术、动画、渲染等具体环节。',
             themes: '建议把这块当成判断框架来看，帮助你在看产品和模型时不只停留在表面热度。',
-            academics: '建议把这块当成术语校准区，先弄清概念边界，再回到产品和场景理解会更稳。',
+            academics: '建议先按“架构基础 → 训练与对齐 → 检索增强 → 推理与Agent → 协议与互操作”顺序看，先建立概念骨架，再回到产品和场景。',
             ecosystems: '建议用公司视角观察不同生态如何组织模型、产品与 Agent 方案，再和具体节点对照着看。'
         };
 
@@ -878,9 +855,61 @@
             link.href = item.path;
             link.innerHTML = `
                 <strong>${item.title}</strong>
-                <span>${item.type} · 打开节点详情</span>
+                <span>查看详情</span>
             `;
             return link;
+        }
+
+        function getGroupedItems(items) {
+            const hasGroups = items.some(item => item.group);
+            if (!hasGroups) {
+                return [{ title: '', items }];
+            }
+
+            const groupMap = new Map();
+            items.forEach(item => {
+                const groupTitle = item.group || '其他';
+                if (!groupMap.has(groupTitle)) {
+                    groupMap.set(groupTitle, []);
+                }
+                groupMap.get(groupTitle).push(item);
+            });
+            return Array.from(groupMap, ([title, groupItems]) => ({ title, items: groupItems }));
+        }
+
+        function renderMergedNodes(container, items) {
+            const groups = getGroupedItems(items);
+
+            if (groups.length === 1 && !groups[0].title) {
+                groups[0].items.forEach(item => {
+                    container.appendChild(item.path ? createLinkCard(item) : makeChip(item.title));
+                });
+                if (!items.some(item => item.path)) {
+                    const empty = document.createElement('div');
+                    empty.className = 'empty-hint';
+                    empty.textContent = '这个分支的独立条目还在补充中。';
+                    container.appendChild(empty);
+                }
+                return;
+            }
+
+            groups.forEach(group => {
+                const block = document.createElement('div');
+                block.className = 'detail-group';
+                if (group.title) {
+                    const title = document.createElement('div');
+                    title.className = 'detail-group-title';
+                    title.textContent = group.title;
+                    block.appendChild(title);
+                }
+                const grid = document.createElement('div');
+                grid.className = 'detail-link-grid';
+                group.items.forEach(item => {
+                    grid.appendChild(item.path ? createLinkCard(item) : makeChip(item.title));
+                });
+                block.appendChild(grid);
+                container.appendChild(block);
+            });
         }
 
 
@@ -968,23 +997,11 @@
             detailSummary.textContent = category.summary;
             detailAdvice.textContent = adviceMap[category.id] || '建议先从代表节点进入，再顺着相关关系继续展开。';
 
-            detailList.innerHTML = '';
-            detailLinkList.innerHTML = '';
+            const hasGroups = category.children.some(item => item.group);
+            detailNodeList.className = hasGroups ? 'detail-group-stack' : 'detail-link-grid';
+            detailNodeList.innerHTML = '';
 
-            category.children.forEach(item => {
-                detailList.appendChild(makeChip(item.title + ' · ' + item.type));
-                if (item.path) {
-                    detailLinkList.appendChild(createLinkCard(item));
-                }
-            });
-
-            if (!detailLinkList.childNodes.length) {
-                const empty = document.createElement('div');
-                empty.className = 'empty-hint';
-                empty.textContent = '这个分支的独立条目还在补充中。';
-                detailLinkList.appendChild(empty);
-            }
-
+            renderMergedNodes(detailNodeList, category.children);
 
             renderRelationPreview(category);
 
@@ -1007,11 +1024,14 @@
             `;
 
             const chipList = card.querySelector('.chip-list');
-            category.children.slice(0, 6).forEach(child => {
-                chipList.appendChild(makeChip(child.title));
+            const previewItems = category.children.some(item => item.group)
+                ? [...new Set(category.children.map(item => item.group).filter(Boolean))]
+                : category.children.map(child => child.title);
+            previewItems.slice(0, 6).forEach(label => {
+                chipList.appendChild(makeChip(label));
             });
-            if (category.children.length > 6) {
-                chipList.appendChild(makeChip('+' + (category.children.length - 6) + ' 更多'));
+            if (previewItems.length > 6) {
+                chipList.appendChild(makeChip('+' + (previewItems.length - 6) + ' 更多'));
             }
 
             card.addEventListener('click', () => renderDetail(category));
@@ -1029,7 +1049,8 @@
                     category.title,
                     category.summary,
                     ...category.children.map(item => item.title),
-                    ...category.children.map(item => item.type)
+                    ...category.children.map(item => item.type),
+                    ...category.children.map(item => item.group || '')
                 ].join(' ').toLowerCase();
                 return haystack.includes(normalized);
             });
@@ -1042,8 +1063,7 @@
                 branchesGrid.innerHTML = '<div style="grid-column:1 / -1; padding: 30px; text-align:center; color:#5c6784;">没有匹配的分支，试试搜索更短的关键词。</div>';
                 detailTitle.textContent = '当前没有匹配的分支';
                 detailSummary.textContent = '可以尝试搜索分类名、产品名、概念名或场景名。';
-                detailList.innerHTML = '';
-                detailLinkList.innerHTML = '<div class="empty-hint">当前筛选结果为空，没有可跳转条目。</div>';
+                detailNodeList.innerHTML = '<div class="empty-hint">当前筛选结果为空，没有可跳转条目。</div>';
                 relationList.innerHTML = '<div class="empty-hint">当前筛选结果为空，没有关系预览。</div>';
                 detailAdvice.textContent = '可以换一个关键词，或者先从常见分支开始浏览。';
                 detailBadge.textContent = '筛选结果';
@@ -1081,8 +1101,7 @@
                 statsRow.innerHTML = '';
                 detailTitle.textContent = '数据加载失败';
                 detailSummary.textContent = '当前总览暂时无法展示。';
-                detailList.innerHTML = '';
-                detailLinkList.innerHTML = '<div class="empty-hint">当前无法展示条目跳转。</div>';
+                detailNodeList.innerHTML = '<div class="empty-hint">当前无法展示条目。</div>';
                 relationList.innerHTML = '<div class="empty-hint">当前无法展示横向关系。</div>';
                 detailAdvice.textContent = '请稍后刷新重试。';
                 detailBadge.textContent = '错误';

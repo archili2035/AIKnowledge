@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI知识总览节点数据",
     "generatedFrom": "nodes/**/*.md",
-    "nodeCount": 28
+    "nodeCount": 53
   },
   "nodes": {
     "anthropic": {
@@ -14,7 +14,7 @@
       "status": "active",
       "visibility": "public",
       "confidence": "high",
-      "updated": "2026-04-05",
+      "updated": "2026-04-06",
       "tags": [
         "公司",
         "Anthropic",
@@ -35,18 +35,6 @@
         {
           "title": "是什么",
           "content": "Anthropic 是当前 AI 生态中的重要公司之一，其公开信息通常围绕模型、安全性、产品与 Agent 工程实践展开。"
-        },
-        {
-          "title": "归类",
-          "content": "它属于“公司生态层”，更适合作为观察模型、产品和方法论如何被打包出来的入口，而不是直接等同于某个模型名。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "把公司层单独立出来，有助于图谱回答另一个问题：同样是 AI，为什么不同公司会形成不同的产品路径、能力重点和叙事方式。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "在这张图谱里，Anthropic 既能连到 Claude 这样的模型节点，也能连到 Agent 方法论，因此是比较典型的“生态级节点”。"
         },
         {
           "title": "来源",
@@ -93,18 +81,6 @@
           "content": "字节在这张图里更适合作为“公司生态节点”来理解，用来承接模型、Agent 产品、内容分发和工作流能力的整体打包关系。"
         },
         {
-          "title": "归类",
-          "content": "它属于“公司层”，和具体模型名称、具体聊天入口或单个 Agent 产品不同。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "补上公司节点后，知识图谱不再只是零散产品名单，而能开始解释不同厂商为什么会在相近方向上做出不同的产品组合与落地路径。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "对字节这类公司节点，长期维护重点应放在“它怎样组织产品与生态能力”，而不是简单记住某一波热点名称。这样更利于后续持续吸收新对象。"
-        },
-        {
           "title": "来源",
           "content": "- 字节跳动官方主页\n- 后续可继续补 Agent 产品、模型能力与平台生态资料"
         },
@@ -149,18 +125,6 @@
           "content": "Google 在这张图里更适合作为“公司生态节点”来理解，用来承接模型、产品入口、研究能力和平台资源的打包关系。"
         },
         {
-          "title": "归类",
-          "content": "它属于“公司层”，不是具体模型，也不是某个单点产品。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "很多 AI 对象如果只看名称，会显得彼此分散；一旦放回公司生态里，就更容易看出技术、产品和分发是如何被一起组织起来的。Google 正是这类观察方式里的关键节点。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "对公司节点，长期维护重点不应是新闻流水账，而是它如何把模型、入口产品、云平台和开发能力组织成一个可持续生态。"
-        },
-        {
           "title": "来源",
           "content": "- Google 官方主页\n- 后续可继续补模型产品线、研究组织与平台文档"
         },
@@ -180,7 +144,7 @@
       "status": "active",
       "visibility": "public",
       "confidence": "high",
-      "updated": "2026-04-05",
+      "updated": "2026-04-06",
       "tags": [
         "公司",
         "OpenAI",
@@ -200,18 +164,6 @@
         {
           "title": "是什么",
           "content": "OpenAI 是当前 AI 生态中的核心公司之一，既影响模型层，也深度影响用户入口产品层。"
-        },
-        {
-          "title": "归类",
-          "content": "它属于“公司生态层”，适合用来观察模型、产品与平台策略是如何被整合并对外呈现的。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "如果图谱里只有模型和产品，没有公司生态层，就很难解释不同产品路线背后的组织与生态差异。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "在总览结构中，OpenAI 适合和 ChatGPT 这样的产品节点互相勾连，帮助用户区分“公司 / 模型 / 产品”三个层次。"
         },
         {
           "title": "来源",
@@ -258,18 +210,6 @@
           "content": "腾讯在这张图里更适合作为“公司生态节点”来记录，用来连接模型能力、工具平台、工作助手和更广泛的业务场景。"
         },
         {
-          "title": "归类",
-          "content": "它属于“公司层”。和 WorkBuddy、CodeBuddy 这类具体产品不同，公司节点负责承接更上层的生态视角。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "如果知识图谱只记录单个产品，就很难解释这些产品为什么会长成现在这样。补上腾讯这样的公司节点，能帮助观察产品能力背后的平台资源、接入方式和组织分工。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "对公司节点，最值得长期维护的是“打包能力”的方式：它怎样把模型、工具、入口和业务环境串起来，而不是简单记一串产品名。"
-        },
-        {
           "title": "来源",
           "content": "- 腾讯官方主页\n- 后续可继续补平台产品线、Agent 形态与开发工具资料"
         },
@@ -280,61 +220,137 @@
       ],
       "sourcePath": "nodes/companies/tencent.md"
     },
+    "a2a": {
+      "id": "a2a",
+      "title": "A2A",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "Google",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "协议",
+        "Agent",
+        "多 Agent",
+        "互操作"
+      ],
+      "sources": [
+        {
+          "name": "Agent2Agent Protocol",
+          "url": "https://a2a-protocol.org/latest/"
+        },
+        {
+          "name": "Announcing the Agent2Agent Protocol (A2A)",
+          "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/"
+        }
+      ],
+      "related": [
+        "agent",
+        "mcp"
+      ],
+      "summary": "A2A（Agent2Agent）是面向 Agent 之间通信与协作的开放协议，作用是让不同系统、不同厂商的 Agent 可以分工、传递任务和交换结果。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "A2A（Agent2Agent）是面向 Agent 之间通信与协作的开放协议，作用是让不同系统、不同厂商的 Agent 可以分工、传递任务和交换结果。"
+        },
+        {
+          "title": "来源",
+          "content": "- A2A 官方文档\n- Google 官方公告《Announcing the Agent2Agent Protocol (A2A)》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[agent]]\n- [[mcp]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/a2a.md"
+    },
     "agent": {
       "id": "agent",
       "title": "Agent",
       "type": "concept",
-      "category": "关键概念",
+      "category": "关键概念 / 学术抓手",
       "provider": "",
       "status": "active",
       "visibility": "public",
       "confidence": "medium",
-      "updated": "2026-04-05",
+      "updated": "2026-04-06",
       "tags": [
-        "概念",
         "Agent",
         "工具调用",
-        "执行闭环"
+        "任务执行"
       ],
       "sources": [
         {
-          "name": "Anthropic Building Effective Agents",
+          "name": "Building Effective Agents",
           "url": "https://www.anthropic.com/engineering/building-effective-agents"
         }
       ],
       "related": [
-        "claude",
-        "workbuddy",
-        "game-production"
+        "tool-use",
+        "mcp",
+        "a2a"
       ],
-      "summary": "Agent 可以理解为：系统不只负责回答问题，还会围绕目标进行任务分解、调用工具、接收反馈并继续推进。",
+      "summary": "Agent 指系统不只负责回答问题，还会围绕目标拆步骤、调用工具、接收反馈并继续推进，作用是把一次性问答变成可持续执行的任务流程。",
       "sections": [
         {
           "title": "是什么",
-          "content": "Agent 可以理解为：系统不只负责回答问题，还会围绕目标进行任务分解、调用工具、接收反馈并继续推进。"
-        },
-        {
-          "title": "归类",
-          "content": "它属于“执行编排”这一层，不应直接和模型、协议、产品封装当成同一层概念。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "很多用户真正感知到的“AI 会做事了”，本质上都离不开 Agent 式的多步执行能力。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "在知识图谱里，Agent 很适合作为一个中枢节点：它会同时连向模型、工具、场景和产品，因此后续很可能是横向关系最多的概念之一。"
+          "content": "Agent 指系统不只负责回答问题，还会围绕目标拆步骤、调用工具、接收反馈并继续推进，作用是把一次性问答变成可持续执行的任务流程。"
         },
         {
           "title": "来源",
-          "content": "- Anthropic 关于 Agent 的工程文章\n- 后续可继续补平台型 Agent 文档与案例"
+          "content": "- Anthropic 官方工程文章《Building Effective Agents》"
         },
         {
           "title": "相关条目",
-          "content": "- [[claude]]\n- [[workbuddy]]\n- [[game-production]]"
+          "content": "- [[tool-use]]\n- [[mcp]]\n- [[a2a]]"
         }
       ],
       "sourcePath": "nodes/concepts/agent.md"
+    },
+    "context-window": {
+      "id": "context-window",
+      "title": "Context Window",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "上下文窗口",
+        "Token",
+        "长文本"
+      ],
+      "sources": [
+        {
+          "name": "Introducing 100K Context Windows",
+          "url": "https://www.anthropic.com/news/100k-context-windows"
+        }
+      ],
+      "related": [
+        "tokenization",
+        "long-context"
+      ],
+      "summary": "Context Window 指模型在一次输入输出过程中能同时看到和处理的上下文范围，通常按 token 数量来衡量，它直接影响模型一次能读多少内容。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Context Window 指模型在一次输入输出过程中能同时看到和处理的上下文范围，通常按 token 数量来衡量，它直接影响模型一次能读多少内容。"
+        },
+        {
+          "title": "来源",
+          "content": "- Anthropic 官方公告《Introducing 100K Context Windows》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[tokenization]]\n- [[long-context]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/context-window.md"
     },
     "deep-learning": {
       "id": "deep-learning",
@@ -347,10 +363,9 @@
       "confidence": "high",
       "updated": "2026-04-06",
       "tags": [
-        "概念",
+        "深度学习",
         "神经网络",
-        "机器学习",
-        "基础理论"
+        "机器学习"
       ],
       "sources": [
         {
@@ -361,89 +376,592 @@
       "related": [
         "transformer",
         "reinforcement-learning",
-        "agent"
+        "pretraining"
       ],
-      "summary": "深度学习可以先理解为一类以多层神经网络为核心的方法体系，用来从大量数据中学习表示、模式和决策能力。",
+      "summary": "深度学习是以多层神经网络为核心的方法体系，作用是让模型从大量数据中学习表示、模式和预测能力，是今天大模型和多模态系统的共同底盘之一。",
       "sections": [
         {
           "title": "是什么",
-          "content": "深度学习可以先理解为一类以多层神经网络为核心的方法体系，用来从大量数据中学习表示、模式和决策能力。"
-        },
-        {
-          "title": "归类",
-          "content": "它属于“底层理论抓手”。Transformer、图像生成模型、语音模型乃至很多 Agent 背后的能力底座，往上追，通常都还能回到深度学习这层。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "如果把 AI 知识图谱只做成产品目录，就很难解释为什么这些产品会逐渐收敛到相近的能力形态。深度学习节点的价值，在于给上层现象提供共同的技术背景。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "对非研究导向的知识库来说，深度学习不一定要展开成教科书式大全，更适合承担“上层技术的共同底盘”这一角色。后续只在确实需要解释边界时，再拆更细的理论节点。"
+          "content": "深度学习是以多层神经网络为核心的方法体系，作用是让模型从大量数据中学习表示、模式和预测能力，是今天大模型和多模态系统的共同底盘之一。"
         },
         {
           "title": "来源",
-          "content": "- Deep Learning Book\n- 后续可继续补入门教材与综述资料"
+          "content": "- Goodfellow 等《Deep Learning》在线版"
         },
         {
           "title": "相关条目",
-          "content": "- [[transformer]]\n- [[reinforcement-learning]]\n- [[agent]]"
+          "content": "- [[transformer]]\n- [[reinforcement-learning]]\n- [[pretraining]]"
         }
       ],
       "sourcePath": "nodes/concepts/deep-learning.md"
+    },
+    "embedding": {
+      "id": "embedding",
+      "title": "Embedding",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "向量",
+        "嵌入",
+        "相似度"
+      ],
+      "sources": [
+        {
+          "name": "Distributed Representations of Words and Phrases and their Compositionality",
+          "url": "https://arxiv.org/abs/1310.4546"
+        }
+      ],
+      "related": [
+        "retrieval",
+        "rag"
+      ],
+      "summary": "Embedding 是把文本、图片或其他对象编码成向量表示的办法，主要用来支持相似度计算、搜索召回、聚类和推荐。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Embedding 是把文本、图片或其他对象编码成向量表示的办法，主要用来支持相似度计算、搜索召回、聚类和推荐。"
+        },
+        {
+          "title": "来源",
+          "content": "- 原始论文《Distributed Representations of Words and Phrases and their Compositionality》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[retrieval]]\n- [[rag]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/embedding.md"
+    },
+    "fine-tuning": {
+      "id": "fine-tuning",
+      "title": "Fine-tuning",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "微调",
+        "任务适配",
+        "模型定制"
+      ],
+      "sources": [
+        {
+          "name": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+          "url": "https://arxiv.org/abs/1810.04805"
+        }
+      ],
+      "related": [
+        "pretraining",
+        "peft",
+        "lora"
+      ],
+      "summary": "Fine-tuning 是在已有预训练模型上继续用特定任务或领域数据训练，让模型更贴近目标场景，而不是从零开始重训整个模型。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Fine-tuning 是在已有预训练模型上继续用特定任务或领域数据训练，让模型更贴近目标场景，而不是从零开始重训整个模型。"
+        },
+        {
+          "title": "来源",
+          "content": "- BERT 原始论文《Pre-training of Deep Bidirectional Transformers for Language Understanding》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[pretraining]]\n- [[peft]]\n- [[lora]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/fine-tuning.md"
+    },
+    "long-context": {
+      "id": "long-context",
+      "title": "Long Context",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "长上下文",
+        "长文档",
+        "推理"
+      ],
+      "sources": [
+        {
+          "name": "Introducing 100K Context Windows",
+          "url": "https://www.anthropic.com/news/100k-context-windows"
+        },
+        {
+          "name": "Gemini Thinking",
+          "url": "https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn"
+        }
+      ],
+      "related": [
+        "context-window",
+        "reasoning-models"
+      ],
+      "summary": "Long Context 指模型在长文档、长对话或多份资料同时输入的情况下，仍尽量保持理解、引用和推理能力的方向，它不只是“窗口变大”，还涉及信息利用是否有效。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Long Context 指模型在长文档、长对话或多份资料同时输入的情况下，仍尽量保持理解、引用和推理能力的方向，它不只是“窗口变大”，还涉及信息利用是否有效。"
+        },
+        {
+          "title": "来源",
+          "content": "- Anthropic 官方公告《Introducing 100K Context Windows》\n- Google Gemini Thinking 官方文档"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[context-window]]\n- [[reasoning-models]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/long-context.md"
+    },
+    "lora": {
+      "id": "lora",
+      "title": "LoRA",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "LoRA",
+        "PEFT",
+        "微调"
+      ],
+      "sources": [
+        {
+          "name": "LoRA: Low-Rank Adaptation of Large Language Models",
+          "url": "https://arxiv.org/abs/2106.09685"
+        }
+      ],
+      "related": [
+        "fine-tuning",
+        "peft"
+      ],
+      "summary": "LoRA 是一种常见的参数高效微调方法，它通过给原模型加上低秩增量矩阵来学习新能力，作用是用更低成本完成模型定制。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "LoRA 是一种常见的参数高效微调方法，它通过给原模型加上低秩增量矩阵来学习新能力，作用是用更低成本完成模型定制。"
+        },
+        {
+          "title": "来源",
+          "content": "- LoRA 原始论文《LoRA: Low-Rank Adaptation of Large Language Models》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[fine-tuning]]\n- [[peft]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/lora.md"
+    },
+    "mcp": {
+      "id": "mcp",
+      "title": "MCP",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "Anthropic",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "协议",
+        "Agent",
+        "上下文",
+        "工具接入"
+      ],
+      "sources": [
+        {
+          "name": "Model Context Protocol Specification",
+          "url": "https://modelcontextprotocol.io/specification/2025-03-26"
+        },
+        {
+          "name": "Introducing the Model Context Protocol",
+          "url": "https://www.anthropic.com/news/model-context-protocol"
+        }
+      ],
+      "related": [
+        "agent",
+        "tool-use",
+        "a2a"
+      ],
+      "summary": "MCP（Model Context Protocol）是把数据源、工具和 AI 应用接起来的一套开放协议，作用是让 Agent 不必为每个外部系统都单独写一套私有接法。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "MCP（Model Context Protocol）是把数据源、工具和 AI 应用接起来的一套开放协议，作用是让 Agent 不必为每个外部系统都单独写一套私有接法。"
+        },
+        {
+          "title": "来源",
+          "content": "- Model Context Protocol 官方规范\n- Anthropic 官方公告《Introducing the Model Context Protocol》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[agent]]\n- [[tool-use]]\n- [[a2a]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/mcp.md"
+    },
+    "mixture-of-experts": {
+      "id": "mixture-of-experts",
+      "title": "Mixture of Experts（MoE）",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "MoE",
+        "架构",
+        "稀疏激活"
+      ],
+      "sources": [
+        {
+          "name": "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer",
+          "url": "https://arxiv.org/abs/1701.06538"
+        }
+      ],
+      "related": [
+        "transformer",
+        "qwen",
+        "deepseek"
+      ],
+      "summary": "Mixture of Experts（MoE）是一种按需只激活少量“专家”子网络的模型架构，作用是在不让每次计算成本同比暴涨的情况下，继续扩大模型参数规模与能力。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Mixture of Experts（MoE）是一种按需只激活少量“专家”子网络的模型架构，作用是在不让每次计算成本同比暴涨的情况下，继续扩大模型参数规模与能力。"
+        },
+        {
+          "title": "来源",
+          "content": "- 原始论文《Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[transformer]]\n- [[qwen]]\n- [[deepseek]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/mixture-of-experts.md"
+    },
+    "multi-head-attention": {
+      "id": "multi-head-attention",
+      "title": "Multi-Head Attention",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "Attention",
+        "Transformer",
+        "多头注意力"
+      ],
+      "sources": [
+        {
+          "name": "Attention Is All You Need",
+          "url": "https://arxiv.org/abs/1706.03762"
+        }
+      ],
+      "related": [
+        "transformer",
+        "self-attention"
+      ],
+      "summary": "Multi-Head Attention 是把注意力机制并行拆成多个“头”同时计算，让模型能从不同关系和不同表示角度一起看同一段输入。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Multi-Head Attention 是把注意力机制并行拆成多个“头”同时计算，让模型能从不同关系和不同表示角度一起看同一段输入。"
+        },
+        {
+          "title": "来源",
+          "content": "- Transformer 原始论文《Attention Is All You Need》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[transformer]]\n- [[self-attention]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/multi-head-attention.md"
+    },
+    "peft": {
+      "id": "peft",
+      "title": "PEFT",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "PEFT",
+        "参数高效微调",
+        "微调"
+      ],
+      "sources": [
+        {
+          "name": "LoRA: Low-Rank Adaptation of Large Language Models",
+          "url": "https://arxiv.org/abs/2106.09685"
+        }
+      ],
+      "related": [
+        "fine-tuning",
+        "lora"
+      ],
+      "summary": "PEFT（Parameter-Efficient Fine-Tuning，参数高效微调）是一类只更新很少一部分参数就完成模型适配的方法，作用是降低显存、训练和部署成本。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "PEFT（Parameter-Efficient Fine-Tuning，参数高效微调）是一类只更新很少一部分参数就完成模型适配的方法，作用是降低显存、训练和部署成本。"
+        },
+        {
+          "title": "来源",
+          "content": "- LoRA 原始论文《LoRA: Low-Rank Adaptation of Large Language Models》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[fine-tuning]]\n- [[lora]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/peft.md"
+    },
+    "positional-encoding": {
+      "id": "positional-encoding",
+      "title": "Positional Encoding",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "Transformer",
+        "位置编码",
+        "序列顺序"
+      ],
+      "sources": [
+        {
+          "name": "Attention Is All You Need",
+          "url": "https://arxiv.org/abs/1706.03762"
+        }
+      ],
+      "related": [
+        "transformer",
+        "self-attention"
+      ],
+      "summary": "Positional Encoding 是给 token 注入位置信息的办法，作用是让 Transformer 在没有循环结构的情况下，也能知道输入内容的前后顺序。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Positional Encoding 是给 token 注入位置信息的办法，作用是让 Transformer 在没有循环结构的情况下，也能知道输入内容的前后顺序。"
+        },
+        {
+          "title": "来源",
+          "content": "- Transformer 原始论文《Attention Is All You Need》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[transformer]]\n- [[self-attention]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/positional-encoding.md"
+    },
+    "post-training": {
+      "id": "post-training",
+      "title": "Post-training",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "后训练",
+        "对齐",
+        "SFT",
+        "RLHF"
+      ],
+      "sources": [
+        {
+          "name": "Training Language Models to Follow Instructions with Human Feedback",
+          "url": "https://arxiv.org/abs/2203.02155"
+        }
+      ],
+      "related": [
+        "sft",
+        "reward-model",
+        "rlhf"
+      ],
+      "summary": "Post-training 指模型完成预训练之后，继续通过示范数据、偏好数据和优化流程把它往“更会遵循指令、更贴近人类意图”的方向调。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Post-training 指模型完成预训练之后，继续通过示范数据、偏好数据和优化流程把它往“更会遵循指令、更贴近人类意图”的方向调。"
+        },
+        {
+          "title": "来源",
+          "content": "- InstructGPT 原始论文《Training Language Models to Follow Instructions with Human Feedback》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[sft]]\n- [[reward-model]]\n- [[rlhf]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/post-training.md"
+    },
+    "pretraining": {
+      "id": "pretraining",
+      "title": "Pretraining",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "预训练",
+        "基础模型",
+        "通用能力"
+      ],
+      "sources": [
+        {
+          "name": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+          "url": "https://arxiv.org/abs/1810.04805"
+        }
+      ],
+      "related": [
+        "deep-learning",
+        "fine-tuning",
+        "post-training"
+      ],
+      "summary": "Pretraining 指先用海量通用数据训练模型，让它学到语言、结构和模式识别的基础能力，后续很多能力上限都建立在这一步之上。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Pretraining 指先用海量通用数据训练模型，让它学到语言、结构和模式识别的基础能力，后续很多能力上限都建立在这一步之上。"
+        },
+        {
+          "title": "来源",
+          "content": "- BERT 原始论文《Pre-training of Deep Bidirectional Transformers for Language Understanding》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[deep-learning]]\n- [[fine-tuning]]\n- [[post-training]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/pretraining.md"
     },
     "rag": {
       "id": "rag",
       "title": "RAG",
       "type": "concept",
-      "category": "关键概念",
+      "category": "关键概念 / 学术抓手",
       "provider": "",
       "status": "active",
       "visibility": "public",
       "confidence": "medium",
-      "updated": "2026-04-05",
+      "updated": "2026-04-06",
       "tags": [
-        "概念",
+        "RAG",
         "检索增强生成",
         "外部知识"
       ],
       "sources": [
         {
-          "name": "Lewis et al. Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+          "name": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
           "url": "https://arxiv.org/abs/2005.11401"
         }
       ],
       "related": [
+        "retrieval",
+        "reranking",
         "agent"
       ],
-      "summary": "RAG 可以先理解为：让模型在回答前先去拿外部资料，再基于这些资料生成结果，而不是只依赖参数里已经记住的内容。",
+      "summary": "RAG 是先去检索外部资料，再基于这些资料生成结果的一种做法，作用是让模型在回答时不只依赖参数记忆，还能接入最新信息或私有知识。",
       "sections": [
         {
           "title": "是什么",
-          "content": "RAG 可以先理解为：让模型在回答前先去拿外部资料，再基于这些资料生成结果，而不是只依赖参数里已经记住的内容。"
-        },
-        {
-          "title": "归类",
-          "content": "它属于“知识获取与生成结合”的方法层，不是单独一种模型，也不是等同于 Agent。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "当问题依赖最新信息、私有资料或长尾知识时，只靠模型记忆往往不够，RAG 就成了把外部知识接进来的一种常见办法。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "在知识图谱里，RAG 适合作为一个中间概念：它一头连向知识库、搜索、向量检索，另一头又经常和 Agent 组合出现。"
+          "content": "RAG 是先去检索外部资料，再基于这些资料生成结果的一种做法，作用是让模型在回答时不只依赖参数记忆，还能接入最新信息或私有知识。"
         },
         {
           "title": "来源",
-          "content": "- RAG 原始论文\n- 后续可继续补工程化实现与检索链路资料"
+          "content": "- RAG 原始论文《Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks》"
         },
         {
           "title": "相关条目",
-          "content": "- [[agent]]"
+          "content": "- [[retrieval]]\n- [[reranking]]\n- [[agent]]"
         }
       ],
       "sourcePath": "nodes/concepts/rag.md"
+    },
+    "reasoning-models": {
+      "id": "reasoning-models",
+      "title": "推理模型",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "推理",
+        "Thinking Models",
+        "规划",
+        "长链路任务"
+      ],
+      "sources": [
+        {
+          "name": "Gemini Thinking",
+          "url": "https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn"
+        },
+        {
+          "name": "DeepSeek-R1",
+          "url": "https://arxiv.org/abs/2501.12948"
+        }
+      ],
+      "related": [
+        "gemini",
+        "deepseek",
+        "reinforcement-learning"
+      ],
+      "summary": "推理模型指的是会为复杂问题分配更多“思考预算”的模型，主要用来处理多步规划、复杂分析、代码推演和需要中间推理过程的任务。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "推理模型指的是会为复杂问题分配更多“思考预算”的模型，主要用来处理多步规划、复杂分析、代码推演和需要中间推理过程的任务。"
+        },
+        {
+          "title": "来源",
+          "content": "- Google Gemini Thinking 官方文档\n- DeepSeek-R1 原始论文"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[gemini]]\n- [[deepseek]]\n- [[reinforcement-learning]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/reasoning-models.md"
     },
     "reinforcement-learning": {
       "id": "reinforcement-learning",
@@ -456,8 +974,7 @@
       "confidence": "high",
       "updated": "2026-04-06",
       "tags": [
-        "概念",
-        "学习范式",
+        "强化学习",
         "决策",
         "反馈"
       ],
@@ -468,38 +985,370 @@
         }
       ],
       "related": [
-        "deep-learning",
-        "agent",
-        "static-dynamic-eval"
+        "rlhf",
+        "reasoning-models",
+        "agent"
       ],
-      "summary": "强化学习可以先理解为一种通过环境反馈不断试错、调整策略的学习范式，重点不在“看懂一条样本”，而在“长期决策会不会越来越好”。",
+      "summary": "强化学习是一种通过行动、接收反馈、再调整策略来学习的范式，作用是处理长期决策和试错优化问题，也影响了今天部分推理模型和对齐方法。",
       "sections": [
         {
           "title": "是什么",
-          "content": "强化学习可以先理解为一种通过环境反馈不断试错、调整策略的学习范式，重点不在“看懂一条样本”，而在“长期决策会不会越来越好”。"
-        },
-        {
-          "title": "归类",
-          "content": "它属于“理论抓手 / 学习范式”，和具体模型名称、具体产品名称不同。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "很多人第一次接触强化学习，是在游戏、机器人或策略优化场景里。但放回今天的 AI 版图，它依然是理解“行动—反馈—再调整”这条思路的重要入口。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "在知识图谱里，强化学习更适合作为一条帮助理解“决策与反馈”的理论线，而不是把所有现实产品都强行解释成强化学习产物。这样边界会更清楚，也更利于长期维护。"
+          "content": "强化学习是一种通过行动、接收反馈、再调整策略来学习的范式，作用是处理长期决策和试错优化问题，也影响了今天部分推理模型和对齐方法。"
         },
         {
           "title": "来源",
-          "content": "- Reinforcement Learning: An Introduction\n- 后续可继续补 RLHF、环境交互和策略优化相关资料"
+          "content": "- Sutton & Barto《Reinforcement Learning: An Introduction》"
         },
         {
           "title": "相关条目",
-          "content": "- [[deep-learning]]\n- [[agent]]\n- [[static-dynamic-eval]]"
+          "content": "- [[rlhf]]\n- [[reasoning-models]]\n- [[agent]]"
         }
       ],
       "sourcePath": "nodes/concepts/reinforcement-learning.md"
+    },
+    "reranking": {
+      "id": "reranking",
+      "title": "Reranking",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "Cohere",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "重排",
+        "检索",
+        "RAG"
+      ],
+      "sources": [
+        {
+          "name": "Cohere Rerank",
+          "url": "https://docs.cohere.com/docs/rerank"
+        }
+      ],
+      "related": [
+        "retrieval",
+        "rag"
+      ],
+      "summary": "Reranking 指系统先完成一轮粗召回，再对候选结果做二次排序，作用是把最相关的文档尽量推到前面，减少“召回到了但排位不对”的问题。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Reranking 指系统先完成一轮粗召回，再对候选结果做二次排序，作用是把最相关的文档尽量推到前面，减少“召回到了但排位不对”的问题。"
+        },
+        {
+          "title": "来源",
+          "content": "- Cohere 官方文档《Rerank》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[retrieval]]\n- [[rag]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/reranking.md"
+    },
+    "retrieval": {
+      "id": "retrieval",
+      "title": "Retrieval",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "检索",
+        "召回",
+        "RAG"
+      ],
+      "sources": [
+        {
+          "name": "Dense Passage Retrieval for Open-Domain Question Answering",
+          "url": "https://arxiv.org/abs/2004.04906"
+        }
+      ],
+      "related": [
+        "embedding",
+        "reranking",
+        "rag"
+      ],
+      "summary": "Retrieval 指系统先从外部语料、知识库或文档集合里召回候选资料，再把这些资料交给下游模型或流程使用，作用是把外部知识接进任务链路。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Retrieval 指系统先从外部语料、知识库或文档集合里召回候选资料，再把这些资料交给下游模型或流程使用，作用是把外部知识接进任务链路。"
+        },
+        {
+          "title": "来源",
+          "content": "- 原始论文《Dense Passage Retrieval for Open-Domain Question Answering》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[embedding]]\n- [[reranking]]\n- [[rag]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/retrieval.md"
+    },
+    "reward-model": {
+      "id": "reward-model",
+      "title": "Reward Model",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "奖励模型",
+        "偏好学习",
+        "后训练"
+      ],
+      "sources": [
+        {
+          "name": "Training Language Models to Follow Instructions with Human Feedback",
+          "url": "https://arxiv.org/abs/2203.02155"
+        }
+      ],
+      "related": [
+        "post-training",
+        "rlhf"
+      ],
+      "summary": "Reward Model 是一个专门学“哪种回答更符合人类偏好”的评分器，作用是给模型候选输出打分，后面再用这些分数继续优化模型行为。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Reward Model 是一个专门学“哪种回答更符合人类偏好”的评分器，作用是给模型候选输出打分，后面再用这些分数继续优化模型行为。"
+        },
+        {
+          "title": "来源",
+          "content": "- InstructGPT 原始论文《Training Language Models to Follow Instructions with Human Feedback》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[post-training]]\n- [[rlhf]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/reward-model.md"
+    },
+    "rlhf": {
+      "id": "rlhf",
+      "title": "RLHF",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "RLHF",
+        "对齐",
+        "人类反馈",
+        "强化学习"
+      ],
+      "sources": [
+        {
+          "name": "Training Language Models to Follow Instructions with Human Feedback",
+          "url": "https://arxiv.org/abs/2203.02155"
+        }
+      ],
+      "related": [
+        "post-training",
+        "reward-model",
+        "reinforcement-learning"
+      ],
+      "summary": "RLHF（Reinforcement Learning from Human Feedback）是先收集人类偏好，再把这些偏好转成奖励信号去优化模型输出的做法，主要用来提升服从性、帮助性和对齐效果。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "RLHF（Reinforcement Learning from Human Feedback）是先收集人类偏好，再把这些偏好转成奖励信号去优化模型输出的做法，主要用来提升服从性、帮助性和对齐效果。"
+        },
+        {
+          "title": "来源",
+          "content": "- InstructGPT 原始论文《Training Language Models to Follow Instructions with Human Feedback》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[post-training]]\n- [[reward-model]]\n- [[reinforcement-learning]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/rlhf.md"
+    },
+    "self-attention": {
+      "id": "self-attention",
+      "title": "Self-Attention",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "Attention",
+        "Transformer",
+        "序列建模"
+      ],
+      "sources": [
+        {
+          "name": "Attention Is All You Need",
+          "url": "https://arxiv.org/abs/1706.03762"
+        }
+      ],
+      "related": [
+        "transformer",
+        "multi-head-attention"
+      ],
+      "summary": "Self-Attention 是让序列中的每个 token 在计算当前表示时，按需关注同一序列里的其他 token，用来建模词与词、片段与片段之间的关系。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Self-Attention 是让序列中的每个 token 在计算当前表示时，按需关注同一序列里的其他 token，用来建模词与词、片段与片段之间的关系。"
+        },
+        {
+          "title": "来源",
+          "content": "- Transformer 原始论文《Attention Is All You Need》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[transformer]]\n- [[multi-head-attention]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/self-attention.md"
+    },
+    "sft": {
+      "id": "sft",
+      "title": "SFT",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "监督微调",
+        "对齐",
+        "后训练"
+      ],
+      "sources": [
+        {
+          "name": "Training Language Models to Follow Instructions with Human Feedback",
+          "url": "https://arxiv.org/abs/2203.02155"
+        }
+      ],
+      "related": [
+        "post-training",
+        "rlhf"
+      ],
+      "summary": "SFT（Supervised Fine-Tuning，监督微调）是用高质量示范数据直接教模型“面对这类输入应该怎么答”，通常是后训练流程里的第一步。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "SFT（Supervised Fine-Tuning，监督微调）是用高质量示范数据直接教模型“面对这类输入应该怎么答”，通常是后训练流程里的第一步。"
+        },
+        {
+          "title": "来源",
+          "content": "- InstructGPT 原始论文《Training Language Models to Follow Instructions with Human Feedback》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[post-training]]\n- [[rlhf]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/sft.md"
+    },
+    "tokenization": {
+      "id": "tokenization",
+      "title": "Tokenization",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "Token",
+        "分词",
+        "子词"
+      ],
+      "sources": [
+        {
+          "name": "Neural Machine Translation of Rare Words with Subword Units",
+          "url": "https://arxiv.org/abs/1508.07909"
+        }
+      ],
+      "related": [
+        "context-window",
+        "long-context"
+      ],
+      "summary": "Tokenization 是把连续文本切成模型可处理单位的过程，作用是把自然语言转成模型可以计数、编码和计算的 token 序列。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Tokenization 是把连续文本切成模型可处理单位的过程，作用是把自然语言转成模型可以计数、编码和计算的 token 序列。"
+        },
+        {
+          "title": "来源",
+          "content": "- 原始论文《Neural Machine Translation of Rare Words with Subword Units》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[context-window]]\n- [[long-context]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/tokenization.md"
+    },
+    "tool-use": {
+      "id": "tool-use",
+      "title": "Tool Use / 工具调用",
+      "type": "concept",
+      "category": "关键概念 / 学术抓手",
+      "provider": "",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "high",
+      "updated": "2026-04-06",
+      "tags": [
+        "工具调用",
+        "Function Calling",
+        "Agent",
+        "执行能力"
+      ],
+      "sources": [
+        {
+          "name": "Tool use with Claude",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview"
+        },
+        {
+          "name": "OpenAI Agents SDK Tools",
+          "url": "https://openai.github.io/openai-agents-python/tools/"
+        }
+      ],
+      "related": [
+        "agent",
+        "mcp"
+      ],
+      "summary": "Tool Use 指模型在回答之外，按需去调用搜索、代码执行、文件处理、系统操作或自定义函数等外部工具，用来把“会说”变成“会做”。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Tool Use 指模型在回答之外，按需去调用搜索、代码执行、文件处理、系统操作或自定义函数等外部工具，用来把“会说”变成“会做”。"
+        },
+        {
+          "title": "来源",
+          "content": "- Anthropic Claude Tool Use 官方文档\n- OpenAI Agents SDK Tools 官方文档"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[agent]]\n- [[mcp]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/tool-use.md"
     },
     "transformer": {
       "id": "transformer",
@@ -512,9 +1361,8 @@
       "confidence": "high",
       "updated": "2026-04-06",
       "tags": [
-        "概念",
+        "Transformer",
         "架构",
-        "深度学习",
         "大模型"
       ],
       "sources": [
@@ -524,39 +1372,112 @@
         }
       ],
       "related": [
-        "deep-learning",
-        "gpt",
-        "gemini",
-        "claude"
+        "self-attention",
+        "multi-head-attention",
+        "positional-encoding"
       ],
-      "summary": "Transformer 可以先理解为现代大模型最关键的一类神经网络架构抓手。很多今天熟悉的语言模型、代码模型和多模态模型，都建立在这条架构路线之上。",
+      "summary": "Transformer 是现代大模型最核心的一类神经网络架构，作用是高效处理长序列中的关联关系，很多今天常见的语言、代码和多模态模型都建立在这条路线之上。",
       "sections": [
         {
           "title": "是什么",
-          "content": "Transformer 可以先理解为现代大模型最关键的一类神经网络架构抓手。很多今天熟悉的语言模型、代码模型和多模态模型，都建立在这条架构路线之上。"
-        },
-        {
-          "title": "归类",
-          "content": "它属于“概念 / 架构层”，不是具体产品，也不是某一家公司的专属对象。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "如果不知道 Transformer，很多现象会只停留在产品表面；知道它之后，才更容易理解为什么一批看起来完全不同的产品，其实共享了相近的底层技术血缘。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "在知识图谱里，Transformer 更适合作为“技术主干节点”来维护，而不是把所有变体都揉进一个定义里。后续如果内容继续增长，可以再拆编码器、解码器、注意力机制和长上下文等专题。"
+          "content": "Transformer 是现代大模型最核心的一类神经网络架构，作用是高效处理长序列中的关联关系，很多今天常见的语言、代码和多模态模型都建立在这条路线之上。"
         },
         {
           "title": "来源",
-          "content": "- Attention Is All You Need\n- 后续可继续补技术演化与工程实现资料"
+          "content": "- Transformer 原始论文《Attention Is All You Need》"
         },
         {
           "title": "相关条目",
-          "content": "- [[deep-learning]]\n- [[gpt]]\n- [[gemini]]\n- [[claude]]"
+          "content": "- [[self-attention]]\n- [[multi-head-attention]]\n- [[positional-encoding]]"
         }
       ],
       "sourcePath": "nodes/concepts/transformer.md"
+    },
+    "video-generation": {
+      "id": "video-generation",
+      "title": "视频生成",
+      "type": "concept",
+      "category": "多模态生成",
+      "provider": "Google DeepMind",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "多模态",
+        "视频生成",
+        "文生视频",
+        "图生视频"
+      ],
+      "sources": [
+        {
+          "name": "Veo",
+          "url": "https://deepmind.google/models/veo/"
+        }
+      ],
+      "related": [
+        "world-model",
+        "midjourney"
+      ],
+      "summary": "视频生成指模型根据文本、图像或控制条件生成连续视频内容，主要用来处理镜头运动、时间一致性、画面细节和越来越重要的音视频同步。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "视频生成指模型根据文本、图像或控制条件生成连续视频内容，主要用来处理镜头运动、时间一致性、画面细节和越来越重要的音视频同步。"
+        },
+        {
+          "title": "来源",
+          "content": "- Google DeepMind 官方页面《Veo》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[world-model]]\n- [[midjourney]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/video-generation.md"
+    },
+    "world-model": {
+      "id": "world-model",
+      "title": "世界模型",
+      "type": "concept",
+      "category": "多模态生成",
+      "provider": "Google DeepMind",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "多模态",
+        "世界模型",
+        "交互环境",
+        "具身智能"
+      ],
+      "sources": [
+        {
+          "name": "Genie 3",
+          "url": "https://deepmind.google/models/genie/"
+        }
+      ],
+      "related": [
+        "video-generation",
+        "genie-3"
+      ],
+      "summary": "世界模型可以先理解为：让 AI 不只是生成一张图或一段视频，而是生成一个会随时间和动作继续变化的环境，用来支持交互、模拟和训练智能体。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "世界模型可以先理解为：让 AI 不只是生成一张图或一段视频，而是生成一个会随时间和动作继续变化的环境，用来支持交互、模拟和训练智能体。"
+        },
+        {
+          "title": "来源",
+          "content": "- Google DeepMind 官方页面《Genie 3》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[video-generation]]\n- [[genie-3]]"
+        }
+      ],
+      "sourcePath": "nodes/concepts/world-model.md"
     },
     "claude": {
       "id": "claude",
@@ -567,7 +1488,7 @@
       "status": "active",
       "visibility": "public",
       "confidence": "high",
-      "updated": "2026-04-05",
+      "updated": "2026-04-06",
       "tags": [
         "模型",
         "大语言模型",
@@ -588,18 +1509,6 @@
         {
           "title": "是什么",
           "content": "Claude 是 Anthropic 推出的模型系列，属于当前 AI 生态里重要的基座模型之一。"
-        },
-        {
-          "title": "归类",
-          "content": "它更适合作为“模型能力底座”来理解，而不是和具体聊天产品、Agent 产品混成同一层。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "很多上层产品形态——聊天助手、代码助手、Agent 系统——都可以把它当作底层模型能力来源之一。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "在这张图谱里，Claude 适合作为“模型层”代表节点，用于连接基座模型、产品形态和 Agent 系统三个层次。"
         },
         {
           "title": "来源",
@@ -646,18 +1555,6 @@
           "content": "DeepSeek 可以先理解为一条以大模型与推理能力为核心的模型系列节点，用来承载对话、代码和复杂任务处理能力。"
         },
         {
-          "title": "归类",
-          "content": "它属于“模型层”。在知识图谱里，应该和聊天入口、代码助手、Agent 产品区分开：模型是底座，产品是包装后的使用形态。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "DeepSeek 在近阶段中文 AI 讨论里频繁出现，已经是绕不开的代表性模型对象。把它单独成条，能让总览页更接近真实讨论版图，而不是只停留在最早的一批国际模型名称上。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "对 DeepSeek 这类节点，当前更适合记录为“模型家族”而不是“某个版本快照”。这样做更稳，也更利于后续继续补版本路线、能力变化和生态适配，而不会频繁改坏总览层结构。"
-        },
-        {
           "title": "来源",
           "content": "- DeepSeek 官方主页\n- 后续可继续补模型报告、开放平台文档与版本发布记录"
         },
@@ -677,7 +1574,7 @@
       "status": "active",
       "visibility": "public",
       "confidence": "medium",
-      "updated": "2026-04-05",
+      "updated": "2026-04-06",
       "tags": [
         "模型",
         "Google",
@@ -701,18 +1598,6 @@
           "content": "Gemini 可以先理解为 Google 当前主推的一组 AI 模型与能力体系，覆盖对话、推理以及多模态理解与生成。"
         },
         {
-          "title": "归类",
-          "content": "它属于“模型层 / 能力底座”，不等同于面向最终用户的聊天入口或某个具体应用。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "Gemini 这个节点能帮助图谱解释：为什么同一家公司的 AI 体系里，会同时出现模型、聊天产品、办公接入和 Agent 形态，它们并不是同一层概念。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "Gemini 很适合作为“公司生态”和“模型层”之间的连接节点。后续如果继续扩图，可以围绕 Google 生态补它与搜索、办公套件和 Agent 产品之间的关系。"
-        },
-        {
           "title": "来源",
           "content": "- Google Gemini 官方主页\n- 后续可继续补 Google AI 相关产品与开发文档"
         },
@@ -723,6 +1608,48 @@
       ],
       "sourcePath": "nodes/models/gemini.md"
     },
+    "genie-3": {
+      "id": "genie-3",
+      "title": "Google Genie 3",
+      "type": "model",
+      "category": "多模态生成",
+      "provider": "Google DeepMind",
+      "status": "active",
+      "visibility": "public",
+      "confidence": "medium",
+      "updated": "2026-04-06",
+      "tags": [
+        "世界模型",
+        "交互环境",
+        "多模态"
+      ],
+      "sources": [
+        {
+          "name": "Genie 3",
+          "url": "https://deepmind.google/models/genie/"
+        }
+      ],
+      "related": [
+        "world-model",
+        "video-generation"
+      ],
+      "summary": "Google Genie 3 是 Google DeepMind 的世界模型方向代表对象，作用是根据文本生成可实时探索和交互的环境，而不只是输出一段静态视频。",
+      "sections": [
+        {
+          "title": "是什么",
+          "content": "Google Genie 3 是 Google DeepMind 的世界模型方向代表对象，作用是根据文本生成可实时探索和交互的环境，而不只是输出一段静态视频。"
+        },
+        {
+          "title": "来源",
+          "content": "- Google DeepMind 官方页面《Genie 3》"
+        },
+        {
+          "title": "相关条目",
+          "content": "- [[world-model]]\n- [[video-generation]]"
+        }
+      ],
+      "sourcePath": "nodes/models/genie-3.md"
+    },
     "gpt": {
       "id": "gpt",
       "title": "GPT",
@@ -732,7 +1659,7 @@
       "status": "active",
       "visibility": "public",
       "confidence": "medium",
-      "updated": "2026-04-05",
+      "updated": "2026-04-06",
       "tags": [
         "模型",
         "OpenAI",
@@ -755,18 +1682,6 @@
         {
           "title": "是什么",
           "content": "GPT 可以先理解为 OpenAI 的大语言模型系列名称，用来承载对话、推理、生成和工具调用等能力。"
-        },
-        {
-          "title": "归类",
-          "content": "它属于“模型层”，应和 ChatGPT 这样的“产品入口”区分开来。前者是能力底座，后者是面向用户的使用形态。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "很多 AI 产品讨论会把“模型”和“产品”混说。把 GPT 单独成条，有助于知识图谱在结构上区分：底层能力来自模型，用户实际接触到的往往是封装后的产品。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "在知识图谱里，GPT 更适合作为“模型系列节点”而不是某个具体版本节点。具体版本如 GPT-4、GPT-4.1、GPT-5 等，后续更适合在专题页或版本页里展开。"
         },
         {
           "title": "来源",
@@ -813,18 +1728,6 @@
           "content": "Qwen 可以先理解为阿里云通义千问模型系列的统称，用来承载对话、推理、代码、视觉理解等多种能力。"
         },
         {
-          "title": "归类",
-          "content": "它属于“模型层”，更适合作为一个模型家族节点来记录，而不是把所有版本细节都堆在总览主树里。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "在中文语境里，Qwen 是很高频出现的一条国产基座模型线。把它单独成条，有助于知识图谱避免只剩海外模型视角，也方便后续继续拆版本、能力差异和应用生态。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "现阶段记录 Qwen，重点不在追逐每一次版本更新，而在于先把它稳定放回“模型家族”这个位置。后续如果要继续细化，更适合新增专题页或版本页，而不是让总览树不断膨胀。"
-        },
-        {
           "title": "来源",
           "content": "- Qwen 官方主页\n- 后续可继续补模型卡、技术报告与 API 文档"
         },
@@ -844,7 +1747,7 @@
       "status": "active",
       "visibility": "public",
       "confidence": "high",
-      "updated": "2026-04-05",
+      "updated": "2026-04-06",
       "tags": [
         "产品",
         "聊天助手",
@@ -864,18 +1767,6 @@
         {
           "title": "是什么",
           "content": "ChatGPT 是 OpenAI 面向普通用户提供的对话产品形态，不应和底层模型概念直接混为一谈。"
-        },
-        {
-          "title": "归类",
-          "content": "它属于“用户入口产品层”，强调交互体验、功能整合与订阅形态，而不是单纯的模型命名。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "很多人第一次接触 AI，不是先接触模型论文，而是先接触 ChatGPT 这种产品入口；所以它在图谱里很适合作为“产品层代表节点”。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "这类产品节点能帮助图谱解释：同样的底层能力，为什么最终用户感知到的是不同产品体验、不同工具整合和不同价格方案。"
         },
         {
           "title": "来源",
@@ -922,18 +1813,6 @@
           "content": "Claude Code 可以先理解为 Anthropic 面向编程场景提供的一种代码助手 / Code Agent 形态，重点在于把模型能力落到读代码、改代码和执行任务的工作流里。"
         },
         {
-          "title": "归类",
-          "content": "它属于“产品层 / 代码助手层”，而不是单纯的模型节点。和 Claude 这类模型名称相比，它更接近开发者真正操作的工具形态。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "代码助手是 Agent 化最明显的一条产品线。把 Claude Code 单独成条，能帮助知识图谱解释：为什么“会说”正在逐渐变成“能读、能改、能执行”。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "这类产品的关键差异，不只在模型本身，还在上下文理解、工具接入和执行闭环。后续如果继续补条目，建议把“底座模型能力”和“工具层体验”继续分开记录。"
-        },
-        {
           "title": "来源",
           "content": "- Claude Code 官方介绍\n- 后续可继续补开发文档、CLI 使用方式与实践文章"
         },
@@ -953,7 +1832,7 @@
       "status": "active",
       "visibility": "public",
       "confidence": "medium",
-      "updated": "2026-04-05",
+      "updated": "2026-04-06",
       "tags": [
         "产品",
         "代码助手",
@@ -977,18 +1856,6 @@
           "content": "CodeBuddy 可以先理解为面向研发工作流的 AI 助手 / 产品入口，重点放在代码理解、生成、修改与协作支持上。"
         },
         {
-          "title": "归类",
-          "content": "它属于“产品层 / 代码助手”，不属于模型层本身。更准确地说，它是把模型能力包装成开发场景可直接使用的工作形态。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "这个节点能帮助知识图谱区分“模型能力”和“研发场景里的产品化封装”。很多用户感知到的 AI 编码体验，最终都来自这种产品层而不是裸模型接口。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "在图谱结构上，CodeBuddy 很适合作为“代码助手 / Code Agent”分支中的代表节点之一；后续如果继续细化，可以再拆产品能力、Agent 能力与平台接入方式。"
-        },
-        {
           "title": "来源",
           "content": "- CodeBuddy 官方主页\n- 后续可继续补产品文档、能力边界与使用记录"
         },
@@ -1008,7 +1875,7 @@
       "status": "active",
       "visibility": "public",
       "confidence": "medium",
-      "updated": "2026-04-05",
+      "updated": "2026-04-06",
       "tags": [
         "产品",
         "代码助手",
@@ -1028,18 +1895,6 @@
         {
           "title": "是什么",
           "content": "Cursor 可以先理解为一种面向编程场景的 AI IDE / 代码助手产品形态，重点在于把代码理解、生成、修改与工作流操作整合进同一界面。"
-        },
-        {
-          "title": "归类",
-          "content": "它属于“代码助手 / Code Agent”这条产品线，不是底层模型，也不是抽象概念本身。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "代码助手是很多人最早感受到“AI 不只是会说，还会动手”的入口之一，因此在总览里很适合作为独立节点。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "这类产品和通用聊天助手相比，更强调上下文工程、编辑器协同、代码库理解与任务闭环，因此也天然更容易向 Agent 化方向继续生长。"
         },
         {
           "title": "来源",
@@ -1086,18 +1941,6 @@
           "content": "Google AI 可以先理解为 Google 面向普通用户提供的 AI 使用入口，用来承接对话、搜索辅助、生成与多模态体验。"
         },
         {
-          "title": "归类",
-          "content": "它属于“产品入口层”，不等同于 Gemini 这类模型家族。前者更接近用户真正点击和使用的界面，后者更偏底层能力。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "知识图谱里如果只记录模型、不记录入口产品，就很难解释“用户到底在用什么”。Google AI 这类节点正好补上“能力如何被交付给用户”这一层。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "这类入口产品的边界会随着产品命名和界面调整不断变化，因此更适合记录为“Google 面向用户的 AI 入口形态”，而不是过度绑定某一版界面文案。这样更利于长期维护。"
-        },
-        {
           "title": "来源",
           "content": "- Google AI 官方入口\n- 后续可继续补 Gemini 产品说明与使用场景文档"
         },
@@ -1140,18 +1983,6 @@
         {
           "title": "是什么",
           "content": "Manus 可以先理解为一种强调多步任务执行、环境操作和结果交付的通用 Agent 产品形态。"
-        },
-        {
-          "title": "归类",
-          "content": "它属于“产品层 / 通用 Agent”，不是单纯的聊天入口，也不是底层模型家族名称。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "如果说聊天助手回答的是“会不会说”，那通用 Agent 更关心“能不能把事做完”。把 Manus 单独成条，有助于总览页把“对话”与“执行”两种产品方向明确分开。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "对这类节点，长期最值得记录的不是一时的热度，而是它是否真的把规划、工具调用、环境读写和结果交付串成了闭环。后续如果继续扩写，建议围绕“任务类型”和“执行边界”来拆。"
         },
         {
           "title": "来源",
@@ -1198,18 +2029,6 @@
           "content": "Midjourney 可以先理解为一个以图像生成为核心的 AI 产品节点，强调把自然语言提示词转成高完成度的视觉结果。"
         },
         {
-          "title": "归类",
-          "content": "它属于“产品层 / 图片生成工具”，不属于基座模型总称，也不等于更广义的多模态能力本身。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "在很多 AI 讨论里，文本模型容易占据中心，但真正进入创作工作流时，图像工具往往是更直接的生产力入口。把 Midjourney 单独成条，能让知识图谱更完整地覆盖内容生成链条。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "对这类工具，长期维护重点不该只是“能生成图”，而是它在具体工作流里扮演什么角色，例如灵感探索、风格试错、前期设定和素材草图。这样比单纯列功能更有知识价值。"
-        },
-        {
           "title": "来源",
           "content": "- Midjourney 官方主页\n- 后续可继续补社区案例、提示词方法与工作流拆解"
         },
@@ -1229,7 +2048,7 @@
       "status": "active",
       "visibility": "public",
       "confidence": "medium",
-      "updated": "2026-04-05",
+      "updated": "2026-04-06",
       "tags": [
         "产品",
         "Agent",
@@ -1253,18 +2072,6 @@
           "content": "WorkBuddy 可以先理解为一种通用 Agent / 工作助手产品形态，重点在于把模型能力、工具调用与工作流执行包装成可直接使用的体验。"
         },
         {
-          "title": "归类",
-          "content": "它属于“产品层 / Agent 产品”而不是“模型层”或“概念层”。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "这类节点能帮助图谱解释：为什么同样是 AI，最终用户接触到的往往不是裸模型，而是带有平台能力、工具接入与任务执行封装的产品。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "对这类产品的记录，后续建议把“平台事实”和“个人测试体验”分开写，这样更利于长期维护，也不容易把阶段性体验误写成稳定定义。"
-        },
-        {
           "title": "来源",
           "content": "- 官方主页\n- 后续可补产品文档、接入方式与测试记录"
         },
@@ -1284,7 +2091,7 @@
       "status": "active",
       "visibility": "public",
       "confidence": "medium",
-      "updated": "2026-04-05",
+      "updated": "2026-04-06",
       "tags": [
         "场景",
         "游戏制作",
@@ -1292,8 +2099,8 @@
       ],
       "sources": [
         {
-          "name": "本地知识整理",
-          "url": "../README.md"
+          "name": "Unity AI • Unity Docs",
+          "url": "https://docs.unity.com/en-us/ai"
         }
       ],
       "related": [
@@ -1308,20 +2115,8 @@
           "content": "这是一个场景型节点，用来收纳“AI 如何介入游戏制作”的整体问题，而不是只记某一个工具或产品。"
         },
         {
-          "title": "归类",
-          "content": "它属于“应用场景层”，更适合继续往下拆成代码开发、2D 美术、UI、3D 资产、动画、渲染等子专题。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "很多知识如果只按模型或产品归档，会缺少真实工作流视角；场景型节点能把工具、模型和流程重新组织回具体任务里。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "这类节点往往会成为专题页的入口，比起写成长列表，更适合在后续演化成“场景地图 + 工具链 + 关键约束”的形式。"
-        },
-        {
           "title": "来源",
-          "content": "- 当前 AI 知识图谱草稿中的“游戏制作与AI的结合”与“游戏垂直领域”整理"
+          "content": "- Unity AI • Unity Docs"
         },
         {
           "title": "相关条目",
@@ -1348,7 +2143,8 @@
       ],
       "sources": [
         {
-          "name": "Goodhart's Law 公开定义资料"
+          "name": "Problems of Monetary Management: The UK Experience（Charles Goodhart, 1975 / Springer）",
+          "url": "https://link.springer.com/content/pdf/10.1007/978-1-349-17295-5_4.pdf?pdf=inline+link"
         }
       ],
       "related": [
@@ -1363,20 +2159,8 @@
           "content": "古德哈特定律可以先理解为一句提醒：当一个指标被拿来当目标时，它往往就不再能真实反映原本要衡量的东西。"
         },
         {
-          "title": "归类",
-          "content": "它属于“方法论警示”，不是 AI 独有概念，但在模型评估、排行榜和业务 KPI 里尤其常见。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "AI 领域很容易被单一分数牵着走。只要大家开始围着某个榜单优化，模型和产品就可能学会“过考试”，却不一定更接近真实任务表现。把这条定律放进图谱，是为了提醒自己别把指标误当现实。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "这条节点最适合和评估一起看。不是不用指标，而是要知道指标只是一种近似映射，必须配合任务场景、数据质量和动态观察一起判断。"
-        },
-        {
           "title": "来源",
-          "content": "- Goodhart's Law 公开定义资料\n- 后续可继续补 AI 评估案例与指标失真示例"
+          "content": "- Problems of Monetary Management: The UK Experience（Charles Goodhart, 1975 / Springer）"
         },
         {
           "title": "相关条目",
@@ -1419,20 +2203,8 @@
           "content": "高质量数据可以先理解为一条方法论议题：不是盲目堆更多数据，而是更重视数据是否干净、贴题、稳定、可验证，并真正服务于目标任务。"
         },
         {
-          "title": "归类",
-          "content": "它属于“核心热点 / 方法论”，不是某个单点工具或模型功能，而是贯穿训练、微调、检索、评估和业务落地的一条底层判断线。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "很多 AI 讨论容易把注意力集中在模型参数、排行榜或产品界面上，但一旦进入真实工作流，数据质量往往决定了系统到底是“看起来很强”，还是“真的稳定能用”。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "这类节点最适合长期维护成“判断框架”而不是固定结论。因为不同任务对高质量的定义并不一样：有的看事实准确率，有的看风格一致性，有的看覆盖面和可追溯性。"
-        },
-        {
           "title": "来源",
-          "content": "- Data-Centric AI 公开资料\n- 后续可继续补训练数据、知识库数据与评估数据的拆分方法"
+          "content": "- Data-centric Artificial Intelligence: A Survey（arXiv）"
         },
         {
           "title": "相关条目",
@@ -1459,7 +2231,8 @@
       ],
       "sources": [
         {
-          "name": "Metcalfe's Law 公开定义资料"
+          "name": "Metcalfe's Law after 40 Years of Ethernet（IEEE Computer）",
+          "url": "https://ieeexplore.ieee.org/document/6636305"
         }
       ],
       "related": [
@@ -1474,20 +2247,8 @@
           "content": "梅特卡夫定律可以先理解为一种网络效应判断：一个网络的价值，往往会随着可连接节点的增多而显著上升。"
         },
         {
-          "title": "归类",
-          "content": "它属于“方法论 / 效应观察”，不是模型技术本身，而是帮助理解平台、生态和连接关系为什么会放大价值。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "当 AI 从单点问答走向工具接入、知识接入、Agent 协作时，价值不再只来自单个模型有多强，还来自“能连多少东西、能形成多少有效关系”。把这条定律放进图谱，能帮助解释为什么平台层会越来越重要。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "它更适合当作观察视角，而不是机械公式。现实世界里，不是节点越多就一定越有价值，关键在于连接是否真实、可持续、低摩擦。"
-        },
-        {
           "title": "来源",
-          "content": "- Metcalfe's Law 公开定义资料\n- 后续可继续补平台生态、Agent 协作与知识网络案例"
+          "content": "- Metcalfe's Law after 40 Years of Ethernet（IEEE Computer）"
         },
         {
           "title": "相关条目",
@@ -1514,7 +2275,8 @@
       ],
       "sources": [
         {
-          "name": "公开 AI 评估方法资料"
+          "name": "Demystifying evals for AI agents（Anthropic）",
+          "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
         }
       ],
       "related": [
@@ -1529,20 +2291,8 @@
           "content": "静态/动态评估可以先理解为两种不同的看法：静态评估更像固定题库、固定答案的测验；动态评估更像把模型放进任务流程里，看它在真实环境中会不会做、敢不敢做、能不能做完。"
         },
         {
-          "title": "归类",
-          "content": "它属于“评估方法论”，和具体模型、产品名称不同。前者回答“怎么判断强弱”，后者回答“到底是什么对象”。"
-        },
-        {
-          "title": "为什么重要",
-          "content": "随着产品逐渐从“会说”走向“能做”，只看静态题库越来越不够。尤其是 Agent 场景，更需要动态地看规划、调用工具、纠错和收尾能力。"
-        },
-        {
-          "title": "观察与判断",
-          "content": "这不是说静态评估没用了，而是它更适合做基线。真正进入工作流时，还要补动态评估，否则很容易出现榜单很好看、实际体验却不稳定的落差。"
-        },
-        {
           "title": "来源",
-          "content": "- 公开 AI 评估方法资料\n- 后续可继续补基准测试、任务评测和 Agent 评估框架"
+          "content": "- Demystifying evals for AI agents（Anthropic）"
         },
         {
           "title": "相关条目",

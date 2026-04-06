@@ -1,6 +1,6 @@
 ---
-id: transformer
-title: Transformer
+id: self-attention
+title: Self-Attention
 type: concept
 category: 关键概念 / 学术抓手
 provider:
@@ -9,25 +9,23 @@ visibility: public
 confidence: high
 updated: 2026-04-06
 tags:
+  - Attention
   - Transformer
-  - 架构
-  - 大模型
+  - 序列建模
 sources:
   - name: Attention Is All You Need
     url: https://arxiv.org/abs/1706.03762
 related:
-  - self-attention
+  - transformer
   - multi-head-attention
-  - positional-encoding
 ---
 
 ## 是什么
-Transformer 是现代大模型最核心的一类神经网络架构，作用是高效处理长序列中的关联关系，很多今天常见的语言、代码和多模态模型都建立在这条路线之上。
+Self-Attention 是让序列中的每个 token 在计算当前表示时，按需关注同一序列里的其他 token，用来建模词与词、片段与片段之间的关系。
 
 ## 来源
 - Transformer 原始论文《Attention Is All You Need》
 
 ## 相关条目
-- [[self-attention]]
+- [[transformer]]
 - [[multi-head-attention]]
-- [[positional-encoding]]
