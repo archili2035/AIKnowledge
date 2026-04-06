@@ -397,10 +397,12 @@
         const crumbCurrent = document.getElementById('crumbCurrent');
         const params = new URLSearchParams(window.location.search);
         const nodeId = params.get('id');
+        const RAW_MARKDOWN_BASE = 'https://raw.githubusercontent.com/archili2035/AIKnowledge/main/public/00_AI%E7%9F%A5%E8%AF%86%E6%80%BB%E8%A7%88/';
 
         let nodeLookup = new Map();
         let categoryLookup = new Map();
         let relationData = [];
+
 
         const relationTypeMap = {
             belongs_to: '归属',
@@ -637,6 +639,28 @@
             }).join('') + '</div>';
         }
 
+        async function fetchMarkdownSource(sourcePath) {
+            const candidates = [sourcePath];
+            if (window.location.hostname.endsWith('github.io')) {
+                candidates.push(RAW_MARKDOWN_BASE + sourcePath);
+            }
+
+            let lastError = null;
+            for (const candidate of candidates) {
+                try {
+                    const response = await fetch(candidate);
+                    if (!response.ok) {
+                        throw new Error(candidate + ' -> ' + response.status);
+                    }
+                    return await response.text();
+                } catch (error) {
+                    lastError = error;
+                }
+            }
+
+            throw lastError || new Error('source markdown load failed');
+        }
+
         function renderPage(node, frontMatter, sections) {
             const category = categoryLookup.get(node.categoryId);
             const sectionHtml = renderSections(sections);
@@ -644,6 +668,7 @@
             const relatedHtml = renderRelatedLinks(frontMatter.related || []);
             const sourceHtml = renderSources(frontMatter.sources || []);
             const relationHtml = renderRelations(node.id);
+
 
             document.title = (frontMatter.title || node.title) + '｜AI节点详情';
             heroTitle.textContent = frontMatter.title || node.title;
@@ -750,16 +775,13 @@
                     if (!node || !node.sourcePath) {
                         throw new Error('当前节点还没有接入正式 HTML 详情页对应的底层源文件。');
                     }
-                    return fetch(node.sourcePath)
-                        .then(response => {
-                            if (!response.ok) throw new Error('source markdown load failed');
-                            return response.text();
-                        })
+                    return fetchMarkdownSource(node.sourcePath)
                         .then(raw => {
                             const frontMatter = parseFrontMatter(raw);
                             const sections = parseSections(getMarkdownBody(raw));
                             renderPage(node, frontMatter, sections);
                         });
+
                 })
                 .catch(error => {
                     renderError(error.message || '节点详情加载失败，请稍后重试。');
