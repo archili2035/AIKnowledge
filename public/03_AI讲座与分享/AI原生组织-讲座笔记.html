@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 原生组织｜讲座笔记整理</title>
+<style>
+  :root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg: #f5f7fb;
+    --card-bg: #ffffff;
+    --text: #2b3445;
+    --text-light: #5f6f84;
+    --heading: #1a1a2e;
+    --accent: #4361ee;
+    --accent-light: #eef1ff;
+    --border: #e8ecf1;
+    --quote-bg: #f0f4ff;
+    --quote-border: #4361ee;
+    --tag-bg: #e8ecf1;
+    --highlight: #fff3cd;
+    --stone-color: #6c5ce7;
+    --shadow-sm: 0 2px 10px rgba(16, 24, 40, 0.04);
+    --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(180deg, #f5f7fb 0%, #eef2f8 100%);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+    padding: 28px 20px;
+    border-radius: 16px;
+    background: var(--primary-gradient);
+    box-shadow: var(--shadow-md);
+  }
+
+  .header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .header .subtitle {
+    font-size: 14px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 20px;
+  }
+
+  /* ── Section ── */
+  .section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .section:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--heading);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section h2 .num {
+    background: var(--accent);
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .section h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--heading);
+    margin: 20px 0 10px;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .section p {
+    margin-bottom: 12px;
+  }
+
+  .section p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── Triad cards (思 / 行 / 品) ── */
+  .triad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 18px 0;
+  }
+
+  .triad-card {
+    background: linear-gradient(135deg, #f8f7ff 0%, #edeaff 100%);
+    border: 1px solid #ddd6fe;
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .triad-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+  }
+
+  .triad-card.think::before { background: linear-gradient(90deg, #4361ee, #6c5ce7); }
+  .triad-card.act::before   { background: linear-gradient(90deg, #00b894, #00cec9); }
+  .triad-card.taste::before { background: linear-gradient(90deg, #e17055, #fdcb6e); }
+
+  .triad-card .triad-char {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .triad-card.think .triad-char { color: #4361ee; }
+  .triad-card.act .triad-char   { color: #00b894; }
+  .triad-card.taste .triad-char { color: #e17055; }
+
+  .triad-card .triad-en {
+    font-size: 13px;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .triad-card .triad-desc {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--text);
+  }
+
+  /* ── Inline highlights ── */
+  strong, b {
+    color: var(--heading);
+    font-weight: 600;
+  }
+
+  em {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 500;
+    background: var(--accent-light);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  code {
+    background: var(--tag-bg);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--accent);
+    font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+  }
+
+  /* ── Lists ── */
+  ul, ol {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── Stone list ── */
+  .stone-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 16px 0;
+  }
+
+  .stone-list li {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #f8f7ff 0%, #f0eeff 100%);
+    border-left: 3px solid var(--stone-color);
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+  }
+
+  .stone-list li strong {
+    color: var(--stone-color);
+  }
+
+  /* ── Principle list ── */
+  .principle-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 16px 0;
+  }
+
+  .principle-list li {
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-left: 3px solid #22c55e;
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+  }
+
+  .principle-list li strong {
+    color: #15803d;
+  }
+
+  /* ── Blockquote ── */
+  blockquote {
+    background: var(--quote-bg);
+    border-left: 4px solid var(--quote-border);
+    padding: 16px 20px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  blockquote strong {
+    color: var(--accent);
+  }
+
+  /* ── Key takeaway ── */
+  .takeaway {
+    background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+    border: 1px solid #f0d77b;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 16px 0;
+    font-size: 15px;
+  }
+
+  .takeaway strong {
+    color: #b8860b;
+  }
+
+  /* ── Question box ── */
+  .question-box {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid #f59e0b;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 16px 0;
+    font-size: 15px;
+  }
+
+  .question-box strong {
+    color: #b45309;
+  }
+
+  /* ── Final quote ── */
+  .final-quote {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .final-quote p {
+    font-size: 17px;
+    line-height: 2;
+    margin-bottom: 12px;
+  }
+
+  .final-quote p:last-child {
+    margin-bottom: 0;
+  }
+
+  .final-quote strong {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* ── Keywords tag row ── */
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+
+  .keywords span {
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* ── Matrix diagram ── */
+  .matrix-diagram {
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+    border: 1px solid #c4b5fd;
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin: 16px 0;
+    font-size: 14.5px;
+  }
+
+  .matrix-diagram .matrix-title {
+    font-weight: 700;
+    color: #7c3aed;
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+
+  .matrix-diagram .axis-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+    font-size: 14px;
+  }
+
+  .matrix-diagram .axis-label .label-tag {
+    background: #7c3aed;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .matrix-diagram ul {
+    margin-top: 6px;
+    padding-left: 18px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .container { padding: 20px 16px 60px; }
+    .section { padding: 20px 18px; }
+    .header h1 { font-size: 22px; }
+    .triad-grid { grid-template-columns: 1fr; }
+    .final-quote { padding: 24px 18px; }
+    .final-quote p { font-size: 16px; }
+    .matrix-diagram { padding: 16px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>AI 原生组织</h1>
+    <div class="subtitle">讲座笔记整理（公开级）</div>
+    <p style="margin-top: 12px;"><a href="../../index.html" style="color: #ffffff; text-decoration: underline; text-underline-offset: 3px; font-weight: 600;">← 返回知识库首页</a></p>
+  </div>
+
+  <!-- 公开说明 -->
+  <div class="section" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 4px solid #0284c7;">
+    <p><strong>说明：</strong>本页仅保留可公开分享的知识笔记正文。</p>
+    <p>讲座主讲人、具体时间、直播链接等私有信息请在本地查看：
+      <a href="../../private/03_AI讲座与分享/讲座信息/AI原生组织-讲座信息.html" style="color: #0284c7; text-decoration: none; font-weight: 600;">讲座信息页（仅本地）→</a>
+    </p>
+  </div>
+
+  <!-- 三我框架概览 -->
+  <div class="triad-grid">
+    <div class="triad-card think">
+      <div class="triad-char">思</div>
+      <div class="triad-en">Think · Deduction</div>
+      <div class="triad-desc">基于确定公理体系进行推理，<strong>一定会被 AI 彻底接管</strong></div>
+    </div>
+    <div class="triad-card act">
+      <div class="triad-char">行</div>
+      <div class="triad-en">Act · Experience</div>
+      <div class="triad-desc">体验真实物理世界，帮助 AI 获得真实上下文</div>
+    </div>
+    <div class="triad-card taste">
+      <div class="triad-char">品</div>
+      <div class="triad-en">Taste · Judgment</div>
+      <div class="triad-desc">基于阅历的主观判断，直觉与感受驱动决策</div>
+    </div>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <h2><span class="num">1</span> 我思故我在</h2>
+    <p><strong>思：think</strong>，亦可用逻辑学的 <em>deduction</em>（演绎）、<em>induction</em>（归纳）等描述。基于确定的公理体系、前提假设进行推理。</p>
+    <div class="takeaway">
+      <strong>基于确定性输入的推理工作，一定会被 AI 彻底接管。</strong> 类似于解数学题。
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <h2><span class="num">2</span> 我行故我在</h2>
+    <p><strong>行：</strong>体验真实的物理世界，探索、与人交流、了解世界。</p>
+    <p>核心价值在于<strong>帮助 AI 获得真实世界的上下文</strong>。</p>
+    <p>真实世界的模态复杂，需要强的传感器、高度的抽象与理解。与人的交流需要了解人类的思考与行为方式。</p>
+    <blockquote>
+      典型的工作如<strong>销售岗位</strong>——需要拓展客户，与外界互动，基于真实的社交与情境判断，而非确定性的逻辑。
+    </blockquote>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <h2><span class="num">3</span> 我品故我在</h2>
+    <p><strong>品：taste</strong>。（休谟）</p>
+    <p>品并不一定基于逻辑，类似于<strong>品酒</strong>——因人而异，基于自身阅历、经验，进行主观喜好的判断。</p>
+    <p>而人生经历阅历则是由一生持续地输入信息，进行预训练和学习塑造。这样不少决策并非基于思，而是<strong>直觉和感受</strong>。</p>
+    <p>taste 不局限于文学与艺术领域。<em>数学公式之美</em>、<em>编程架构之美</em>等，也是 taste 的范畴。</p>
+    <div class="takeaway">
+      反映在教育环境，相比于做题而言，更应培养感知数学公式之美的能力——尝试给 AI 出题，并且出更优美的题目。伟大的科学家由于着迷于数学与科学的内在美感，投身于这项事业。
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <h2><span class="num">4</span> 人与 AI Agent 共同工作的环境</h2>
+
+    <p>AI Agent 与人的比例可能在 <strong>1:1 到 2:1</strong></p>
+    <blockquote>
+      并不是给人配一个 AI，而是<strong>给 AI 配置人</strong>。由于时长原因，可以给 1 个 AI 配置多个人。
+    </blockquote>
+
+    <p>相较于人类，<strong>AI 更易于分享 context</strong>；</p>
+    <p>人际互动（尤其是面对面的交流），核心价值变为<strong>建立信任、相互影响并改变思维方式</strong>。通过展示思考方式与实践方法，进行示范效应和影响力的获得。</p>
+
+    <h3>理想的团队组织架构：矩阵结构</h3>
+    <div class="matrix-diagram">
+      <div class="matrix-title">AI 原生矩阵组织</div>
+      <div class="axis-label"><span class="label-tag">纵向</span> 专业线 —— 由专业人才训练专业的 AI Agent</div>
+      <div class="axis-label"><span class="label-tag">横向</span> 业务线 —— 由业务人员使用 AI Agent 进行业务开发</div>
+      <div class="takeaway" style="margin-top: 14px;">
+        较传统的人类矩阵结构，由 <strong>AI Agent 作为中间节点</strong>，可以避免汇报冲突的难题。
+      </div>
+    </div>
+
+    <div class="question-box">
+      <strong>开放性问题：</strong><br>
+      · 什么样的专业能力，适合训练成 AI Agent？<br>
+      · 使用 AI Agent，比起直接使用人，有哪些缺陷需要进行解决？
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section">
+    <h2><span class="num">5</span> AI 原生组织的三个第一性原理</h2>
+
+    <ul class="principle-list">
+      <li><strong>分工明确</strong><br>人干人的活，机器干机器的活。<br>机器基于确定性信息进行推理，处理 <em>think</em> 相关的事务；<br>人负责获取上下文，探索世界，基于个人 <em>taste</em>（而非确定性逻辑）进行裁决。</li>
+      <li><strong>创造新的写作范式与协作方式</strong><br>利用 AI 完成 context 的交换，而非古典会议。</li>
+      <li><strong>对组织成员友好</strong><br>AI 产品必须具备人性化，AI 组织需要对人友好。<br>人脑相较于 AI，由于其泛化能力、责任心、内驱力等，仍然是宝贵的算力资源；<br>人机协同的方式，可能成为未来企业的核心竞争力。</li>
+    </ul>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="section">
+    <h2><span class="num">6</span> 《领导梯队》在 AI 时代的演变</h2>
+    <p>《Leadership Pipeline》（领导梯队）中定义了不同的管理层级，在管理层级之下有 IC（Individual Contributor）个人贡献者。</p>
+    <p>在 AI 时代，由于有 Agent 的存在，<strong>几乎不存在纯粹的个人贡献者</strong>。不只需要把本职工作做好，还要能够：</p>
+    <ul>
+      <li>明确某件事的<strong>最佳实践</strong>，并推动团队持续优化该实践。</li>
+      <li><strong>懂人、善于管理团队</strong>（懂 AI、管理 AI）。</li>
+    </ul>
+    <div class="takeaway">
+      <strong>由此，其他管理者的职责都需要向上一级。</strong> Agent 承担了执行层的工作后，人向更高层级的规划、决策和影响力方向迁移。
+    </div>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="section">
+    <h2><span class="num">7</span> 真正的归因分析系统</h2>
+    <p>类似于开源社会的运作模式：<strong>观察谁提交了代码，被成功合并，以及是否有重复利用的价值。</strong></p>
+    <p>由 AI 开展透明化的数据分析，呈现个人贡献度。</p>
+    <blockquote>
+      例如：<strong>论文署名机制</strong>——通过透明的归因分析，让每个参与者的贡献可追溯、可量化。
+    </blockquote>
+  </div>
+
+  <!-- Final Quote -->
+  <div class="final-quote">
+    <p><strong>"人干人的活，机器干机器的活。"</strong></p>
+    <p>AI 原生组织的核心不是用 AI 替代人，而是让 AI 接管确定性推理，让人回归到真正需要体验、判断与品位的领域——这才是人与 Agent 共存的最优解。</p>
+  </div>
+
+</div>
+
+</body>
+</html>
