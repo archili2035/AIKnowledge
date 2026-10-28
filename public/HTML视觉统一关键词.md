@@ -5,14 +5,14 @@
 
 ## 唯一真相源
 
-样式来自 **site-kit**，与个人门户、健康档案共用同一套令牌：
+样式来自 **xavierstudio-site-kit**，与个人门户、健康档案共用同一套令牌：
 
 - `assets/theme/tokens.css` — 设计令牌
 - `assets/theme/base.css` — 重置、排版与组件原语
 - 当前版本见 `portal.json` 的 `theme_version`
 
-这两个文件由 site-kit 的 `sync-theme` 同步，**不要手改**。要调色、改字阶、改间距，
-去改 site-kit 的 tokens.css，再同步回来。
+这两个文件由 xavierstudio-site-kit 的 `sync-theme` 同步，**不要手改**。要调色、改字阶、改间距，
+去改 xavierstudio-site-kit 的 tokens.css，再同步回来。
 
 > 本文此前内嵌过一份令牌（蓝紫渐变那套）。那种写法的问题是没有任何东西强制执行，
 > 每个页面各自手抄一遍，于是必然漂移。现在令牌是真实文件，不再是文档里的代码块。
@@ -78,5 +78,5 @@
 | `public/01_AI基础理论/一口气拆穿Skill／MCP／RAG／Agent／OpenClaw底层逻辑.html` | 已迁移（锚点页） |
 | 其余 `public/**` 下的 HTML | 待迁移 |
 
-迁移手法：插入两行 `<link>`，把页面原有的 `:root` 令牌块改为映射到 site-kit 令牌，
+迁移手法：插入两行 `<link>`，把页面原有的 `:root` 令牌块改为映射到 xavierstudio-site-kit 令牌，
 再把残留的写死色值按语义替换成令牌。组件规则本身基本不动。
