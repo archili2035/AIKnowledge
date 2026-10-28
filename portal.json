@@ -1,0 +1,16 @@
+{
+  "title": "AI 知识库",
+  "summary": "AI 概念、模型、产品与方法论的知识图谱与阅读笔记",
+  "category": "AI 知识库",
+  "visibility": "public",
+  "site": ".",
+  "entry": "index.html",
+  "include": [
+    "index.html",
+    "public/**"
+  ],
+  "exclude": [
+    "scripts/**",
+    "private/**"
+  ]
+}
