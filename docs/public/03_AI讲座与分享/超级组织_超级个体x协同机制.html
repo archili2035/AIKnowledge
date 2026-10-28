@@ -4,37 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>超级组织：超级个体 × 协同机制｜讲座笔记整理</title>
+<link rel="stylesheet" href="../../assets/theme/tokens.css">
+<link rel="stylesheet" href="../../assets/theme/base.css">
 <style>
-  :root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --bg: #f5f7fb;
-    --card-bg: #ffffff;
-    --text: #2b3445;
-    --text-light: #5f6f84;
-    --heading: #1a1a2e;
-    --accent: #4361ee;
-    --accent-light: #eef1ff;
-    --border: #e8ecf1;
-    --quote-bg: #f0f4ff;
-    --quote-border: #4361ee;
-    --tag-bg: #e8ecf1;
-    --highlight: #fff3cd;
-    --green: #16a34a;
-    --green-bg: #ecfdf5;
-    --orange: #ea580c;
-    --orange-bg: #fff7ed;
-    --purple: #7c3aed;
-    --purple-bg: #f5f3ff;
-    --shadow-sm: 0 2px 10px rgba(16, 24, 40, 0.04);
-    --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.08);
-  }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    background: linear-gradient(180deg, #f5f7fb 0%, #eef2f8 100%);
-    color: var(--text);
+    background: linear-gradient(180deg, var(--surface) 0%, var(--surface-alt) 100%);
+    color: var(--ink);
     line-height: 1.85;
     font-size: 16px;
   }
@@ -50,9 +29,9 @@
     margin-bottom: 32px;
     padding: 30px 24px;
     border-radius: 18px;
-    background: var(--primary-gradient);
+    background: var(--accent);
     box-shadow: var(--shadow-md);
-    color: #ffffff;
+    color: var(--surface-raised);
   }
 
   .header h1 {
@@ -72,15 +51,15 @@
   }
 
   .header a {
-    color: #ffffff;
+    color: var(--surface-raised);
     text-decoration: underline;
     text-underline-offset: 3px;
     font-weight: 600;
   }
 
   .section {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
+    background: var(--surface-raised);
+    border: 1px solid var(--hairline);
     border-radius: 14px;
     padding: 28px 32px;
     margin-bottom: 28px;
@@ -96,7 +75,7 @@
   .section h2 {
     font-size: 20px;
     font-weight: 700;
-    color: var(--heading);
+    color: var(--ink);
     margin-bottom: 16px;
     padding-bottom: 10px;
     border-bottom: 2px solid var(--accent);
@@ -107,7 +86,7 @@
 
   .section h2 .num {
     background: var(--accent);
-    color: #fff;
+    color: var(--surface-raised);
     width: 28px;
     height: 28px;
     border-radius: 8px;
@@ -122,7 +101,7 @@
   .section h3 {
     font-size: 17px;
     font-weight: 650;
-    color: var(--heading);
+    color: var(--ink);
     margin: 20px 0 10px;
     padding-left: 12px;
     border-left: 3px solid var(--accent);
@@ -137,7 +116,7 @@
   }
 
   strong, b {
-    color: var(--heading);
+    color: var(--ink);
     font-weight: 650;
   }
 
@@ -145,13 +124,13 @@
     color: var(--accent);
     font-style: normal;
     font-weight: 500;
-    background: var(--accent-light);
+    background: var(--accent-wash);
     padding: 1px 6px;
     border-radius: 4px;
   }
 
   code {
-    background: var(--tag-bg);
+    background: var(--surface-alt);
     padding: 2px 7px;
     border-radius: 4px;
     font-size: 14px;
@@ -181,8 +160,8 @@
   a:hover { text-decoration: underline; }
 
   blockquote {
-    background: var(--quote-bg);
-    border-left: 4px solid var(--quote-border);
+    background: var(--surface-alt);
+    border-left: 4px solid var(--accent);
     padding: 16px 20px;
     margin: 16px 0;
     border-radius: 0 8px 8px 0;
@@ -195,13 +174,13 @@
   }
 
   .note {
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-    border-left: 4px solid #0284c7;
+    background: linear-gradient(135deg, var(--info-wash) 0%, var(--info-wash) 100%);
+    border-left: 4px solid var(--info);
   }
 
   .takeaway {
-    background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
-    border: 1px solid #f0d77b;
+    background: linear-gradient(135deg, var(--warn-wash) 0%, var(--warn-wash) 100%);
+    border: 1px solid var(--warn);
     padding: 14px 18px;
     border-radius: 8px;
     margin: 16px 0;
@@ -209,12 +188,12 @@
   }
 
   .takeaway strong {
-    color: #b8860b;
+    color: var(--warn);
   }
 
   .formula-card {
-    background: linear-gradient(135deg, #ffffff 0%, #f7f7ff 100%);
-    border: 1px solid #d9defc;
+    background: linear-gradient(135deg, var(--surface-raised) 0%, var(--surface-alt) 100%);
+    border: 1px solid var(--accent-wash);
     border-radius: 16px;
     padding: 26px 24px;
     margin-bottom: 28px;
@@ -223,7 +202,7 @@
   }
 
   .formula-title {
-    color: var(--text-light);
+    color: var(--ink-secondary);
     font-size: 14px;
     margin-bottom: 12px;
   }
@@ -236,7 +215,7 @@
     flex-wrap: wrap;
     font-size: 23px;
     font-weight: 760;
-    color: var(--heading);
+    color: var(--ink);
     line-height: 1.4;
   }
 
@@ -246,20 +225,20 @@
     justify-content: center;
     border-radius: 12px;
     padding: 10px 16px;
-    background: var(--accent-light);
+    background: var(--accent-wash);
     color: var(--accent);
-    border: 1px solid #dfe5ff;
+    border: 1px solid var(--surface-alt);
   }
 
   .formula-result {
-    background: var(--primary-gradient);
-    color: #ffffff;
+    background: var(--accent);
+    color: var(--surface-raised);
     border-color: transparent;
   }
 
   .formula-desc {
     margin-top: 14px;
-    color: var(--text-light);
+    color: var(--ink-secondary);
     font-size: 14.5px;
   }
 
@@ -271,10 +250,10 @@
   }
 
   .mechanism-card {
-    border: 1px solid var(--border);
+    border: 1px solid var(--hairline);
     border-radius: 12px;
     padding: 16px 18px;
-    background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+    background: linear-gradient(135deg, var(--surface-raised) 0%, var(--surface-alt) 100%);
   }
 
   .mechanism-card h3 {
@@ -282,11 +261,11 @@
     padding: 0;
     border: 0;
     font-size: 16px;
-    color: var(--heading);
+    color: var(--ink);
   }
 
   .mechanism-card p {
-    color: var(--text-light);
+    color: var(--ink-secondary);
     font-size: 14.5px;
     margin: 0;
   }
@@ -301,17 +280,17 @@
   .tool-card {
     border-radius: 12px;
     padding: 16px 18px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--hairline);
   }
 
   .tool-card.personal {
-    background: var(--orange-bg);
-    border-color: #fed7aa;
+    background: var(--warn-wash);
+    border-color: var(--warn-wash);
   }
 
   .tool-card.comm {
-    background: var(--purple-bg);
-    border-color: #ddd6fe;
+    background: var(--accent-wash);
+    border-color: var(--surface-alt);
   }
 
   .tool-card h3 {
@@ -321,12 +300,12 @@
     font-size: 16px;
   }
 
-  .tool-card.personal h3 { color: var(--orange); }
-  .tool-card.comm h3 { color: var(--purple); }
+  .tool-card.personal h3 { color: var(--warn); }
+  .tool-card.comm h3 { color: var(--accent); }
 
   .tool-card p {
     font-size: 14.5px;
-    color: var(--text);
+    color: var(--ink);
   }
 
   .project-stack {
@@ -337,22 +316,22 @@
   }
 
   .project-card {
-    background: linear-gradient(135deg, #f8f7ff 0%, #edeaff 100%);
-    border: 1px solid #ddd6fe;
+    background: linear-gradient(135deg, var(--surface-alt) 0%, var(--surface-alt) 100%);
+    border: 1px solid var(--surface-alt);
     border-radius: 12px;
     padding: 18px 16px;
     text-align: center;
   }
 
   .project-card .label {
-    color: var(--purple);
+    color: var(--accent);
     font-weight: 750;
     font-size: 17px;
     margin-bottom: 8px;
   }
 
   .project-card .desc {
-    color: var(--text-light);
+    color: var(--ink-secondary);
     font-size: 13.5px;
     line-height: 1.65;
   }
@@ -366,14 +345,14 @@
   .principle-list li {
     padding: 14px 18px;
     margin-bottom: 10px;
-    background: var(--green-bg);
-    border-left: 3px solid var(--green);
+    background: var(--ok-wash);
+    border-left: 3px solid var(--ok);
     border-radius: 0 8px 8px 0;
     font-size: 15px;
   }
 
   .principle-list li strong {
-    color: #15803d;
+    color: var(--ok);
   }
 
   .keywords {
@@ -384,7 +363,7 @@
   }
 
   .keywords span {
-    background: var(--accent-light);
+    background: var(--accent-wash);
     color: var(--accent);
     padding: 4px 14px;
     border-radius: 20px;
@@ -393,28 +372,28 @@
   }
 
   .metric-box {
-    background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
-    border: 1px solid #67e8f9;
+    background: linear-gradient(135deg, var(--info-wash) 0%, var(--info-wash) 100%);
+    border: 1px solid var(--info);
     border-radius: 12px;
     padding: 18px 20px;
     margin: 16px 0;
   }
 
   .metric-box .metric {
-    color: #0e7490;
+    color: var(--info);
     font-size: 18px;
     font-weight: 760;
     margin-bottom: 6px;
   }
 
   .metric-box p {
-    color: var(--text);
+    color: var(--ink);
     font-size: 14.5px;
   }
 
   .final-quote {
-    background: var(--primary-gradient);
-    color: #fff;
+    background: var(--accent);
+    color: var(--surface-raised);
     padding: 32px;
     border-radius: 12px;
     text-align: center;
@@ -432,7 +411,7 @@
   }
 
   .final-quote strong {
-    color: #fff;
+    color: var(--surface-raised);
     font-weight: 750;
   }
 

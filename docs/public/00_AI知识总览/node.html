@@ -4,22 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI节点详情</title>
+<link rel="stylesheet" href="../../assets/theme/tokens.css">
+<link rel="stylesheet" href="../../assets/theme/base.css">
     <style>
-        :root {
-            --bg: #f5f7fb;
-            --card: rgba(255, 255, 255, 0.92);
-            --text: #1f2a44;
-            --subtext: #5c6784;
-            --border: #d9e1f2;
-            --shadow: 0 12px 32px rgba(45, 65, 120, 0.12);
-            --shadow-sm: 0 8px 20px rgba(45, 65, 120, 0.08);
-            --accent: linear-gradient(135deg, #6a8cff 0%, #8e6cff 100%);
-            --accent-solid: #5b6cff;
-            --success: #eafaf3;
-            --success-text: #1b7f4b;
-            --info-bg: #eef4ff;
-            --code-bg: #f3f6fc;
-        }
 
         * {
             box-sizing: border-box;
@@ -28,16 +15,13 @@
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-            color: var(--text);
-            background:
-                radial-gradient(circle at top left, rgba(122, 162, 255, 0.18), transparent 30%),
-                radial-gradient(circle at top right, rgba(158, 108, 255, 0.16), transparent 28%),
-                linear-gradient(180deg, #f7f9fd 0%, #eef3fb 100%);
+            color: var(--ink);
+            background: var(--surface);
             line-height: 1.75;
         }
 
         a {
-            color: var(--accent-solid);
+            color: var(--accent);
             text-decoration: none;
         }
 
@@ -54,10 +38,10 @@
             margin: 0 auto;
             padding: 30px;
             border-radius: 28px;
-            background: rgba(255, 255, 255, 0.8);
+            background: var(--surface-raised);
             backdrop-filter: blur(14px);
-            border: 1px solid rgba(217, 225, 242, 0.92);
-            box-shadow: var(--shadow);
+            border: 1px solid var(--hairline);
+            box-shadow: var(--shadow-md);
         }
 
         .breadcrumb {
@@ -66,7 +50,7 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 18px;
-            color: var(--subtext);
+            color: var(--ink-secondary);
             font-size: 0.9rem;
         }
 
@@ -80,8 +64,8 @@
             gap: 8px;
             padding: 8px 14px;
             border-radius: 999px;
-            background: rgba(106, 140, 255, 0.12);
-            color: #4658c8;
+            background: var(--accent-wash);
+            color: var(--accent);
             font-size: 0.85rem;
             font-weight: 800;
             margin-bottom: 16px;
@@ -96,7 +80,7 @@
 
         .hero p {
             margin: 0;
-            color: var(--subtext);
+            color: var(--ink-secondary);
             font-size: 1rem;
         }
 
@@ -112,9 +96,9 @@
             align-items: center;
             padding: 7px 12px;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(217, 225, 242, 0.95);
-            color: #415070;
+            background: var(--surface-raised);
+            border: 1px solid var(--hairline);
+            color: var(--accent);
             font-size: 0.84rem;
             font-weight: 700;
             box-shadow: var(--shadow-sm);
@@ -122,7 +106,7 @@
 
         .pill strong {
             margin-right: 6px;
-            color: #2e3f96;
+            color: var(--accent);
         }
 
         .container {
@@ -137,10 +121,10 @@
         }
 
         .panel {
-            background: var(--card);
-            border: 1px solid rgba(217, 225, 242, 0.9);
+            background: var(--surface-raised);
+            border: 1px solid var(--hairline);
             border-radius: 24px;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-md);
             backdrop-filter: blur(12px);
         }
 
@@ -158,8 +142,8 @@
         .section-card {
             padding: 20px;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(220, 228, 246, 0.95);
+            background: var(--surface-raised);
+            border: 1px solid var(--hairline);
             box-shadow: var(--shadow-sm);
         }
 
@@ -174,13 +158,13 @@
 
         .section-card h3 {
             font-size: 1rem;
-            color: #4151b8;
+            color: var(--accent);
         }
 
         .section-card p,
         .section-card li,
         .section-card code {
-            color: var(--subtext);
+            color: var(--ink-secondary);
             font-size: 0.95rem;
         }
 
@@ -214,14 +198,14 @@
         }
 
         .tag {
-            background: #f2f5fc;
-            color: #42506d;
+            background: var(--surface);
+            color: var(--accent);
         }
 
         .link-chip {
-            background: rgba(106, 140, 255, 0.12);
-            color: #3951c6;
-            border: 1px solid rgba(106, 140, 255, 0.18);
+            background: var(--accent-wash);
+            color: var(--accent);
+            border: 1px solid var(--accent-line);
         }
 
         .info-list {
@@ -232,14 +216,14 @@
         .info-item {
             padding: 14px 16px;
             border-radius: 16px;
-            background: var(--info-bg);
-            border: 1px solid rgba(106, 140, 255, 0.12);
+            background: var(--info-wash);
+            border: 1px solid var(--hairline);
         }
 
         .info-item strong {
             display: block;
             margin-bottom: 5px;
-            color: #3043a0;
+            color: var(--accent);
             font-size: 0.92rem;
         }
 
@@ -253,48 +237,48 @@
         .relation-item {
             padding: 14px 16px;
             border-radius: 16px;
-            background: rgba(255, 255, 255, 0.96);
-            border: 1px solid rgba(220, 228, 246, 0.95);
+            background: var(--surface-raised);
+            border: 1px solid var(--hairline);
         }
 
         .relation-item strong,
         .source-item strong {
             display: block;
             margin-bottom: 6px;
-            color: #2d3f7c;
+            color: var(--accent);
             font-size: 0.92rem;
         }
 
         .relation-item p,
         .source-item p {
             margin: 0;
-            color: var(--subtext);
+            color: var(--ink-secondary);
             font-size: 0.9rem;
         }
 
         .status-box {
             padding: 18px 20px;
             border-radius: 20px;
-            background: var(--success);
-            color: var(--success-text);
-            border: 1px solid rgba(27, 127, 75, 0.12);
+            background: var(--ok-wash);
+            color: var(--ok);
+            border: 1px solid var(--hairline);
             font-weight: 700;
         }
 
         .muted-box {
             padding: 18px 20px;
             border-radius: 20px;
-            background: rgba(245, 248, 255, 0.95);
-            border: 1px solid rgba(225, 232, 248, 0.95);
-            color: var(--subtext);
+            background: var(--surface-alt);
+            border: 1px solid var(--hairline);
+            color: var(--ink-secondary);
         }
 
         .code-line {
             display: inline-block;
             padding: 6px 10px;
             border-radius: 10px;
-            background: var(--code-bg);
-            color: #3a4d7b;
+            background: var(--surface-alt);
+            color: var(--accent);
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
             font-size: 0.84rem;
             word-break: break-all;
@@ -314,15 +298,15 @@
             border-radius: 12px;
             font-weight: 700;
             text-decoration: none;
-            border: 1px solid rgba(106, 140, 255, 0.18);
-            background: rgba(106, 140, 255, 0.12);
-            color: #3951c6;
+            border: 1px solid var(--accent-line);
+            background: var(--accent-wash);
+            color: var(--accent);
         }
 
         .button.secondary {
-            background: rgba(255, 255, 255, 0.95);
-            color: #42506d;
-            border-color: rgba(217, 225, 242, 0.95);
+            background: var(--surface-raised);
+            color: var(--accent);
+            border-color: var(--hairline);
         }
 
         .loading,
@@ -331,13 +315,13 @@
             margin: 24px auto 48px;
             padding: 28px;
             border-radius: 24px;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(217, 225, 242, 0.9);
-            box-shadow: var(--shadow);
+            background: var(--surface-raised);
+            border: 1px solid var(--hairline);
+            box-shadow: var(--shadow-md);
         }
 
         .error-box {
-            color: #b42318;
+            color: var(--danger);
         }
 
         .nav-bar {
@@ -355,8 +339,8 @@
             gap: 4px;
             padding: 16px 18px;
             border-radius: 18px;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(217, 225, 242, 0.9);
+            background: var(--surface-raised);
+            border: 1px solid var(--hairline);
             box-shadow: var(--shadow-sm);
             text-decoration: none;
             color: inherit;
@@ -365,8 +349,8 @@
 
         .nav-link:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow);
-            border-color: rgba(106, 140, 255, 0.4);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-line);
             text-decoration: none;
         }
 
@@ -376,19 +360,19 @@
 
         .nav-label {
             font-size: 0.82rem;
-            color: var(--subtext);
+            color: var(--ink-secondary);
             font-weight: 600;
         }
 
         .nav-title {
             font-size: 1rem;
             font-weight: 700;
-            color: var(--accent-solid);
+            color: var(--accent);
         }
 
         .nav-category {
             font-size: 0.8rem;
-            color: var(--subtext);
+            color: var(--ink-secondary);
         }
 
         .nav-placeholder {

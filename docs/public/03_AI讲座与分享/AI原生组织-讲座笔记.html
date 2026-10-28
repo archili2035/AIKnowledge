@@ -4,32 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 原生组织｜讲座笔记整理</title>
+<link rel="stylesheet" href="../../assets/theme/tokens.css">
+<link rel="stylesheet" href="../../assets/theme/base.css">
 <style>
-  :root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --bg: #f5f7fb;
-    --card-bg: #ffffff;
-    --text: #2b3445;
-    --text-light: #5f6f84;
-    --heading: #1a1a2e;
-    --accent: #4361ee;
-    --accent-light: #eef1ff;
-    --border: #e8ecf1;
-    --quote-bg: #f0f4ff;
-    --quote-border: #4361ee;
-    --tag-bg: #e8ecf1;
-    --highlight: #fff3cd;
-    --stone-color: #6c5ce7;
-    --shadow-sm: 0 2px 10px rgba(16, 24, 40, 0.04);
-    --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.08);
-  }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    background: linear-gradient(180deg, #f5f7fb 0%, #eef2f8 100%);
-    color: var(--text);
+    background: linear-gradient(180deg, var(--surface) 0%, var(--surface-alt) 100%);
+    color: var(--ink);
     line-height: 1.85;
     font-size: 16px;
   }
@@ -46,21 +30,21 @@
     margin-bottom: 32px;
     padding: 28px 20px;
     border-radius: 16px;
-    background: var(--primary-gradient);
+    background: var(--accent);
     box-shadow: var(--shadow-md);
   }
 
   .header h1 {
     font-size: 30px;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--surface-raised);
     letter-spacing: -0.5px;
     margin-bottom: 12px;
   }
 
   .header .subtitle {
     font-size: 14px;
-    color: #ffffff;
+    color: var(--surface-raised);
     background: rgba(255, 255, 255, 0.2);
     display: inline-block;
     padding: 4px 16px;
@@ -69,8 +53,8 @@
 
   /* ── Section ── */
   .section {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
+    background: var(--surface-raised);
+    border: 1px solid var(--hairline);
     border-radius: 14px;
     padding: 28px 32px;
     margin-bottom: 28px;
@@ -86,7 +70,7 @@
   .section h2 {
     font-size: 20px;
     font-weight: 700;
-    color: var(--heading);
+    color: var(--ink);
     margin-bottom: 16px;
     padding-bottom: 10px;
     border-bottom: 2px solid var(--accent);
@@ -97,7 +81,7 @@
 
   .section h2 .num {
     background: var(--accent);
-    color: #fff;
+    color: var(--surface-raised);
     width: 28px;
     height: 28px;
     border-radius: 8px;
@@ -112,7 +96,7 @@
   .section h3 {
     font-size: 17px;
     font-weight: 600;
-    color: var(--heading);
+    color: var(--ink);
     margin: 20px 0 10px;
     padding-left: 12px;
     border-left: 3px solid var(--accent);
@@ -135,8 +119,8 @@
   }
 
   .triad-card {
-    background: linear-gradient(135deg, #f8f7ff 0%, #edeaff 100%);
-    border: 1px solid #ddd6fe;
+    background: linear-gradient(135deg, var(--surface-alt) 0%, var(--surface-alt) 100%);
+    border: 1px solid var(--surface-alt);
     border-radius: 12px;
     padding: 20px 16px;
     text-align: center;
@@ -153,9 +137,9 @@
     height: 4px;
   }
 
-  .triad-card.think::before { background: linear-gradient(90deg, #4361ee, #6c5ce7); }
-  .triad-card.act::before   { background: linear-gradient(90deg, #00b894, #00cec9); }
-  .triad-card.taste::before { background: linear-gradient(90deg, #e17055, #fdcb6e); }
+  .triad-card.think::before { background: linear-gradient(90deg, var(--accent), var(--accent)); }
+  .triad-card.act::before   { background: linear-gradient(90deg, var(--ok), var(--info)); }
+  .triad-card.taste::before { background: linear-gradient(90deg, var(--warn), var(--warn)); }
 
   .triad-card .triad-char {
     font-size: 32px;
@@ -163,13 +147,13 @@
     margin-bottom: 6px;
   }
 
-  .triad-card.think .triad-char { color: #4361ee; }
-  .triad-card.act .triad-char   { color: #00b894; }
-  .triad-card.taste .triad-char { color: #e17055; }
+  .triad-card.think .triad-char { color: var(--accent); }
+  .triad-card.act .triad-char   { color: var(--ok); }
+  .triad-card.taste .triad-char { color: var(--warn); }
 
   .triad-card .triad-en {
     font-size: 13px;
-    color: var(--text-light);
+    color: var(--ink-secondary);
     font-style: italic;
     margin-bottom: 10px;
   }
@@ -177,12 +161,12 @@
   .triad-card .triad-desc {
     font-size: 13.5px;
     line-height: 1.65;
-    color: var(--text);
+    color: var(--ink);
   }
 
   /* ── Inline highlights ── */
   strong, b {
-    color: var(--heading);
+    color: var(--ink);
     font-weight: 600;
   }
 
@@ -190,13 +174,13 @@
     color: var(--accent);
     font-style: normal;
     font-weight: 500;
-    background: var(--accent-light);
+    background: var(--accent-wash);
     padding: 1px 6px;
     border-radius: 4px;
   }
 
   code {
-    background: var(--tag-bg);
+    background: var(--surface-alt);
     padding: 2px 7px;
     border-radius: 4px;
     font-size: 14px;
@@ -228,14 +212,14 @@
   .stone-list li {
     padding: 12px 16px;
     margin-bottom: 8px;
-    background: linear-gradient(135deg, #f8f7ff 0%, #f0eeff 100%);
-    border-left: 3px solid var(--stone-color);
+    background: linear-gradient(135deg, var(--surface-alt) 0%, var(--surface-alt) 100%);
+    border-left: 3px solid var(--accent);
     border-radius: 0 8px 8px 0;
     font-size: 15px;
   }
 
   .stone-list li strong {
-    color: var(--stone-color);
+    color: var(--accent);
   }
 
   /* ── Principle list ── */
@@ -248,20 +232,20 @@
   .principle-list li {
     padding: 14px 18px;
     margin-bottom: 10px;
-    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-    border-left: 3px solid #22c55e;
+    background: linear-gradient(135deg, var(--ok-wash) 0%, var(--ok-wash) 100%);
+    border-left: 3px solid var(--ok);
     border-radius: 0 8px 8px 0;
     font-size: 15px;
   }
 
   .principle-list li strong {
-    color: #15803d;
+    color: var(--ok);
   }
 
   /* ── Blockquote ── */
   blockquote {
-    background: var(--quote-bg);
-    border-left: 4px solid var(--quote-border);
+    background: var(--surface-alt);
+    border-left: 4px solid var(--accent);
     padding: 16px 20px;
     margin: 16px 0;
     border-radius: 0 8px 8px 0;
@@ -275,8 +259,8 @@
 
   /* ── Key takeaway ── */
   .takeaway {
-    background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
-    border: 1px solid #f0d77b;
+    background: linear-gradient(135deg, var(--warn-wash) 0%, var(--warn-wash) 100%);
+    border: 1px solid var(--warn);
     padding: 14px 18px;
     border-radius: 8px;
     margin: 16px 0;
@@ -284,13 +268,13 @@
   }
 
   .takeaway strong {
-    color: #b8860b;
+    color: var(--warn);
   }
 
   /* ── Question box ── */
   .question-box {
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-    border: 1px solid #f59e0b;
+    background: linear-gradient(135deg, var(--warn-wash) 0%, var(--warn-wash) 100%);
+    border: 1px solid var(--warn);
     padding: 14px 18px;
     border-radius: 8px;
     margin: 16px 0;
@@ -298,13 +282,13 @@
   }
 
   .question-box strong {
-    color: #b45309;
+    color: var(--warn);
   }
 
   /* ── Final quote ── */
   .final-quote {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%);
+    color: var(--surface-raised);
     padding: 32px;
     border-radius: 12px;
     text-align: center;
@@ -322,7 +306,7 @@
   }
 
   .final-quote strong {
-    color: #fff;
+    color: var(--surface-raised);
     font-weight: 700;
   }
 
@@ -335,7 +319,7 @@
   }
 
   .keywords span {
-    background: var(--accent-light);
+    background: var(--accent-wash);
     color: var(--accent);
     padding: 4px 14px;
     border-radius: 20px;
@@ -345,8 +329,8 @@
 
   /* ── Matrix diagram ── */
   .matrix-diagram {
-    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-    border: 1px solid #c4b5fd;
+    background: linear-gradient(135deg, var(--surface-alt) 0%, var(--accent-wash) 100%);
+    border: 1px solid var(--accent-wash);
     border-radius: 12px;
     padding: 22px 24px;
     margin: 16px 0;
@@ -355,7 +339,7 @@
 
   .matrix-diagram .matrix-title {
     font-weight: 700;
-    color: #7c3aed;
+    color: var(--accent);
     margin-bottom: 12px;
     font-size: 15px;
   }
@@ -369,8 +353,8 @@
   }
 
   .matrix-diagram .axis-label .label-tag {
-    background: #7c3aed;
-    color: #fff;
+    background: var(--accent);
+    color: var(--surface-raised);
     padding: 2px 10px;
     border-radius: 4px;
     font-size: 12px;
