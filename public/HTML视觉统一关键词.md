@@ -1,58 +1,82 @@
-# HTML视觉统一关键词（AIKnowledge）
+# HTML 视觉统一关键词（AIKnowledge）
 
-> 适用范围：`d:/AIKnowledge` 下公开与私有页面（除内容特殊页可局部例外）
+> 适用范围：本仓库下所有 HTML 页面。
+> 本文只讲本仓库怎么用，**样式本身不在这里维护**。
 
-## 1) 设计关键词
+## 唯一真相源
 
-- 渐变科技感（蓝紫主色）
-- 卡片化信息块
-- 高留白 / 高可读
-- 柔和阴影层级
-- 状态标签化（公开/私有/来源）
-- 清晰入口（少跳转、少歧义）
+样式来自 **site-kit**，与个人门户、健康档案共用同一套令牌：
 
-## 2) 基础视觉令牌（Tokens）
+- `assets/theme/tokens.css` — 设计令牌
+- `assets/theme/base.css` — 重置、排版与组件原语
+- 当前版本见 `portal.json` 的 `theme_version`
 
-```css
-:root {
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --accent: #4361ee;
-  --bg: #f5f7fb;
-  --card: #ffffff;
-  --text: #1a1a2e;
-  --subtext: #5a6a7a;
-  --border: #e8ecf1;
-  --shadow-sm: 0 2px 10px rgba(16, 24, 40, 0.04);
-  --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.08);
-}
+这两个文件由 site-kit 的 `sync-theme` 同步，**不要手改**。要调色、改字阶、改间距，
+去改 site-kit 的 tokens.css，再同步回来。
+
+> 本文此前内嵌过一份令牌（蓝紫渐变那套）。那种写法的问题是没有任何东西强制执行，
+> 每个页面各自手抄一遍，于是必然漂移。现在令牌是真实文件，不再是文档里的代码块。
+
+## 设计关键词
+
+当前口径：**苹果官网的骨架 + 个人色**。
+
+- 排版节奏与大留白，靠间距分区
+- 双表面色带交替（`.band` / `.band-alt`），不靠边框堆叠
+- 药丸按钮与状态标签
+- 克制的阴影，层级优先用表面色差表达
+- 赭石强调色、衬线标题、整体偏暖一度的表面色
+
+明确**不再使用**：蓝紫渐变、作为装饰的渐变背景、厚重阴影。
+
+## 页面怎么写
+
+```html
+<link rel="stylesheet" href="../../assets/theme/tokens.css">
+<link rel="stylesheet" href="../../assets/theme/base.css">
+...
+<section class="band">
+  <div class="page">
+    <header class="hero">
+      <span class="tag">public knowledge</span>
+      <h1>标题</h1>
+      <p class="lead">一句话定位</p>
+    </header>
+  </div>
+</section>
 ```
 
-## 3) 页面结构建议
+相对路径按页面深度写（仓库根用 `assets/`，`public/xx/` 下用 `../../assets/`）。
+相对引用在本地 `file://`、GitHub Pages、门户镜像三处都成立。
 
-1. Hero（标题 + 一句话定位）
-2. 核心入口区（卡片网格）
-3. 内容主体（分节卡片）
-4. 补充信息（来源、分级、更新时间）
+## 可用的组件词汇
 
-## 4) 组件约束
+`page` `page-reading` `page-wide` · `band` `band-alt` `band-inverse` `band-tight` ·
+`hero` `tag` `lead` · `section` · `card` `grid` · `stats` `stat` ·
+`timeline` `row` `date` · `pill`（`ok` `warn` `danger` `info` `accent`） ·
+`button` `button-quiet` `links` · `alert` `warn` · `muted` `note` `mono` `micro`
 
-- 卡片圆角：`12px ~ 18px`
-- 卡片边框：`1px solid var(--border)`
-- 主标题字号：`28px ~ 32px`
-- 正文字号：`14px ~ 16px`
-- 行高：`1.7 ~ 1.9`
-- 链接样式：主色 + hover 下划线
+## 三层约束
 
-## 5) 文案与信息架构规范
+| 层 | 在哪 | 约束 |
+|---|---|---|
+| 一层 · 令牌 | `assets/theme/tokens.css` | 唯一真相源，页面不准写死色值与字号 |
+| 二层 · 基础 | `assets/theme/base.css` | 只引用一层 |
+| 三层 · 页面局部 | 各页 `<style>` | 自造组件允许保留，但**只能引用一层令牌** |
 
-- 公共页只保留公开信息，不出现私有敏感正文。
-- 私有页必须显示“私有级”状态标识。
-- 所有页面优先提供“返回上级入口”链接，减少迷路。
-- 避免过度装饰：动画与渐变仅用于层级提示，不用于干扰阅读。
+第三层是故意留的：长文页的 `glossary-block`、`flow-step`、`chain-item` 这类
+自造组件不必被塞进统一组件集，共享令牌就足以统一观感。
 
-## 6) 当前风格锚点页
+页面局部样式写在 `<link>` 之后，因此同名类（`hero` `section` `tag` `card`）
+会覆盖基础层——这是预期行为，但要留意只覆盖需要的属性。
 
-- 主锚点：`public/01_AI基础理论/一口气拆穿Skill／MCP／RAG／Agent／OpenClaw底层逻辑.html`
-- 首页锚点：`index.html`
+## 迁移状态
 
-后续新增 HTML 页面，优先复用本规范中的关键词和令牌。
+| 页面 | 状态 |
+|---|---|
+| `index.html` | 已迁移 |
+| `public/01_AI基础理论/一口气拆穿Skill／MCP／RAG／Agent／OpenClaw底层逻辑.html` | 已迁移（锚点页） |
+| 其余 `public/**` 下的 HTML | 待迁移 |
+
+迁移手法：插入两行 `<link>`，把页面原有的 `:root` 令牌块改为映射到 site-kit 令牌，
+再把残留的写死色值按语义替换成令牌。组件规则本身基本不动。

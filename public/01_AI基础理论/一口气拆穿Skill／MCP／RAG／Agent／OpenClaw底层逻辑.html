@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill / MCP / RAG / Agent / OpenClaw：术语梳理与概念对照</title>
 
+    <link rel="stylesheet" href="../../assets/theme/tokens.css">
+    <link rel="stylesheet" href="../../assets/theme/base.css">
     <style>
         * {
             margin: 0;
@@ -12,25 +14,25 @@
             box-sizing: border-box;
         }
 
+        /* ---- 令牌映射 ------------------------------------------------
+         * 本页的自造组件沿用原有变量名，这里把它们重定向到 site-kit 令牌。
+         * 不要在本页写死色值；要调色请改 assets/theme/tokens.css。
+         */
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --warm-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            --text-primary: #1a1a2e;
-            --text-secondary: #4a5568;
-            --text-muted: #718096;
-            --bg-light: #f7fafc;
-            --bg-card: #ffffff;
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
-            --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.15);
+            --primary-gradient: var(--accent);
+            --secondary-gradient: var(--info);
+            --warm-gradient: var(--warn-wash);
+            --text-primary: var(--ink);
+            --text-secondary: var(--ink-secondary);
+            --text-muted: var(--ink-tertiary);
+            --bg-light: var(--surface-alt);
+            --bg-card: var(--surface-raised);
+            --border-color: var(--hairline);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-            background: linear-gradient(180deg, #f5f7fa 0%, #e8eef5 100%);
+            background: linear-gradient(180deg, var(--surface-alt) 0%, var(--hairline) 100%);
             color: var(--text-primary);
             line-height: 1.8;
             min-height: 100vh;
@@ -102,7 +104,7 @@
 
         .source-reference a,
         .source-reference strong {
-            color: #ffffff;
+            color: var(--surface-raised);
             text-decoration: underline;
             text-underline-offset: 3px;
             word-break: break-all;
@@ -139,7 +141,7 @@
         }
 
         .core-message h2 {
-            color: #667eea;
+            color: var(--accent);
             font-size: 1.5rem;
             margin-bottom: 18px;
             display: flex;
@@ -175,7 +177,7 @@
 
         .layer-head h3 {
             font-size: 1rem;
-            color: #4c51bf;
+            color: var(--accent);
         }
 
         .tag-row {
@@ -189,8 +191,8 @@
             display: inline-block;
             padding: 6px 12px;
             border-radius: 999px;
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-            color: #1a1a2e;
+            background: linear-gradient(135deg, var(--accent-wash) 0%, var(--info-wash) 100%);
+            color: var(--ink);
             font-size: 0.85rem;
             font-weight: 600;
         }
@@ -204,44 +206,44 @@
         }
 
         .chip-standard {
-            background: #e6fffa;
-            color: #2c7a7b;
+            background: var(--info-wash);
+            color: var(--info);
         }
 
         .chip-paper {
-            background: #ebf8ff;
-            color: #2b6cb0;
+            background: var(--info-wash);
+            color: var(--info);
         }
 
         .chip-platform {
-            background: #faf5ff;
-            color: #6b46c1;
+            background: var(--accent-wash);
+            color: var(--accent);
         }
 
         .chip-doubt {
-            background: #fff5f5;
-            color: #c53030;
+            background: var(--danger-wash);
+            color: var(--danger);
         }
 
         .note-box {
             background: var(--warm-gradient);
             padding: 22px 24px;
             border-radius: 14px;
-            border-left: 4px solid #ed8936;
-            color: #2d3748;
+            border-left: 4px solid var(--warn);
+            color: var(--ink);
         }
 
         .story-panel {
             margin: 24px 0 20px;
             padding: 24px;
             border-radius: 18px;
-            background: linear-gradient(135deg, #ffffff 0%, #f7f9ff 100%);
-            border: 1px solid #e3eafc;
+            background: linear-gradient(135deg, var(--surface-raised) 0%, var(--accent-wash) 100%);
+            border: 1px solid var(--info-wash);
             box-shadow: var(--shadow-sm);
         }
 
         .story-intro {
-            color: #3c4aa0;
+            color: var(--accent-hover);
             font-size: 1rem;
             font-weight: 700;
             margin-bottom: 14px;
@@ -257,12 +259,12 @@
             padding: 16px 18px;
             border-radius: 14px;
             background: var(--bg-light);
-            border: 1px solid #e6ecf7;
+            border: 1px solid var(--hairline);
         }
 
         .story-card h3 {
             font-size: 1rem;
-            color: #4c51bf;
+            color: var(--accent);
             margin-bottom: 8px;
         }
 
@@ -280,9 +282,9 @@
             margin-top: 16px;
             padding: 14px 16px;
             border-radius: 12px;
-            background: #fffaf0;
-            border-left: 4px solid #ed8936;
-            color: #744210;
+            background: var(--warn-wash);
+            border-left: 4px solid var(--warn);
+            color: var(--warn);
             font-size: 0.94rem;
         }
 
@@ -290,13 +292,13 @@
             margin: 24px 0 26px;
             padding: 22px;
             border-radius: 18px;
-            background: linear-gradient(135deg, #f8fbff 0%, #eef2ff 100%);
-            border: 1px solid #dbe7ff;
+            background: linear-gradient(135deg, var(--info-wash) 0%, var(--accent-wash) 100%);
+            border: 1px solid var(--info-wash);
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
         }
 
         .evolution-caption {
-            color: #3c4aa0;
+            color: var(--accent-hover);
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 14px;
@@ -328,7 +330,7 @@
 
         .chain-arrow {
             font-size: 1.3rem;
-            color: #667eea;
+            color: var(--accent);
             font-weight: 700;
         }
 
@@ -336,9 +338,9 @@
             margin-top: 16px;
             padding: 14px 16px;
             border-radius: 12px;
-            background: #fffaf0;
-            border-left: 4px solid #ed8936;
-            color: #744210;
+            background: var(--warn-wash);
+            border-left: 4px solid var(--warn);
+            color: var(--warn);
             font-size: 0.94rem;
         }
 
@@ -387,28 +389,28 @@
         }
 
         .badge-basic {
-            background: #e6fffa;
-            color: #2c7a7b;
+            background: var(--info-wash);
+            color: var(--info);
         }
 
         .badge-knowledge {
-            background: #ebf8ff;
-            color: #2b6cb0;
+            background: var(--info-wash);
+            color: var(--info);
         }
 
         .badge-execution {
-            background: #eef2ff;
-            color: #4c51bf;
+            background: var(--accent-wash);
+            color: var(--accent);
         }
 
         .badge-protocol {
-            background: #fffaf0;
-            color: #c05621;
+            background: var(--warn-wash);
+            color: var(--warn);
         }
 
         .badge-product {
-            background: #faf5ff;
-            color: #6b46c1;
+            background: var(--accent-wash);
+            color: var(--accent);
         }
 
         .glossary-block {
@@ -421,7 +423,7 @@
         .glossary-block strong {
             display: block;
             margin-bottom: 4px;
-            color: #4c51bf;
+            color: var(--accent);
             font-size: 0.82rem;
             letter-spacing: 0.2px;
         }
@@ -436,8 +438,8 @@
             margin-top: 20px;
             padding: 16px 18px;
             border-radius: 14px;
-            background: #edf2ff;
-            color: #434190;
+            background: var(--accent-wash);
+            color: var(--accent-hover);
         }
 
         .section {
@@ -484,12 +486,12 @@
         .timeline-card {
             padding: 30px;
             margin-bottom: 22px;
-            border-left: 4px solid #4facfe;
+            border-left: 4px solid var(--info);
         }
 
         .timeline-card h3 {
             font-size: 1.25rem;
-            color: #667eea;
+            color: var(--accent);
             margin-bottom: 14px;
             display: flex;
             align-items: center;
@@ -498,7 +500,7 @@
 
         .timeline-card h3::before {
             content: "▸";
-            color: #4facfe;
+            color: var(--info);
         }
 
         .timeline-card ul {
@@ -514,7 +516,7 @@
 
         .timeline-card li::before {
             content: "•";
-            color: #4facfe;
+            color: var(--info);
             font-size: 1.4rem;
             position: absolute;
             left: 0;
@@ -524,9 +526,9 @@
         .source-note {
             margin-top: 14px;
             padding: 12px 14px;
-            background: #f7fafc;
+            background: var(--surface-alt);
             border-radius: 10px;
-            color: #4a5568;
+            color: var(--ink-secondary);
             font-size: 0.92rem;
         }
 
@@ -539,12 +541,12 @@
 
         .comparison-card {
             padding: 24px;
-            border-top: 3px solid #667eea;
+            border-top: 3px solid var(--accent);
         }
 
         .comparison-card h4 {
             font-size: 1.05rem;
-            color: #4c51bf;
+            color: var(--accent);
             margin-bottom: 10px;
         }
 
@@ -583,7 +585,7 @@
 
         .flow-arrow {
             font-size: 1.5rem;
-            color: #667eea;
+            color: var(--accent);
             margin: 8px 0;
             font-weight: 700;
         }
@@ -592,8 +594,8 @@
             margin-top: 18px;
             padding: 14px 16px;
             border-radius: 12px;
-            background: #fffaf0;
-            color: #744210;
+            background: var(--warn-wash);
+            color: var(--warn);
             text-align: left;
         }
 
@@ -608,13 +610,13 @@
             border-radius: 16px;
             padding: 24px;
             box-shadow: var(--shadow-sm);
-            border-top: 4px solid #fc8181;
+            border-top: 4px solid var(--danger);
         }
 
         .mistake-number {
             display: inline-block;
-            background: #fed7d7;
-            color: #c53030;
+            background: var(--danger-wash);
+            color: var(--danger);
             width: 32px;
             height: 32px;
             border-radius: 50%;
@@ -625,7 +627,7 @@
         }
 
         .mistake-card h4 {
-            color: #c53030;
+            color: var(--danger);
             font-size: 1.05rem;
             margin-bottom: 8px;
         }
@@ -652,15 +654,15 @@
         }
 
         .insight-card.a::before {
-            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(180deg, var(--accent) 0%, var(--accent-hover) 100%);
         }
 
         .insight-card.b::before {
-            background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);
+            background: linear-gradient(180deg, var(--info) 0%, var(--info) 100%);
         }
 
         .insight-card.c::before {
-            background: linear-gradient(180deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(180deg, var(--accent-wash) 0%, var(--danger) 100%);
         }
 
         .insight-label {
@@ -694,7 +696,7 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: #48bb78;
+            color: var(--ok);
             font-weight: 700;
         }
 
@@ -788,9 +790,9 @@
             margin-top: 16px;
             padding: 16px 18px;
             border-radius: 12px;
-            background: #fffaf0;
-            border-left: 4px solid #dd6b20;
-            color: #744210;
+            background: var(--warn-wash);
+            border-left: 4px solid var(--warn);
+            color: var(--warn);
         }
 
         .footer {
@@ -802,7 +804,7 @@
 
         .footer-divider {
             height: 2px;
-            background: linear-gradient(90deg, transparent 0%, #667eea 50%, transparent 100%);
+            background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
             max-width: 200px;
             margin: 0 auto 20px;
             opacity: 0.3;

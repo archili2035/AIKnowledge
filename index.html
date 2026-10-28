@@ -1,206 +1,106 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI知识库首页</title>
-    <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --bg: #f5f7fb;
-            --card: #ffffff;
-            --text: #1a1a2e;
-            --subtext: #5a6a7a;
-            --border: #e8ecf1;
-            --accent: #4361ee;
-            --shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-            margin: 0;
-            background: linear-gradient(180deg, #f5f7fb 0%, #eef2f8 100%);
-            color: var(--text);
-            line-height: 1.8;
-            padding: 32px 20px 48px;
-        }
-
-        .container {
-            max-width: 980px;
-            margin: 0 auto;
-        }
-
-        .hero {
-            background: var(--primary-gradient);
-            color: #fff;
-            border-radius: 18px;
-            padding: 28px 30px;
-            box-shadow: var(--shadow);
-            margin-bottom: 24px;
-        }
-
-        .hero h1 {
-            margin: 0 0 8px;
-            font-size: 30px;
-            line-height: 1.3;
-        }
-
-        .hero p {
-            margin: 0;
-            opacity: 0.95;
-        }
-
-        h2 {
-            margin: 28px 0 14px;
-            font-size: 20px;
-            color: #2b3650;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 14px;
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 18px;
-            box-shadow: 0 2px 10px rgba(16, 24, 40, 0.04);
-        }
-
-        .card h3 {
-            margin: 0 0 8px;
-            color: #2a3f78;
-            font-size: 17px;
-        }
-
-        .card p {
-            margin: 6px 0;
-            color: var(--subtext);
-            font-size: 14px;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        a:hover { text-decoration: underline; }
-
-        .new-badge {
-            display: inline-flex;
-            align-items: center;
-            margin-right: 8px;
-            padding: 2px 8px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, #ff4d6d 0%, #ff8a00 100%);
-            color: #fff;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 0.04em;
-            line-height: 1.4;
-            vertical-align: middle;
-            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.28);
-        }
-
-        .keywords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .tag {
-            background: #eef2ff;
-            color: #3b4cca;
-            border: 1px solid #dfe5ff;
-            border-radius: 999px;
-            padding: 4px 10px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6b7280;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 知识库</title>
+<link rel="stylesheet" href="assets/theme/tokens.css">
+<link rel="stylesheet" href="assets/theme/base.css">
+<style>
+  /* 三层中的页面局部层：只引用一层令牌，不写死色值 */
+  .dir-card { display: flex; flex-direction: column; gap: var(--space-2); }
+  .dir-card h3 { font-size: var(--text-h4); }
+  .dir-card .desc { color: var(--ink-secondary); font-size: var(--text-small); max-width: none; }
+  .dir-links { display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-2); }
+  .dir-links a { font-size: var(--text-small); }
+  .dir-empty { color: var(--ink-tertiary); font-size: var(--text-small); }
+</style>
 </head>
 <body>
-    <div class="container">
-        <section class="hero">
-            <h1>🤖 AI知识库</h1>
-            <p>公开内容用于分享，私有信息仅本地保存。当前采用公开级/私有级两档。</p>
-        </section>
 
-        <h2>公开目录</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>📁 00_AI知识总览</h3>
-                <p>先看全局版图，再进入专题页与节点详情页；用于承接类似脑图 / XMind 的宏观入口。</p>
-                <p><a href="public/00_AI知识总览/index.html">查看 AI 知识总览 →</a></p>
-            </div>
+<section class="band">
+  <div class="page">
+    <header class="hero">
+      <span class="tag">public knowledge</span>
+      <h1>AI 知识库</h1>
+      <p class="lead">AI 概念、模型、产品与方法论的知识图谱与阅读笔记。公开内容用于分享，私有信息仅本地保存，当前采用公开级 / 私有级两档。</p>
+    </header>
+  </div>
+</section>
 
-            <div class="card">
-                <h3>📁 01_AI基础理论</h3>
-                <p>机器学习、深度学习、LLM 与工程基础方法论。</p>
-                <p><a href="public/01_AI基础理论/一口气拆穿Skill／MCP／RAG／Agent／OpenClaw底层逻辑.html">查看首篇：Skill/MCP/RAG/Agent/OpenClaw 底层逻辑 →</a></p>
-            </div>
+<section class="band band-alt band-tight">
+  <div class="page">
+    <h2>公开目录</h2>
 
-
-            <div class="card">
-                <h3>📁 02_AI工具与平台</h3>
-                <p>工具评测、平台对比与使用经验沉淀。</p>
-            </div>
-
-            <div class="card">
-                <h3>📁 03_AI讲座与分享</h3>
-                <p>公开讲座笔记与可分享的知识结论。</p>
-                <p><span class="new-badge">NEW</span><a href="public/03_AI讲座与分享/孟岩对话韦青_沉默的主角_总结.html">孟岩×韦青：沉默的主角（精华总结）→</a></p>
-                <p><a href="public/03_AI讲座与分享/孟岩对话韦青_语言的力量_详细展开.html">语言的力量：译名、认知与思维陷阱（详细展开）→</a></p>
-                <p><a href="public/03_AI讲座与分享/超级组织_超级个体x协同机制.html">超级组织：超级个体 × 协同机制 →</a></p>
-                <p><a href="public/03_AI讲座与分享/AI原生组织-讲座笔记.html">AI 原生组织 →</a></p>
-                <p><a href="public/03_AI讲座与分享/AI-Native团队与人才-讲座笔记.html">AI Native 团队与人才 →</a></p>
-            </div>
-
-            <div class="card">
-                <h3>📁 04_实践案例与应用</h3>
-                <p>AI 在真实工作流中的落地案例与复盘。</p>
-            </div>
-
-            <div class="card">
-                <h3>📁 05_AI前沿动态</h3>
-                <p>论文、产品与行业动态追踪。</p>
-                <p><span class="new-badge">NEW</span><a href="public/05_AI前沿动态/人类正在走下牌桌-四层位移拆解.html">人类正在走下牌桌：四层位移拆解 →</a></p>
-            </div>
-
-            <div class="card">
-                <h3>📁 06_学习路径与规划</h3>
-                <p>学习路线、实践计划与阶段总结。</p>
-            </div>
+    <div class="grid">
+      <div class="card dir-card">
+        <h3>00_AI知识总览</h3>
+        <p class="desc">先看全局版图，再进入专题页与节点详情页；用于承接类似脑图的宏观入口。</p>
+        <div class="dir-links">
+          <a href="public/00_AI知识总览/index.html">查看 AI 知识总览</a>
         </div>
+      </div>
 
-        <h2>统一设计关键词</h2>
-        <div class="card">
-            <div class="keywords">
-                <span class="tag">渐变科技感</span>
-                <span class="tag">卡片化信息块</span>
-                <span class="tag">高留白高可读</span>
-                <span class="tag">柔和阴影层级</span>
-                <span class="tag">统一蓝紫主色</span>
-                <span class="tag">状态标签化</span>
-            </div>
-            <p class="meta">详细规范见：<a href="public/HTML视觉统一关键词.md">public/HTML视觉统一关键词.md</a></p>
+      <div class="card dir-card">
+        <h3>01_AI基础理论</h3>
+        <p class="desc">机器学习、深度学习、LLM 与工程基础方法论。</p>
+        <div class="dir-links">
+          <a href="public/01_AI基础理论/一口气拆穿Skill／MCP／RAG／Agent／OpenClaw底层逻辑.html">Skill / MCP / RAG / Agent / OpenClaw 底层逻辑</a>
         </div>
+      </div>
 
-        <div class="meta">分级规则：仅保留“公开级 / 私有级”两档。</div>
+      <div class="card dir-card">
+        <h3>02_AI工具与平台</h3>
+        <p class="desc">工具评测、平台对比与使用经验沉淀。</p>
+        <div class="dir-links"><span class="dir-empty">暂未收录</span></div>
+      </div>
+
+      <div class="card dir-card">
+        <h3>03_AI讲座与分享</h3>
+        <p class="desc">公开讲座笔记与可分享的知识结论。</p>
+        <div class="dir-links">
+          <a href="public/03_AI讲座与分享/孟岩对话韦青_沉默的主角_总结.html"><span class="pill accent">NEW</span> 孟岩×韦青：沉默的主角（精华总结）</a>
+          <a href="public/03_AI讲座与分享/孟岩对话韦青_语言的力量_详细展开.html">语言的力量：译名、认知与思维陷阱</a>
+          <a href="public/03_AI讲座与分享/超级组织_超级个体x协同机制.html">超级组织：超级个体 × 协同机制</a>
+          <a href="public/03_AI讲座与分享/AI原生组织-讲座笔记.html">AI 原生组织</a>
+          <a href="public/03_AI讲座与分享/AI-Native团队与人才-讲座笔记.html">AI Native 团队与人才</a>
+        </div>
+      </div>
+
+      <div class="card dir-card">
+        <h3>04_实践案例与应用</h3>
+        <p class="desc">AI 在真实工作流中的落地案例与复盘。</p>
+        <div class="dir-links"><span class="dir-empty">暂未收录</span></div>
+      </div>
+
+      <div class="card dir-card">
+        <h3>05_AI前沿动态</h3>
+        <p class="desc">论文、产品与行业动态追踪。</p>
+        <div class="dir-links">
+          <a href="public/05_AI前沿动态/人类正在走下牌桌-四层位移拆解.html"><span class="pill accent">NEW</span> 人类正在走下牌桌：四层位移拆解</a>
+        </div>
+      </div>
+
+      <div class="card dir-card">
+        <h3>06_学习路径与规划</h3>
+        <p class="desc">学习路线、实践计划与阶段总结。</p>
+        <div class="dir-links"><span class="dir-empty">暂未收录</span></div>
+      </div>
     </div>
+  </div>
+</section>
+
+<section class="band band-tight">
+  <div class="page">
+    <h2>视觉规范</h2>
+    <p class="note">本仓库的页面样式来自 site-kit，与个人门户、健康档案共用同一套令牌。</p>
+    <div class="links">
+      <a href="public/HTML视觉统一关键词.md">视觉统一关键词</a>
+      <a href="assets/theme/tokens.css">设计令牌</a>
+    </div>
+    <p class="note" style="margin-top: var(--space-5)">分级规则：仅保留公开级 / 私有级两档。</p>
+  </div>
+</section>
+
 </body>
 </html>
-

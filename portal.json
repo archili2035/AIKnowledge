@@ -7,10 +7,13 @@
   "entry": "index.html",
   "include": [
     "index.html",
+    "assets/**",
     "public/**"
   ],
   "exclude": [
     "scripts/**",
     "private/**"
-  ]
+  ],
+  "theme_version": "0.1.2",
+  "theme_dir": "assets/theme"
 }

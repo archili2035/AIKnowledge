@@ -3,3 +3,6 @@
 
 # WorkBuddy 本地运行数据
 /.workbuddy/
+
+# 临时截图
+_*.png
