@@ -3,17 +3,14 @@
   "summary": "AI 概念、模型、产品与方法论的知识图谱与阅读笔记",
   "category": "AI 知识库",
   "visibility": "public",
-  "site": ".",
-  "entry": "index.html",
+  "site": "docs",
+  "entry": "aiknowledge_index.html",
   "include": [
-    "index.html",
-    "assets/**",
-    "public/**"
+    "docs/**"
   ],
   "exclude": [
-    "scripts/**",
-    "private/**"
+    "scripts/**"
   ],
   "theme_version": "0.2.0",
-  "theme_dir": "assets/theme"
+  "theme_dir": "docs/assets/theme"
 }
